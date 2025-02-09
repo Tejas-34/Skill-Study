@@ -1,0 +1,171 @@
+{% load static %}
+
+
+<header class="header-glow-effect">
+    <div id="header-fixed-height"></div>
+    <div id="sticky-header" class="tg-header__area">
+      <div class="container custom-container">
+        <div class="row">
+          <div class="col-12">
+            <div class="tgmenu__wrap">
+              <nav class="tgmenu__nav">
+                <!-- Logo Section -->
+                <div class="logo si-logo">
+                  <a href="https://skill-study.com/">
+                    <img src="{% static '/images/favicon.png' %}" alt="Logo" />
+                  </a>
+                </div>
+
+                <!-- Navigation Menu -->
+                <div
+                  class="tgmenu__navbar-wrap tgmenu__main-menu d-none d-xl-flex justify-content-end"
+                >
+                  <ul class="navigation">
+                    <li class="active nav-list">
+                      <a href="/" >Home</a>
+                    </li>
+
+                    <li class="nav-list">
+                      <a href="/about">About Us</a>
+                    </li>
+
+                    <li class="menu-item-has-children nav-list">
+                      <a href="#">Courses</a>
+                      <ul class="sub-menu">
+                        <li>
+                          <a
+                            href="checkout.html?pkg=1"
+                            style="color: #000000 !important"
+                            >Starter Package</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="checkout.html?pkg=2"
+                            style="color: #000000 !important"
+                            >Essential Package</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="checkout.html?pkg=3"
+                            style="color: #000000 !important"
+                            >Advanced Learning Package</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="checkout.html?pkg=4"
+                            style="color: #000000 !important"
+                            >Premium Gold Package</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="checkout.html?pkg=5"
+                            style="color: #000000 !important"
+                            >Ultimate Diamond Package</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="checkout.html?pkg=6"
+                            style="color: #000000 !important"
+                            >Elite Platinum Package</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="checkout.html?pkg=7"
+                            style="color: #000000 !important"
+                            >Exclusive Premium Package</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+
+                    <li class="nav-list">
+                      <a href="/contact">Contact Us</a>
+                    </li>
+                    <!-- Corrected Link -->
+                  </ul>
+                </div>
+
+                <!-- Login Button -->
+                <div class="tgmenu__action">
+                  <ul class="list-wrap">
+                    <li class="header-btn login-btn">
+                      <a href="/login">Log in</a>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Mobile Login Button -->
+                <div class="mobile-login-btn">
+                  <a href="/login">
+                    <img
+                      src="{% static '/images/icons/user.svg' %}"
+                      alt="user"
+                      class="injectable"
+                    />
+                  </a>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <div class="mobile-nav-toggler">
+                  <img src="{% static '/images/icons/close.svg' %}" alt="X" />
+                </div>
+              </nav>
+            </div>
+
+            <!-- Mobile Menu  -->
+            <div class="tgmobile__menu">
+              <nav class="tgmobile__menu-box">
+                <div class="close-btn">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 384 512"
+                    width="16"
+                    height="16"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                    />
+                  </svg>
+                </div>
+                <div class="nav-logo">
+                  <a href="https://skill-study.com/">
+                    <img src="{ % static '/images/favicon.png' %}" alt="Logo" />
+                  </a>
+                </div>
+
+                <div class="tgmobile__menu-outer">
+                  <!-- Here Menu Will Come Automatically Via Javascript / Same Menu as in Header -->
+                </div>
+
+                <div class="social-links">
+                  <div class="courses__item-bottom" style="margin-left: 15px">
+                    <div class="button">
+                      <a href="/login">
+                        <span class="text">Login</span>
+                        <img
+                          src="{
+                            % static '/images/icons/right-arrow-svgrepo-com.svg'
+                          }" 
+                          alt="→"
+                        />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </nav>
+            </div>
+
+            <div class="tgmobile__menu-backdrop"></div>
+            <!-- End Mobile Menu -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>

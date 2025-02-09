@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Disclaimer | Skill-Study</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #0f0f0f;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+      }
+      .container {
+        max-width: 600px;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 30px;
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        transform: translateY(30px);
+        opacity: 0;
+        animation: fadeInUp 1s ease-out forwards;
+      }
+      h1 {
+        font-size: 2rem;
+        font-weight: 600;
+        color: blueviolet;
+        animation: pulse 1.5s infinite alternate;
+      }
+      p {
+        font-size: 1rem;
+        color: #ddd;
+        line-height: 1.6;
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes pulse {
+        from {
+          transform: scale(1);
+        }
+        to {
+          transform: scale(1.05);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Disclaimer</h1>
+      <p>
+        Disclaimer The information provided on this website is for general
+        informational purposes only. All content, including text, graphics, and
+        images, is provided in good faith; however, we make no representations
+        or warranties of any kind, express or implied, regarding the accuracy,
+        adequacy, reliability, or completeness of the information. Under no
+        circumstances shall we be liable for any loss or damage, including but
+        not limited to indirect or consequential loss, arising from the use of
+        this website. Users are encouraged to verify any information before
+        relying on it for personal or professional decisions. This website may
+        contain links to external sites that are not provided or maintained by
+        us. We do not guarantee the accuracy or relevance of the content on
+        these external websites. The inclusion of any links does not necessarily
+        imply a recommendation or endorsement of the views expressed within
+        them. By using this website, you acknowledge that you do so at your own
+        risk, and you agree to comply with all applicable laws and regulations.
+        If you require any specific advice or clarification, we recommend
+        consulting a qualified professional. For any inquiries or concerns,
+        please contact us at
+        <a style="color: rgb(193, 197, 216)" href="contact.html">Skill study</a>
+        .
+      </p>
+    </div>
+  </body>
+</html>

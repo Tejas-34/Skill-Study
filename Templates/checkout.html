@@ -1,0 +1,488 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Courses | Skill-Study <Skill-Study></Skill-Study></title>
+    <meta name="description" content="Skill-Study" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="shortcut icon" href="../favicon.png" type="image/x-icon" />
+    <!-- Place favicon.png.ico in the root directory -->
+
+    <!-- CSS here -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/animate.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/magnific-popup.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fontawesome-all.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/flaticon-skillgro.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/flaticon-skillgro-new.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/swiper-bundle.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/default-icons.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/select2.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/odometer.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/aos.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/plyr.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/spacing.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/tg-cursor.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}" />
+  </head>
+
+  <body>
+    <!--Preloader-->
+    <!-- <div id="custom-preloader">
+      <div class="custom-loader-wrapper">
+        <div class="custom-loader-circe">
+          <div class="custom-loader-icon">
+            <h1 class="custom-loader-text">.</h1>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!--Preloader-end -->
+  
+      <!-- Scroll-top -->
+      <button class="scroll__top scroll-to-target" data-target="html">
+        <i class="tg-flaticon-arrowhead-up"></i>
+      </button>
+      <!-- Scroll-top-end-->
+  
+      <!-- header-area -->
+      {% include 'nav.html' %}
+    <!-- header-area-end -->
+     
+    
+    <!-- main-area -->
+    <!-- main-area yaha start -->
+    <main class="main-area fix">
+
+        <!-- breadcrumb-area -->
+        <section class="breadcrumb__area breadcrumb__bg" data-background="./assets/images/background/breadcrumb_bg.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumb__content" data-aos="fade-down" data-aos-duration="1000">
+                            <h3 class="title">Checkout</h3>
+                            <nav class="breadcrumb">
+                                <span property="itemListElement" typeof="ListItem">
+                                    <!--  -->
+                                    <a href="../index.html">Home</a>
+                                </span>
+                                <span class="breadcrumb-separator">
+
+                                  <img src="../assets/images/icons/right-arrow-svgrepo-com.svg" alt="▶️">
+                                </span>
+                                <span property="itemListElement" typeof="ListItem">Checkout</span>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+        </section>
+        <!-- breadcrumb-area-end -->
+
+        <!-- photo and details area -->
+
+        <div id="package-display">
+          <img src="" alt="Selected Package Image">
+          <p class="package-desc">Scroll down</p>
+      </div>
+    
+        <!-- signUp-area -->
+        <section class="singUp-area section-py-120" data-aos="fade-up" data-aos-duration="1200">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6 col-lg-8">
+                        <div class="singUp-wrap" data-aos="fade-right" data-aos-duration="1500">
+                            <h2 class="title">Welcome to Skill Study!</h2>
+                            <p>Welcome to Skill Study! We're thrilled to have you join us. To get started, just enter your details below and select a course package. We’re here to help you on your learning journey. Let’s get started!</p>
+                            <form action="{% url 'register' %}" method="post" class="account__form" data-aos="fade-left" data-aos-duration="1500">
+                              <input type="hidden" name="csrf_token" value="2a0d7a438c0159586279d3fdf114c04d">
+                              
+                              <div class="form-grp" data-aos="fade-up" data-aos-duration="800">
+                                  <label for="ref_by">Referral Code</label>
+                                  <input name="ref_by" type="text" value="" placeholder="Referral Code (Optional)">
+                              </div>
+                          
+                              <div class="form-grp" data-aos="fade-up" data-aos-duration="1000">
+                                  <label for="package_id">Select Your Course</label>
+                                  <!-- Hidden input to store the selected package ID -->
+                                  <input type="hidden" name="package_id" id="package-id" value="1">
+
+                                  <!-- Disabled select field to display the package name -->
+                                  <select name="_disabled_package_id" id="package-select" class="form-control" disabled>
+                                      <option value="" disabled selected>Select Course Package</option>
+                                      <option value="1" selected>Starter Package By Skill Study - ₹299 (4.8 Reviews)</option>
+                                      <option value="2">Essential Package By Skill Study - ₹599 (4.8 Reviews)</option>
+                                      <option value="3">Advanced Learning Package By Skill Study - ₹1199 (4.8 Reviews)</option>
+                                      <option value="4">Premium Gold Package By Skill Study - ₹2399 (4.8 Reviews)</option>
+                                      <option value="5">Ultimate Diamond Package By Skill Study - ₹4199 (4.8 Reviews)</option>
+                                      <option value="6">Elite Platinum Package By Skill Study - ₹6999 (4.8 Reviews)</option>
+                                      <option value="7">Exclusive Premium Package By Skill Study - ₹9999 (4.8 Reviews)</option>
+                                  </select>
+                              </div>
+                          
+                              <div class="form-grp" data-aos="fade-up" data-aos-duration="1200">
+                                  <label for="name">Full Name</label>
+                                  <input name="name" type="text" value="" placeholder="Full Name">
+                              </div>
+                              
+                              <div class="form-grp" data-aos="fade-up" data-aos-duration="1400">
+                                  <label for="phone">Phone Number</label>
+                                  <input name="phone" type="number" value="" placeholder="Phone Number">
+                              </div>
+                              
+                              <div class="form-grp" data-aos="fade-up" data-aos-duration="1600">
+                                  <label for="email">Email Address</label>
+                                  <input name="email" type="email" value="" placeholder="Email Address" required>
+                              </div>
+                              
+                              <div class="form-grp" data-aos="fade-up" data-aos-duration="1800">
+                                  <label for="password">Create a Password</label>
+                                  <div class="password-input-wrapper" style="position: relative;">
+                                      <input name="password" type="password" value="" placeholder="Create a Password">
+                                      <button type="button" class="password-toggle" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); border: none; background: none; cursor: pointer;">
+                                          <img src="../assets/images/icons/eye.svg" alt="V">
+                                      </button>
+                                  </div>
+                              </div>
+                              
+                              <div class="account__check" data-aos="fade-up" data-aos-duration="2000">
+                                  <div class="account__check-remember">
+                                      <input type="checkbox" class="form-check-input" value="" id="terms-check">
+                                      <label for="terms-check" class="form-check-label">I agree to the <a href="privacy-policy.html">Privacy Policy</a> and <a href="terms.html">Terms & Conditions</a></label>
+                                  </div>
+                              </div>
+                              
+                              <p style="margin-top: 20px; margin-bottom: 10px; font-size: 16px; font-weight: 600; color: #161b2d;" data-aos="fade-up" data-aos-duration="2200">Select Payment Method</p>
+                          
+                              <div class="single-method mb-2" data-aos="fade-up" data-aos-duration="2400">
+                                  <input type="radio" id="payment_upi_qr" name="gateway" value="upi_qr">
+                                  <label for="payment_upi_qr">&nbsp;UPI QR</label>
+                              </div>
+                          
+                              <div class="single-method mb-2" data-aos="fade-up" data-aos-duration="2600">
+                                  <input type="radio" id="payment_wallet" name="gateway" value="wallet">
+                                  <label for="payment_wallet">&nbsp;Wallet</label>
+                              </div>
+                          
+                              <button type="submit" style="padding: 1rem;" class="btn btn-two arrow-btn" data-aos="fade-up" data-aos-duration="2800">Register<img src="../assets/images/icons/right-arrow-svgrepo-com.svg" alt="img" class="injectable"></button>
+                          </form>
+                            <div class="account__switch" data-aos="fade-up" data-aos-duration="3000">
+                                <p>Already have an account?<a href="/login">Sign In</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- singUp-area-end -->
+    
+    </main>
+    <!-- main-area-end -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          // Extract the 'pkg' parameter from the URL
+          const urlParams = new URLSearchParams(window.location.search);
+          const pkgId = urlParams.get('pkg'); // Get the value of 'pkg' (e.g., 1, 2, 3)
+  
+          // Define the package options mapping
+          const packages = {
+              "1": { name: "Starter Package By Skill Study", price: "₹299" },
+              "2": { name: "Essential Package By Skill Study", price: "₹599" },
+              "3": { name: "Advanced Learning Package By Skill Study", price: "₹1199" },
+              "4": { name: "Premium Gold Package By Skill Study", price: "₹2399" },
+              "5": { name: "Ultimate Diamond Package By Skill Study", price: "₹4199" },
+              "6": { name: "Elite Platinum Package By Skill Study", price: "₹6999" },
+              "7": { name: "Exclusive Premium Package By Skill Study", price: "₹9999" }
+          };
+
+          // Check if the 'pkg' query parameter is valid and exists
+          if (pkgId && packages[pkgId]) {
+              // Get the selected package
+              const selectedPackage = packages[pkgId];
+  
+              // Update the disabled select field with the package name and price
+              const packageSelect = document.getElementById('package-select');
+              packageSelect.value = pkgId;
+              packageSelect.querySelector('option[value="' + pkgId + '"]').selected = true;
+  
+              // Update the hidden input field with the package ID
+              document.getElementById('package-id').value = pkgId;
+          }
+      });
+  </script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init(); // Initialize AOS library for scroll animations
+    
+            const toggleButton = document.querySelector('.password-toggle');
+            const passwordInput = toggleButton.previousElementSibling;
+            const eyeIcon = toggleButton.querySelector('i');
+    
+            toggleButton.addEventListener('click', function() {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                eyeIcon.classList.toggle('fa-eye');
+                eyeIcon.classList.toggle('fa-eye-slash');
+            });
+        });
+    </script>
+
+    <!-- JavaScript to Load Package Details -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const pkgId = urlParams.get('pkg');
+
+      const packages = {
+          "1": { name: "Starter Package By Skill Study", price: "₹299", image: "../assets/images/packages/STARTER PACKAGE.png", desc: "Perfect for beginners to get started." },
+          "2": { name: "Essential Package By Skill Study", price: "₹599", image: "../assets/images/packages/ESSENTIAL PACKAGE.png", desc: "Covers fundamental concepts in-depth." },
+          "3": { name: "Advanced Learning Package By Skill Study", price: "₹1199", image: "../assets/images/packages/ADVANCED PACKAGE.png", desc: "For learners looking to master advanced topics." },
+          "4": { name: "Premium Gold Package By Skill Study", price: "₹2399", image: "../assets/images/packages/GOLD PACKAGE.png", desc: "Comprehensive learning with premium content." },
+          "5": { name: "Ultimate Diamond Package By Skill Study", price: "₹4199", image: "../assets/images/packages/DIAMOND PACKAGE.png", desc: "Elite package with exclusive study material." },
+          "6": { name: "Elite Platinum Package By Skill Study", price: "₹6999", image: "../assets/images/packages/PLATINUM PACKAGE.png", desc: "For those seeking a deep and elite learning experience." },
+          "7": { name: "Exclusive Premium Package By Skill Study", price: "₹9999", image: "../assets/images/packages/PREMIUM PACKAGE.png", desc: "Top-tier package with unparalleled resources." }
+      };
+
+      if (pkgId && packages[pkgId]) {
+          const selectedPackage = packages[pkgId];
+          document.querySelector('#package-display img').src = selectedPackage.image;
+          document.querySelector('#package-display .package-desc').textContent = selectedPackage.desc;
+      }
+  });
+</script>
+
+
+<style>
+    .designed-by{
+        text-align: right;
+    }
+</style>
+
+<style>
+  #package-display {
+      text-align: center;
+      margin: 20px auto;
+      max-width: 80%; /* Responsive width */
+      background: #fff; /* White background */
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Soft shadow */
+  }
+
+  #package-display img {
+      width: 100%; /* Make image responsive */
+      max-width: 500px; /* Prevent oversized images */
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  #package-display:hover{
+    transform: scale(1.02);
+    transition: transform 1s ease-in-out;
+  }
+
+  #package-display .package-desc {
+      margin-top: 10px;
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: #333;
+  }
+</style>
+
+    <!-- footer-area -->
+    <footer class="footer__area" style="background-color: rgba(246, 246, 249, 0.166); border-radius: 2rem;">
+      <div class="footer__top">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-3 col-lg-4 col-md-6">
+              <div class="footer__widget">
+                <div class="logo mb-35">
+                  <a href="https://skill-study.com/"
+                    ><img
+                      src="../favicon.png"
+                      alt="img"
+                  /></a>
+                </div>
+                <div class="footer__content">
+                  <p>
+                    SkillStudy is an E-learning platform. This platform helps
+                    people build their personal brand on social media and create
+                    passive income.
+                  </p>
+                  <ul class="list-wrap footer__social">
+                    <li>
+                      <a href="#" target="_blank">
+                        <img
+                          src="../assets/images/icons/facebook.svg"
+                          alt="img"
+                          class="injectable"
+                        />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        target="_blank"
+                      >
+                        <img
+                          src="../assets/images/icons/instagram.svg"
+                          alt="img"
+                          class="injectable"
+                        />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        target="_blank"
+                      >
+                        <img
+                          src="../assets/images/icons/youtube.svg"
+                          alt="img"
+                          class="injectable"
+                        />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+              <div class="footer__widget">
+                <h4 class="footer__widget-title">Course/Packages</h4>
+                <div class="footer__link">
+                  <ul class="list-wrap">
+                    <li>
+                      <a href="checkout.html?pkg=1" style="color: #000000 !important">Starter Package</a>
+                    </li>
+                    <li>
+                      <a href="checkout.html?pkg=2" style="color: #000000 !important">Essential Package</a>
+                    </li>
+                    <li>
+                      <a href="checkout.html?pkg=3" style="color: #000000 !important">Advanced Learning Package</a>
+                    </li>
+                    <li>
+                      <a href="checkout.html?pkg=4" style="color: #000000 !important">Premium Gold Package</a>
+                    </li>
+                    <li>
+                      <a href="checkout.html?pkg=5" style="color: #000000 !important">Ultimate Diamond Package</a>
+                    </li>
+                    <li>
+                      <a href="checkout.html?pkg=6" style="color: #000000 !important">Elite Platinum Package</a>
+                    </li>
+                    <li>
+                      <a href="checkout.html?pkg=7" style="color: #000000 !important">Exclusive Premium Package</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+              <div class="footer__widget">
+                <h4 class="footer__widget-title">Quick Links</h4>
+                <div class="footer__link">
+                  <ul class="list-wrap">
+                    <li>
+                      <a href="contact.html" style="color: #000000 !important">Contact Us</a>
+                    </li>
+                    <li>
+                      <a href="disclaimer.html" style="color: #000000 !important">Disclaimer</a>
+                    </li>
+                    <li>
+                      <a href="privacy-policy.html" style="color: #000000 !important">Privacy Policy</a>
+                    </li>
+                    <li>
+                      <a href="refund-policy.html" style="color: #000000 !important">Refund Policy</a>
+                    </li>
+                    <li>
+                      <a href="terms.html" style="color: #000000 !important">Terms & Conditions</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6">
+              <div class="footer__widget">
+                <h4 class="footer__widget-title">Get In Touch</h4>
+                <div class="footer__contact-content">
+                  <p style="color: #000000 !important">
+                    Contact us at +91 80806 66817 or support@skillstudy.com. We are based in Nagar, Maharashtra.
+                  </p>
+                  <ul class="list-wrap">
+                    <li style="color: black; transition: color 0.3s ease-in-out;" onmouseover="this.style.color='rgb(10, 100, 255)'" onmouseout="this.style.color='black'">+91 80806 66817</li>
+                    <li style="color: black; transition: color 0.3s ease-in-out;" onmouseover="this.style.color='rgb(10, 100, 255)'" onmouseout="this.style.color='black'">support@skillstudy.com</li>
+                    <li style="color: #000000 !important">Nagar, Maharashtra, India</li>
+                  </ul>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-7">
+              <div class="copy-right-text">
+                <p>Copyright © 2025 Skill-Study. All rights reserved.</p>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="copy-right-text">
+                <p class="designed-by" style="user-select: none;">
+                  Developed by
+                  <a
+                    class="made"
+                    href="https://utkarshportfolio-gamma.vercel.app"
+                    style="color: whitesmoke;"
+                    target="_blank"
+                    >Utkarsh</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- footer-area-end -->
+
+    <!-- JS here -->
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/js/jquery.odometer.min.js"></script>
+    <script src="/assets/js/jquery.appear.js"></script>
+    <script src="/assets/js/tween-max.min.js"></script>
+    <script src="/assets/js/select2.min.js"></script>
+    <script src="/assets/js/swiper-bundle.min.js"></script>
+    <script src="/assets/js/jquery.marquee.min.js"></script>
+    <script src="/assets/js/tg-cursor.min.js"></script>
+    <script src="/assets/js/vivus.min.js"></script>
+    <script src="/assets/js/ajax-form.js"></script>
+    <script src="/assets/js/svg-inject.min.js"></script>
+    <script src="/assets/js/jquery.circleType.js"></script>
+    <script src="/assets/js/jquery.lettering.min.js"></script>
+    <script src="/assets/js/plyr.min.js"></script>
+    <script src="/assets/js/wow.min.js"></script>
+    <script src="/assets/js/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+      SVGInject(document.querySelectorAll("img.injectable"));
+    </script>
+  </body>
+</html>

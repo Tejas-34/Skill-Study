@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="description" content="" />
+    <meta name="keyword" content="" />
+    <meta name="author" content="flexilecode" />
+    <!--! BEGIN: Apps Title-->
+    <title>Dashboard || SKILL-STUDY</title>
+    <!--! END:  Apps Title-->
+    <!--! BEGIN: Favicon-->
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.png" />
+    <!--! END: Favicon-->
+    <!--! BEGIN: Bootstrap CSS-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../assets/css/bootstrap.min.css"
+    />
+    <!--! END: Bootstrap CSS-->
+    <!--! BEGIN: Vendors CSS-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../assets/user/vendors/css/vendors.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../assets/user/vendors/css/daterangepicker.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../assets/user/vendors/css/jquery-jvectormap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../assets/user/vendors/css/select2.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../assets/user/vendors/css/select2-theme.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../assets/user/vendors/css/jquery.time-to.min.css"
+    />
+    <!--! END: Vendors CSS-->
+    <!--! BEGIN: Custom CSS-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../assets/user/css/theme.min.css"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/user/css/mainu.css" />
+  </head>
+
+  <body>
+    <!--! ================================================================ !-->
+    <!--! [Start] Navigation Manu !-->
+    <!--! ================================================================ !-->
+    <nav class="nxl-navigation">
+      <div class="navbar-wrapper">
+        <div class="m-header">
+          <a href="../favicon.png" class="b-brand">
+            <img src="../favicon.png" alt="logo" class="logo logo-lg" />
+            <img src="../favicon.png" alt="logo" class="logo logo-sm" />
+          </a>
+        </div>
+        <div class="navbar-content">
+          <ul class="nxl-navbar">
+            <li class="nxl-item nxl-hasmenu">
+              <a href="dashboard.html" class="nxl-link">
+                <span class="nxl-micon">
+                  <img src="../assets/user/images/dash.svg" alt="D" />
+                </span>
+                <span class="nxl-mtext">Dashboard</span>
+              </a>
+            </li>
+            <li class="nxl-item nxl-hasmenu">
+              <a href="profile.html" class="nxl-link">
+                <span class="nxl-micon">
+                  <img src="../assets/user/images/profile.svg" alt="" />
+                </span>
+                <span class="nxl-mtext">My Profile</span>
+              </a>
+            </li>
+            <li class="nxl-item nxl-hasmenu">
+              <a href="affiliate-links.html" class="nxl-link">
+                <span class="nxl-micon">
+                  <img src="../assets/user/images/link.svg" alt="D" />
+                </span>
+                <span class="nxl-mtext">Affiliate Link</span>
+              </a>
+            </li>
+            <li class="nxl-item nxl-hasmenu">
+              <a href="courses.html" class="nxl-link">
+                <span class="nxl-micon">
+                  <img src="../assets/user/images/course.svg" alt="D" />
+                </span>
+                <span class="nxl-mtext">My Courses</span>
+              </a>
+            </li>
+            <li class="nxl-item nxl-hasmenu">
+              <a href="upgrade.html" class="nxl-link">
+                <span class="nxl-micon">
+                  <img src="../assets/user/images/upgrade.svg" alt="D" />
+                </span>
+                <span class="nxl-mtext">Upgrade</span>
+              </a>
+            </li>
+            <li class="nxl-item nxl-hasmenu">
+              <a href="leaderboard.html" class="nxl-link">
+                <span class="nxl-micon">
+                  <img src="../assets/user/images/leaderboard.svg" alt="D" />
+                </span>
+                <span class="nxl-mtext">Leaderboard</span>
+              </a>
+            </li>
+            <li class="nxl-item nxl-hasmenu">
+              <a href="my-team.html" class="nxl-link">
+                <span class="nxl-micon">
+                  <img src="../assets/user/images/team.svg" alt="D" />
+                </span>
+                <span class="nxl-mtext">My Team</span>
+              </a>
+            </li>
+            <li class="nxl-item nxl-hasmenu">
+              <a href="javascript:void(0);" class="nxl-link">
+                <span class="nxl-micon">
+                  <img src="../assets/user/images/team.svg" alt="D" />
+                </span>
+                <span class="nxl-mtext">Reports</span>
+                <span class="nxl-arrow">
+                  <img src="../assets/user/images/report.svg" alt="D" />
+                </span>
+              </a>
+              <ul class="nxl-submenu">
+                <li class="nxl-item">
+                  <a class="nxl-link" href="referrals">My Referrals</a>
+                </li>
+                <li class="nxl-item">
+                  <a class="nxl-link" href="payouts">Payout History</a>
+                </li>
+                <li class="nxl-item">
+                  <a class="nxl-link" href="wallet-history">Wallet History</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nxl-item nxl-hasmenu">
+              <a href="leads.html" class="nxl-link">
+                <span class="nxl-micon">
+                  <img src="../assets/user/images/freelead.svg" alt="D" />
+                </span>
+                <span class="nxl-mtext">Free Leads</span>
+              </a>
+            </li>
+            <li class="nxl-item nxl-hasmenu">
+              <a href="trainings.html" class="nxl-link">
+                <span class="nxl-micon">
+                  <img src="../assets/user/images/training.svg" alt="D" />
+                </span>
+                <span class="nxl-mtext">Training</span>
+              </a>
+            </li>
+            <li class="nxl-item nxl-hasmenu">
+              <a href="webinars.html" class="nxl-link">
+                <span class="nxl-micon">
+                  <img src="../assets/user/images/webinar.svg" alt="D" />
+                </span>
+                <span class="nxl-mtext">Webinars</span>
+              </a>
+            </li>
+            <li class="nxl-item nxl-hasmenu">
+              <a href="offers.html" class="nxl-link">
+                <span class="nxl-micon">
+                  <img src="../assets/user/images/offers.svg" alt="D" />
+                </span>
+                <span class="nxl-mtext">Offers</span>
+              </a>
+            </li>
+            <li class="nxl-item nxl-hasmenu">
+              <a href="referral-offers.html" class="nxl-link">
+                <span class="nxl-micon">
+                  <img src="../assets/user/images/target.svg" alt="D" />
+                </span>
+                <span class="nxl-mtext">Earning Target</span>
+              </a>
+            </li>
+            <li class="nxl-item nxl-hasmenu">
+              <a href="community.html" class="nxl-link">
+                <span class="nxl-micon">
+                  <img src="../assets/user/images/group.svg" alt="D" />
+                </span>
+                <span class="nxl-mtext">Community Links</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!--! ================================================================ !-->
+    <!--! [End] Navigation Menu !-->
+    <!--! ================================================================ !-->
+
+    <!--! ================================================================ !-->
+    <!--! [Start] Header !-->
+    <!--! ================================================================ !-->
+    <header
+      class="nxl-header"
+      style="
+        margin-left: 2rem;
+        background-color: #f3f4f600;
+        margin-top: 2rem;
+        border-radius: 1rem;
+      "
+    >
+      <div
+        class="header-wrapper"
+        style="
+          background: #ffffff;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+          border-radius: 1rem;
+          width: 98%;
+          box-shadow: 0 4px 8px rgba(106, 13, 173, 0.23);
+        "
+      >
+        <!--! [Start] Header Left !-->
+        <div class="header-left d-flex align-items-center w-50">
+          <!--! [Start] nxl-head-mobile-toggler !-->
+          <img
+            src="../favicon.png"
+            alt=""
+            class="d-md-none"
+            style="width: 100%"
+          />
+        </div>
+
+        <div class="header-right ms-auto">
+          <div class="d-flex justify-content-end align-items-center">
+            <div class="dropdown nxl-h-item">
+              <a
+                href="javascript:void(0);"
+                data-bs-toggle="dropdown"
+                role="button"
+                data-bs-auto-close="outside"
+              >
+                <!-- 🟢 User image coming from backend -->
+                <img
+                  src="{{ user.profile_image_url }}"
+                  alt="user-image"
+                  class="rounded-circle img-fluid user-avtar me-0"
+                  style="width: 40px; height: 40px"
+                  onerror="this.onerror=null; this.src='SOURCE LINK TEJAS'"
+                />
+                <img src="../assets/user/images/dropdown.svg" alt="" />
+              </a>
+              <div
+                class="dropdown-menu dropdown-menu-end nxl-h-dropdown nxl-user-dropdown"
+                style="border-radius: 15px; overflow: hidden"
+              >
+                <div class="dropdown-header">
+                  <div class="d-flex align-items-center">
+                    <!-- 🟢 User profile image from backend -->
+                    <img
+                      src="{{ user.profile_image_url }}"
+                      alt="user-imfage"
+                      class="rounded-circle img-fluid user-avtar me-0"
+                      style="width: 40px; height: 40px"
+                      onerror="this.onerror=null; this.src='SOURCE LINK TEJAS'"
+                    />
+                    <div>
+                      <!-- 🟢 User name from backend -->
+                      <h6 class="text-dark mb-0">
+                        {{ user.name }}
+                        <span class="badge bg-soft-success text-success ms-1"
+                          >Online</span
+                        >
+                      </h6>
+                      <!-- 🟢 User email from backend -->
+                      <span class="fs-12 fw-medium text-muted"
+                        >{{ user.email }}</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="dropdown">
+                  <a
+                    href="javascript:void(0);"
+                    class="dropdown-item"
+                    data-bs-toggle="dropdown"
+                  >
+                    <span class="hstack">
+                      <i
+                        class="wd-10 ht-10 border border-2 border-gray-1 bg-success rounded-circle me-2"
+                      ></i>
+                      <!-- 🟢 User package from backend -->
+                      <span>{{ user.package_name }}</span>
+                    </span>
+                  </a>
+                </div>
+                <div class="dropdown-divider"></div>
+
+                <a href="profile.html" class="dropdown-item">
+                  <i class="feather-user"></i>
+                  <span>Profile Details</span>
+                </a>
+
+                <a href="profile.html" class="dropdown-item">
+                  <i class="feather-shield"></i>
+                  <span>Security Setting</span>
+                </a>
+
+                <div class="dropdown-divider"></div>
+
+                <a
+                  href="javascript:void(0);"
+                  class="dropdown-item ls-btn mt-3"
+                  id="logout-btn"
+                >
+                  <i class="feather-log-out"></i>
+                  <span>Logout</span>
+                </a>
+              </div>
+            </div>
+
+            <a
+              href="javascript:void(0);"
+              class="nxl-head-mobile-toggler"
+              id="mobile-collapse"
+              style="margin-left: 10px; font-size: 22px"
+            >
+            <img src="../assets/user/images/menu_toggle.svg" alt="V" style="color: black;">
+            </a>
+          </div>
+        </div>
+
+        <!--! [End] Header Right !-->
+      </div>
+    </header>
+    <!--! ================================================================ !-->
+    <!--! [End] Header !-->
+    <!--! ================================================================ !-->
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+      .counter {
+        color: #fff;
+        font-size: 24px !important;
+      }
+
+      .dash2Counter {
+        font-size: 24px !important;
+      }
+
+      #referralChart {
+        width: 100% !important;
+        height: 350px !important;
+        margin: 20px auto;
+      }
+
+      @media (max-width: 767px) {
+        #referralChart {
+          width: 100% !important;
+          height: 280px !important;
+        }
+      }
+
+      .profile-bg {
+        position: relative;
+        overflow: hidden;
+        border-radius: 5px;
+        z-index: 1;
+        padding: 8px 15px;
+        border-radius: 10px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+
+      .profile-bg::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("../assets/images/background/breadcrumb_bg.jpg");
+        background-position: center;
+        background-size: cover;
+        transform: rotate(180deg);
+        z-index: -1;
+        /*rotate: 180deg;*/
+        opacity: 0.5;
+      }
+
+      .rank {
+        display: inline-block;
+        background-color: #4b33d1e6;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 400;
+        padding: 2px 6px;
+        border-radius: 5px;
+      }
+
+      .dash-uname {
+        font-size: 18px;
+        color: #000;
+      }
+
+      @media (max-width: 767px) {
+        .dash-uname {
+          font-size: 16px;
+        }
+      }
+
+      .greet {
+        color: #000;
+        font-size: 15px;
+        font-weight: 500;
+      }
+
+      @media (max-width: 767px) {
+        .greet {
+          font-size: 14px;
+        }
+      }
+
+      .custom-card-action {
+        position: relative;
+        min-height: 400px;
+        padding: 1rem;
+      }
+
+      .u-img {
+        border: 2px solid #fff !important;
+      }
+
+      .bx {
+        font-size: 22px !important;
+      }
+
+      @media (max-width: 480px) {
+        .custom-card-action {
+          min-height: 300px;
+          padding: 0.5rem;
+        }
+        .card-title {
+          font-size: 14px;
+        }
+      }
+
+      .card-body {
+        padding: 20px;
+        border: 2px solid white;
+        color: white;
+        background-size: cover;
+        background-repeat: no-repeat;
+        animation: slideBackground 5s linear infinite alternate !important;
+      }
+
+      @keyframes slideBackground {
+        0%,
+        100% {
+          background-position: 0 0;
+        }
+        50% {
+          background-position: 0 100%;
+        }
+      }
+    </style>
+
+    <main>
+        Coming Soon!
+    </main>
+    <!-- THE MAIN SECTION ENDS UP HERE -->
+
+    <script src="../assets/user/vendors/js/vendors.min.js"></script>
+    <!-- vendors.min.js {always must need to be top} -->
+    <script src="../assets/user/vendors/js/daterangepicker.min.js"></script>
+    <script src="../assets/user/vendors/js/apexcharts.min.js"></script>
+    <script src="../assets/user/vendors/js/jquery.time-to.min.js"></script>
+    <script src="../assets/user/vendors/js/circle-progress.min.js"></script>
+    <!--! END: Vendors JS !-->
+
+    <!--! BEGIN: Apps Init  !-->
+    <script src="../assets/user/js/common-init.min.js"></script>
+    <script src="../assets/user/js/dashboard-init.min.js"></script>
+    <script src="../assets/user/js/analytics-init.min.js"></script>
+    <!--! END: Apps Init !-->
+
+    <!--! BEGIN: Theme Customizer  !-->
+    <script src="../assets/user/js/theme-customizer-init.min.js"></script>
+    <!--! END: Theme Customizer !-->
+  </body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Terms & Conditions | Skill-Study</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #0f0f0f;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+      }
+      .container {
+        max-width: 700px;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 30px;
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        transform: translateY(30px);
+        opacity: 0;
+        animation: fadeInUp 1s ease-out forwards;
+      }
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: blueviolet;
+        animation: pulse 1.5s infinite alternate;
+      }
+      p {
+        font-size: 1rem;
+        color: #ddd;
+        line-height: 1.6;
+      }
+      .fade-item {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+      .fade-item.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes pulse {
+        from {
+          transform: scale(1);
+        }
+        to {
+          transform: scale(1.05);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" data-aos="fade-up">
+      <h1 data-aos="zoom-in">Terms & Conditions</h1>
+      <p class="fade-item" data-aos="fade-right">
+        By accessing and using Skill-Study, you accept and agree to be bound by
+        the following terms and conditions. If you do not agree, please refrain
+        from using our platform.
+      </p>
+      <p class="fade-item" data-aos="fade-left">
+        The content provided on Skill-Study is for educational purposes only. We
+        do not guarantee the accuracy or completeness of any information
+        presented.
+      </p>
+      <p class="fade-item" data-aos="fade-right">
+        Users must not engage in any unlawful activities, including but not
+        limited to hacking, data theft, or misuse of intellectual property.
+      </p>
+      <p class="fade-item" data-aos="fade-left">
+        We reserve the right to modify or update these terms at any time without
+        prior notice.
+      </p>
+      <p class="fade-item" data-aos="fade-up">
+        For any inquiries, please contact us at
+        <a href="contact.html" style="color: rgb(193, 197, 216)">Skill Study</a
+        >.
+      </p>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        AOS.init();
+        const fadeItems = document.querySelectorAll(".fade-item");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+              }
+            });
+          },
+          { threshold: 0.3 }
+        );
+        fadeItems.forEach((item) => observer.observe(item));
+      });
+    </script>
+  </body>
+</html>

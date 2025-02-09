@@ -1,0 +1,318 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Courses | Skill-Study</title>
+    <meta name="description" content="Skill-Study" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="shortcut icon" href="../favicon.png" type="image/x-icon" />
+
+    <!-- CSS here -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/animate.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/magnific-popup.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fontawesome-all.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}" />
+
+    <!-- Inline CSS for Error Styling -->
+    <style>
+      .error-message {
+        color: red;
+        font-size: 12px;
+        margin-top: 5px;
+        display: none; /* Hidden by default */
+      }
+      input.error-border, select.error-border {
+        border: 1px solid red !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Scroll-top -->
+    <button class="scroll__top scroll-to-target" data-target="html">
+      <i class="tg-flaticon-arrowhead-up"></i>
+    </button>
+
+    <!-- Header -->
+    {% include 'nav.html' %}
+
+    <!-- Main Area -->
+    <main class="main-area fix">
+      <!-- Breadcrumb -->
+      <section class="breadcrumb__area breadcrumb__bg">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="breadcrumb__content">
+                <h3 class="title">Checkout</h3>
+                <nav class="breadcrumb">
+                  <span><a href="../index.html">Home</a></span>
+                  <span class="breadcrumb-separator">▶️</span>
+                  <span>Checkout</span>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Signup Area -->
+      <section class="singUp-area section-py-120">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-xl-6 col-lg-8">
+              <div class="singUp-wrap">
+                <!-- Form Title -->
+                <h2 class="title">Welcome to Skill Study!</h2>
+                <p>Enter your details below and select a course package to get started!</p>
+
+                <!-- Form -->
+                <form action="/register/" method="post" class="account__form">
+                  {% csrf_token %}
+                  
+                  <!-- Referral Code -->
+                  <div class="form-grp">
+                    <label for="ref_by">Referral Code</label>
+                    <input id="ref-code" name="ref_by" type="text" placeholder="Referral Code">
+                    <!-- Error message for referral code -->
+                    <div id="ref-code-error" class="error-message"></div>
+                  </div>
+
+                  <!-- Course Package -->
+                  <div class="form-grp">
+                    <label for="package_id">Select Your Course</label>
+                    <!-- Enabled select field for user selection -->
+                    <select id="package-select" name="package_id" class="form-control">
+                      <option value="" disabled selected>Select Course Package</option>
+                      <option value="1">Starter Package - ₹299</option>
+                      <option value="2">Essential Package - ₹599</option>
+                      <option value="3">Advanced Learning Package - ₹999</option>
+                      <option value="4">Premium Gold Package - ₹1499</option>
+                      <option value="5">Platinum Package - ₹1999</option>
+                    </select>
+                    <!-- Error message for course package -->
+                    <div id="package-error" class="error-message"></div>
+                  </div>
+
+                  <!-- Full Name -->
+                  <div class="form-grp">
+                    <label for="name">Full Name</label>
+
+                    <input id="full-name" name="name" type="text" placeholder="Full Name">
+                    <!-- Error message for full name -->
+                    <div id="name-error" class="error-message"></div>
+                  </div>
+
+                  <!-- Phone Number -->
+                  <div class="form-grp">
+                    <label for="phone">Phone Number</label>
+                    <input id="phone-number" name="phone" type="number" placeholder="Phone Number">
+                    <!-- Error message for phone number -->
+                    <div id="phone-error" class="error-message"></div>
+                  </div>
+
+                  <!-- Email Address -->
+                  <div class="form-grp">
+                    <label for="email">Email Address</label>
+                    <input id="email-address" name="email" type="email" placeholder="Email Address">
+                    <!-- Error message for email address -->
+                    <div id="email-error" class="error-message"></div>
+                  </div>
+
+                  <!-- Password -->
+                  <div class="form-grp">
+                    <label for="password">Create a Password</label>
+                    <div class="password-input-wrapper" style="position: relative;">
+                      <input id="password-field" name="password" type="password" placeholder="Create a Password">
+                      <button type="button" class="password-toggle" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); border: none; background: none; cursor: pointer;">
+                        <img src="../assets/images/icons/eye.svg" alt="Show/Hide Password">
+                      </button>
+                    </div>
+                    <!-- Error message for password -->
+                    <div id="password-error" class="error-message"></div>
+                  </div>
+
+                  <!-- Terms and Conditions -->
+                  <div class="account__check">
+                    <div class="account__check-remember">
+                      <input type="checkbox" id="terms-check">
+                      <label for="terms-check">I agree to the <a href="privacy-policy.html">Privacy Policy</a> and <a href="terms.html">Terms & Conditions</a></label>
+                      <!-- Error message for terms and conditions -->
+                      <div id="terms-error" class="error-message"></div>
+                    </div>
+                  </div>
+
+                  <!-- Payment Methods -->
+                  <p style="margin-top: 20px; font-size: 16px; font-weight: 600;">Select Payment Method</p>
+                  <div class="single-method mb-2">
+                    <input type="radio" id="payment_upi_qr" name="gateway" value="upi_qr">
+                    <label for="payment_upi_qr">&nbsp;UPI QR</label>
+                  </div>
+                  <div class="single-method mb-2">
+                    <input type="radio" id="payment_wallet" name="gateway" value="wallet">
+                      <label for="payment_wallet">&nbsp;Wallet</label></input></label>
+                    </input>
+                          <!-- Error message for payment method -->
+                          <div id="payment-error" class="error-message"></div>
+                        </div>
+      
+                        <!-- Submit Button -->
+                        <button type="submit" style="padding: 1rem;" class="btn btn-two arrow-btn">
+                          Register
+                          <img src="../assets/images/icons/right-arrow-svgrepo-com.svg" alt="">
+                        </button>
+                      </form>
+      
+                      <!-- Already Have an Account -->
+                      <div class="account__switch">
+                        <p>Already have an account? <a href="/login/">Sign In</a></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </main>
+      
+          <!-- Footer -->
+          
+      
+          <!-- JS Scripts -->
+          <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+          <script src="{% static 'js/bootstrap.min.js' %}"></script>
+      
+          <!-- Frontend Validation and Error Handling -->
+          <script>
+            document.addEventListener('DOMContentLoaded', function () {
+              const form = document.querySelector('.account__form');
+      
+              // Input fields and their corresponding error containers
+              const refCodeInput = document.getElementById('ref-code');
+              const refCodeError = document.getElementById('ref-code-error');
+      
+              const packageSelect = document.getElementById('package-select');
+              const packageError = document.getElementById('package-error');
+      
+              const fullNameInput = document.getElementById('full-name');
+              const nameError = document.getElementById('name-error');
+      
+              const phoneInput = document.getElementById('phone-number');
+              const phoneError = document.getElementById('phone-error');
+      
+              const emailInput = document.getElementById('email-address');
+              const emailError = document.getElementById('email-error');
+      
+              const passwordInput = document.getElementById('password-field');
+              const passwordError = document.getElementById('password-error');
+      
+              const termsCheck = document.getElementById('terms-check');
+              const termsError = document.getElementById('terms-error');
+      
+              const paymentError = document.getElementById('payment-error');
+      
+              form.addEventListener('submit', function (e) {
+                e.preventDefault(); // Prevent default submission
+      
+                let errors = 0;
+      
+                // Clear previous errors
+                [refCodeError, packageError, nameError, phoneError, emailError, passwordError, termsError, paymentError].forEach(error => {
+                  error.style.display = 'none';
+                });
+                [refCodeInput, packageSelect, fullNameInput, phoneInput, emailInput, passwordInput].forEach(input => {
+                  input.classList.remove('error-border');
+                });
+      
+                // Validate Referral Code (optional)
+                if (refCodeInput.value.trim() === '') {
+                  refCodeError.textContent = "Referral code is required.";
+                  refCodeError.style.display = 'block';
+                  refCodeInput.classList.add('error-border');
+                  errors++;
+                }
+      
+                // Validate Course Package
+                if (packageSelect.value === '') {
+                  packageError.textContent = "Please select a course package.";
+                  packageError.style.display = 'block';
+                  packageSelect.classList.add('error-border');
+                  errors++;
+                }
+      
+                // Validate Full Name
+                if (fullNameInput.value.trim() === '') {
+                  nameError.textContent = "Full name is required.";
+                  nameError.style.display = 'block';
+                  fullNameInput.classList.add('error-border');
+                  errors++;
+                }
+      
+                // Validate Phone Number
+                if (phoneInput.value.trim() === '' || phoneInput.value.length !== 10) {
+                  phoneError.textContent = "Valid phone number is required.";
+                  phoneError.style.display = 'block';
+                  phoneInput.classList.add('error-border');
+                  errors++;
+                }
+      
+                // Validate Email Address
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
+                  emailError.textContent = "Valid email address is required.";
+                  emailError.style.display = 'block';
+                  emailInput.classList.add('error-border');
+                  errors++;
+                }
+      
+                // Validate Password
+                if (passwordInput.value.trim().length < 6) {
+                  passwordError.textContent = "Password must be at least 6 characters long.";
+                  passwordError.style.display = 'block';
+                  passwordInput.classList.add('error-border');
+                  errors++;
+                }
+      
+                // Validate Terms and Conditions
+                if (!termsCheck.checked) {
+                  termsError.textContent = "You must agree to the Terms & Conditions.";
+                  termsError.style.display = 'block';
+                  errors++;
+                }
+      
+                // Validate Payment Method
+                if (!document.querySelector('input[name="gateway"]:checked')) {
+                  paymentError.textContent = "Please select a payment method.";
+                  paymentError.style.display = 'block';
+                  errors++;
+                }
+      
+                // If no errors, submit the form
+                if (errors === 0) {
+                  form.submit();
+                }
+              });
+      
+              // Toggle Password Visibility
+              const toggleButton = document.querySelector('.password-toggle');
+              toggleButton.addEventListener('click', function () {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+              });
+      
+              // Update hidden input when user selects a package
+              packageSelect.addEventListener('change', function () {
+                packageSelect.classList.remove('error-border'); // Remove error border on change
+              });
+            });
+          </script>
+      
+          <!-- SweetAlert Script -->
+          <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        </body>
+      </html>
+      

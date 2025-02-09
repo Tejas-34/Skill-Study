@@ -1,0 +1,1291 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Home - Skill-Study</title>
+    <meta name="description" content="Skill-Study" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="{% static '/images/favicon.png' %}" />
+    <!-- Place favicon.png.ico in the root directory -->
+
+    <!-- CSS here -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/animate.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/magnific-popup.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fontawesome-all.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/flaticon-skillgro.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/flaticon-skillgro-new.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/swiper-bundle.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/default-icons.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/select2.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/odometer.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/aos.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/plyr.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/spacing.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/tg-cursor.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}" />
+
+    <!-- Odometer CSS -->
+<link rel="stylesheet" href="https://cdn.rawgit.com/HubSpot/odometer/master/themes/odometer-theme-default.css">
+
+
+  </head>
+
+  <body>
+    <!--Preloader-->
+    <div id="custom-preloader">
+      <div class="custom-loader-wrapper">
+        <div class="custom-loader-circe">
+          <div class="custom-loader-icon">
+            <h1 class="custom-loader-text">.</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Preloader-end -->
+
+    <!-- Scroll-top -->
+    <button class="scroll__top scroll-to-target" data-target="html">
+      <img style="color: yellow;" src="./static/images/icons/arrow_up.svg" alt="↑">
+    </button>
+    <!-- Scroll-top-end-->
+
+    <!-- header-area -->
+    {% include "nav.html" %}
+
+<!-- header-area-end -->
+
+<!-- main-area yaha start -->
+    <main class="main-area fix">
+      <div id="carouselExample" class="carousel slide sbanner">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="./static/images/banner/carousel1.png"
+              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="./static/images/banner/carousel2.png"
+              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <!-- banner-area -->
+      <section
+        class="banner-area-two banner-bg-two tg-motion-effects"
+        data-background="./images/banner_bg02.png"
+        style="background-color: #f4f6f911;"
+      >
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-xl-5 col-lg-6">
+              <div class="banner__content-two">
+                <h3 class="title" data-aos="fade-right" data-aos-delay="400">
+                  Empower Your Future with SkillStudy. Master Every Skill.
+                </h3>
+                <div
+                  class="banner__btn-two"
+                  data-aos="fade-right"
+                  data-aos-delay="600"
+                >
+                <a href="/#pricing" class="violet-btn arrow-effect">
+                  Get Started
+                  <img src="./static/images/icons/right-arrow-svgrepo-com(1).svg" alt="img" class="svg-icon" />
+                </a>
+                
+                <a href="https://www.youtube.com/watch?v=_nWMP68DqHE" class="video-btn play-animation">
+                  <img src="./static/images/icons/play.svg" alt="">
+                  Watch Video
+                </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-7 col-lg-6 col-md-8">
+              <div class="banner__images-two tg-svg">
+                <img
+                  src="./static/images/banner/Subject.jpeg"
+                  alt="img"
+                  class="main-img"
+                />
+
+                <div
+                  class="about__enrolled"
+                  data-aos="fade-right"
+                  data-aos-delay="200"
+                >
+                  <p class="title"><span>150+</span> Enrolled Students</p>
+                  <img src="./static/images/others/student_grp.png" alt="img" />
+                </div>
+                <div
+                  class="banner__student"
+                  data-aos="fade-left"
+                  data-aos-delay="200"
+                >
+                  <div class="icon">
+                    <img
+                      src="./static/images/banner/h2_banner_icon.svg"
+                      alt="img"
+                      class="injectable"
+                    />
+                  </div>
+                  <div class="content">
+                    <span>Total Students</span>
+                    <h4 class="title">250+</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- banner-area-end -->
+
+      <section class="key-features-section" style="background: linear-gradient(to bottom, #FFFFFF, #F4F6F9);">
+        <div class="wrapper">
+            <div class="section-heading">
+                <span class="tagline">Our Key Features</span>
+                <h2>Achieve Excellence With Skill-Study</h2>
+                <p>Empowering students to reach their full potential through expert guidance and world-class courses.</p>
+            </div>
+            
+            <div class="features-list">
+                <!-- Feature Item 1 -->
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon-box icon-violet">
+                        <img src="./static/images/icons/h2_features_icon01.svg" alt="Expert Tutors">
+                    </div>
+                    <h3>Expert Tutors</h3>
+                    <p>Learn from top-tier tutors offering personalized guidance to help you succeed in your learning journey.</p>
+                </div>
+    
+                <!-- Feature Item 2 -->
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon-box icon-blue">
+                        <img src="./static/images/icons/h2_features_icon02.svg" alt="Engaging Courses">
+                    </div>
+                    <h3>Engaging Courses</h3>
+                    <p>Discover well-structured courses designed to ensure your learning experience is interactive and impactful.</p>
+                </div>
+    
+                <!-- Feature Item 3 -->
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="icon-box icon-green">
+                        <img src="./static/images/icons/h2_features_icon03.svg" alt="Get Certified">
+                    </div>
+                    <h3>Get Certified</h3>
+                    <p>Showcase your skills with accredited certifications upon successful course completion.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+      <!-- course-area -->
+      <section
+        id="pricing"
+        class="courses-area section-pt-120 section-pb-90 course-bg"
+      >
+        <div class="container">
+          <div class="section__title-wrap">
+            <div class="row justify-content-center">
+              <div class="col-lg-6">
+                <div class="section__title text-center mb-40">
+                  <span class="sub-title">Popular Courses</span>
+                  <h2 class="title">Discover Top-Rated Learning Programs</h2>
+                  <p class="desc">
+                    Enhance your skills with expertly curated courses designed
+                    for success.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="row courses__grid-wrap row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1"
+          >
+          <div class="col">
+            <div class="courses__item shine__animate-item">
+              <div class="courses__item-thumb">
+                <a href="#" class="shine__animate-link">
+                  <img src="./static/images/packages/STARTER PACKAGE.png" 
+                       alt="Starter Package" class="si-pkg-course" />
+                </a>
+              </div>
+              <div class="courses__item-content">
+                <ul class="courses__item-meta list-wrap">
+                  <li style="font-size: 16px; font-weight: bold; color: #ff4444; display: flex; align-items: center; gap: 10px;">
+                    <span style="text-decoration: line-through; color: #888; font-size: 14px;">₹600</span> 
+                    <span style="background-color: #ff4444; color: #fff; font-size: 12px; padding: 3px 8px; border-radius: 5px; font-weight: bold;">50% OFF</span>
+                  </li>
+                </ul>
+                <h5 class="title">
+                  <a href="./templates/checkout.html">Starter Package</a>
+                </h5>
+                <p class="author">By <a href="#">Skill Study</a></p>
+                <div class="courses__item-bottom">
+                  <div class="button">
+                    <a href="./templates/checkout.html?pkg=1">
+                      <span style="color: #ffffff;" class="text">Get Started</span>
+                      <img src="./static/images/icons/right-arrow-svgrepo-com.svg" alt="→">
+                    </a>
+                  </div>
+                  <h5 class="price">₹299</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col">
+            <div class="courses__item shine__animate-item">
+              <div class="courses__item-thumb">
+                <a href="#" class="shine__animate-link">
+                  <img src="./static/images/packages/ESSENTIAL PACKAGE.png" 
+                       alt="Essential Package" class="si-pkg-course" />
+                </a>
+              </div>
+              <div class="courses__item-content">
+                <ul class="courses__item-meta list-wrap">
+                  <li style="font-size: 16px; font-weight: bold; color: #ff4444; display: flex; align-items: center; gap: 10px;">
+                    <span style="text-decoration: line-through; color: #888; font-size: 14px;">₹1200</span> 
+                    <span style="background-color: #ff4444; color: #fff; font-size: 12px; padding: 3px 8px; border-radius: 5px; font-weight: bold;">50% OFF</span>
+                  </li>
+                </ul>
+                <h5 class="title">
+                  <a href="./templates/checkout.html">Essential Package</a>
+                </h5>
+                <p class="author">By <a href="#">Skill Study</a></p>
+                <div class="courses__item-bottom">
+                  <div class="button">
+                    <a href="./templates/checkout.html?pkg=2">
+                      <span style="color: #ffffff;" class="text">Start Learning</span>
+                      <img src="./static/images/icons/right-arrow-svgrepo-com.svg" alt="→">
+                    </a>
+                  </div>
+                  <h5 class="price">₹599</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col">
+            <div class="courses__item shine__animate-item">
+              <div class="courses__item-thumb">
+                <a href="#" class="shine__animate-link">
+                  <img src="./static/images/packages/ADVANCED PACKAGE.png" 
+                       alt="Advanced Package" class="si-pkg-course" />
+                </a>
+              </div>
+              <div class="courses__item-content">
+                <ul class="courses__item-meta list-wrap">
+                  <li style="font-size: 16px; font-weight: bold; color: #ff4444; display: flex; align-items: center; gap: 10px;">
+                    <span style="text-decoration: line-through; color: #888; font-size: 14px;">₹2400</span> 
+                    <span style="background-color: #ff4444; color: #fff; font-size: 12px; padding: 3px 8px; border-radius: 5px; font-weight: bold;">50% OFF</span>
+                  </li>
+                </ul>
+                <h5 class="title">
+                  <a href="./templates/checkout.html">Advanced Learning Package</a>
+                </h5>
+                <p class="author">By <a href="#">Skill Study</a></p>
+                <div class="courses__item-bottom">
+                  <div class="button">
+                    <a href="./templates/checkout.html?pkg=3">
+                      <span style="color: #ffffff;" class="text">Start Learning</span>
+                      <img src="./static/images/icons/right-arrow-svgrepo-com.svg" alt="→">
+                    </a>
+                  </div>
+                  <h5 class="price">₹1199</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col">
+            <div class="courses__item shine__animate-item">
+              <div class="courses__item-thumb">
+                <a href="#" class="shine__animate-link">
+                  <img src="./static/images/packages/GOLD PACKAGE.png" 
+                       alt="Gold Package" class="si-pkg-course" />
+                </a>
+              </div>
+              <div class="courses__item-content">
+                <ul class="courses__item-meta list-wrap">
+                  <li style="font-size: 16px; font-weight: bold; color: #ff4444; display: flex; align-items: center; gap: 10px;">
+                    <span style="text-decoration: line-through; color: #888; font-size: 14px;">₹4200</span> 
+                    <span style="background-color: #ff4444; color: #fff; font-size: 12px; padding: 3px 8px; border-radius: 5px; font-weight: bold;">42.8% OFF</span>
+                  </li>
+                </ul>
+                <h5 class="title">
+                  <a href="./templates/checkout.html">Premium Gold Package</a>
+                </h5>
+                <p class="author">By <a href="#">Skill Study</a></p>
+                <div class="courses__item-bottom">
+                  <div class="button">
+                    <a href="./templates/checkout.html?pkg=4">
+                      <span style="color: #ffffff;" class="text">Start Learning</span>
+                      <img src="./static/images/icons/right-arrow-svgrepo-com.svg" alt="→">
+                    </a>
+                  </div>
+                  <h5 class="price">₹2399</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col">
+            <div class="courses__item shine__animate-item">
+              <div class="courses__item-thumb">
+                <a href="#" class="shine__animate-link">
+                  <img src="./static/images/packages/DIAMOND PACKAGE.png" 
+                       alt="Diamond Package" class="si-pkg-course" />
+                </a>
+              </div>
+              <div class="courses__item-content">
+                <ul class="courses__item-meta list-wrap">
+                  <li style="font-size: 16px; font-weight: bold; color: #ff4444; display: flex; align-items: center; gap: 10px;">
+                    <span style="text-decoration: line-through; color: #888; font-size: 14px;">₹6,999</span> 
+                    <span style="background-color: #ff4444; color: #fff; font-size: 12px; padding: 3px 8px; border-radius: 5px; font-weight: bold;">40% OFF</span>
+                  </li>
+                </ul>
+                <h5 class="title">
+                  <a href="./templates/checkout.html">Ultimate Diamond Package</a>
+                </h5>
+                <p class="author">By <a href="#">Skill Study</a></p>
+                <div class="courses__item-bottom">
+                  <div class="button">
+                    <a href="./templates/checkout.html?pkg=5">
+                      <span style="color: #ffffff;" class="text">Start Learning</span>
+                      <img src="./static/images/icons/right-arrow-svgrepo-com.svg" alt="→">
+                    </a>
+                  </div>
+                  <h5 class="price" style="font-size: 20px; color: #4CAF50; font-weight: bold;">₹4,199</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+            <div class="col">
+  <div class="courses__item shine__animate-item">
+    <div class="courses__item-thumb">
+      <a href="#" class="shine__animate-link">
+        <img src="./static/images/packages/PLATINUM PACKAGE.png" 
+             alt="Platinum Package" class="si-pkg-course" />
+      </a>
+    </div>
+    <div class="courses__item-content">
+      <ul class="courses__item-meta list-wrap">
+        <li style="font-size: 16px; font-weight: bold; color: #ff4444; display: flex; align-items: center; gap: 10px;">
+          <span style="text-decoration: line-through; color: #888; font-size: 14px;">₹9999</span> 
+          <span style="background-color: #ff4444; color: #fff; font-size: 12px; padding: 3px 8px; border-radius: 5px; font-weight: bold;">30% OFF</span>
+        </li>
+      </ul>
+      <h5 class="title">
+        <a href="./templates/checkout.html">Elite Platinum Package</a>
+      </h5>
+      <p class="author">By <a href="#">Skill Study</a></p>
+      <div class="courses__item-bottom">
+        <div class="button">
+          <a href="./templates/checkout.html?pkg=6">
+            <span style="color: #ffffff;" class="text">Start Learning</span>
+            <img src="./static/images/icons/right-arrow-svgrepo-com.svg" alt="">
+          </a>
+        </div>
+        <h5 class="price" style="font-size: 20px; color: #4CAF50; font-weight: bold;">₹6999</h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col">
+  <div class="courses__item shine__animate-item">
+    <div class="courses__item-thumb">
+      <a href="#" class="shine__animate-link">
+        <img src="./static/images/packages/PREMIUM PACKAGE.png" 
+             alt="Premium Package" class="si-pkg-course" />
+      </a>
+    </div>
+    <div class="courses__item-content">
+      <ul class="courses__item-meta list-wrap">
+        <li style="font-size: 16px; font-weight: bold; color: #ff4444; display: flex; align-items: center; gap: 10px;">
+          <span style="text-decoration: line-through; color: #888; font-size: 14px;">₹12,999</span> 
+          <span style="background-color: #ff4444; color: #fff; font-size: 12px; padding: 3px 8px; border-radius: 5px; font-weight: bold;">23% OFF</span>
+        </li>
+      </ul>
+      <h5 class="title">
+        <a href="./templates/checkout.html">Exclusive Premium Package</a>
+      </h5>
+      <p class="author">By <a href="#">Skill Study</a></p>
+      <div class="courses__item-bottom">
+        <div class="button">
+          <a href="./templates/checkout.html?pkg=7">
+            <span style="color: #ffffff;" class="text">Start Learning</span>
+            <img src="./static/images/icons/right-arrow-svgrepo-com.svg" alt="→">
+          </a>
+        </div>
+        <h5 class="price" style="font-size: 20px; color: #4CAF50; font-weight: bold;">₹9,999</h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+          </div>
+        </div>
+      </section>
+      <!-- course-area-end -->
+      <!-- about-area -->
+      <section class="about-area tg-motion-effects section-py-120" style="background-color: #F4F6F9;">
+        <div class="container">
+          <div class="row align-items-center justify-content-center">
+            <div class="col-lg-6 col-md-9">
+              <div class="about__images">
+                <img
+                  src="./static/images/others/conversation.jpg"
+                  alt="img"
+                  class="main-img"
+                />
+                
+                <a
+                  href="https://www.youtube.com/watch?v=_nWMP68DqHE"
+                  class="popup-video"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="22"
+                    height="28"
+                    viewBox="0 0 22 28"
+                    fill="none"
+                  >
+                    <path
+                      d="M0.19043 26.3132V1.69421C0.190288 1.40603 0.245303 1.12259 0.350273 0.870694C0.455242 0.6188 0.606687 0.406797 0.79027 0.254768C0.973854 0.10274 1.1835 0.0157243 1.39936 0.00193865C1.61521 -0.011847 1.83014 0.0480663 2.02378 0.176003L20.4856 12.3292C20.6973 12.4694 20.8754 12.6856 20.9999 12.9535C21.1245 13.2214 21.1904 13.5304 21.1904 13.8456C21.1904 14.1608 21.1245 14.4697 20.9999 14.7376C20.8754 15.0055 20.6973 15.2217 20.4856 15.3619L2.02378 27.824C1.83056 27.9517 1.61615 28.0116 1.40076 27.9981C1.18536 27.9847 0.97607 27.8983 0.792638 27.7472C0.609205 27.596 0.457661 27.385 0.352299 27.1342C0.246938 26.8833 0.191236 26.6008 0.19043 26.3132Z"
+                      fill="currentcolor"
+                    />
+                  </svg>
+                </a>
+                <div
+                  class="about__enrolled"
+                  data-aos="fade-right"
+                  data-aos-delay="200"
+                >
+                  <p class="title"><span>150+</span> Enrolled Students</p>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="about__content">
+                <div class="section__title">
+                  <span class="sub-title">Learn More About Us</span>
+                  <h2 class="title">
+                    Elevate Your
+                    <span class="position-relative">
+                      <svg
+                        x="101px"
+                        y="110px"
+                        preserveAspectRatio="none"
+                        viewBox="0 0 209 59"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M4.74438 7.70565C69.7006 -1.18799 136.097 -2.38304 203.934 4.1205C207.178 4.48495 209.422 7.14626 208.933 10.0534C206.793 23.6481 205.415 36.5704 204.801 48.8204C204.756 51.3291 202.246 53.5582 199.213 53.7955C136.093 59.7623 74.1922 60.5985 13.5091 56.3043C10.5653 56.0924 7.84371 53.7277 7.42158 51.0325C5.20725 38.2627 2.76333 25.6511 0.0898448 13.1978C-0.465589 10.5873 1.61173 8.1379 4.73327 7.70565"
+                          fill="currentcolor"
+                        />
+                      </svg>
+                      Skills
+                    </span>
+                    <br />Now with Skill-Study
+                  </h2>
+                </div>
+                <p class="desc">
+                  At Skill-Study, we believe in making learning both accessible
+                  and engaging. Our platform is designed to empower learners
+                  with the skills they need to succeed in a digital-first world.
+                </p>
+                <ul class="about__info-list list-wrap">
+                  <li class="about__info-list-item">
+                    <i class="flaticon-angle-right"></i>
+                    <p class="content">Guided by Industry Experts</p>
+                  </li>
+                  <li class="about__info-list-item">
+                    <i class="flaticon-angle-right"></i>
+                    <p class="content">Earn Professional Certifications</p>
+                  </li>
+                </ul>
+                <div class="tg-button-wrap">
+                
+                  <a href="/about" class="btn arrow-btn"
+                    >Discover More
+                    <img
+                      src="./static/images/icons/right-arrow-svgrepo-com.svg"
+                      alt="img"
+                      class="injectable"
+                  /></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- about-area-end -->
+
+      <!-- fact-area-two -->
+      <section class="fact__area-two" style="background-color: #F4F6F9;">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="fact__inner-wrap-two">
+                <div class="section__title white-title mb-30">
+                  <h2 class="title">
+                    Thousands of
+                    <span class="position-relative">
+                      
+                      courses
+                    </span>
+                    curated by leading experts
+                  </h2>
+                </div>
+
+                <div class="fact__item-wrap">
+                  <div class="fact__item">
+                    <h2 class="count">
+                      <span class="odometer" data-count="150"></span>+
+                    </h2>
+                    <p>Engaged Learners</p>
+                  </div>
+                  <div class="fact__item">
+                    <h2 class="count">
+                      <span class="odometer" data-count="10"></span>+
+                    </h2>
+                    <p>Top-Rated Instructors</p>
+                  </div>
+                </div>
+
+               
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- fact-area-two-end -->
+
+      <section class="instructor__area-three instructor__bg course-bg">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-xl-12">
+              <div class="swiper-container instructor-active">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="instructor__item-three">
+                      <div class="instructor__thumb-three">
+                        <img
+                          src="./static/images/others/Tejas.webp"
+                          alt="img"
+                          class="rounded-4 founder-img"
+                        />
+                        
+                      </div>
+                      <div class="instructor__content-three">
+                        <h2 class="title">Tejas Patare</h2>
+                        <span class="designation">Founder & CEO</span>
+                        <p>
+                          <strong>Tejas Patare</strong> is the Founder & CEO of
+                          <strong>Skill-Study</strong> , a platform dedicated to
+                          empowering individuals with cutting-edge digital
+                          skills. A second-year student at
+                          <strong>IIT Madras</strong> , Tejas is an aspiring
+                          entrepreneur with a strong foundation in web
+                          development and data science. His technical expertise
+                          includes Python, Flask, VueJS, and SQL, which he
+                          applies to build innovative applications that bridge
+                          the gap between education and industry demands. Tejas
+                          is committed to creating impactful, scalable solutions
+                          and fostering a community of skilled digital
+                          professionals through his entrepreneurial vision.
+                        </p>
+                        <div class="tg-button-wrap">
+                          <a href="#pricing" class="btn arrow-btn">
+                            Get Started
+                            <img
+                              src="./static/images/icons/right-arrow-svgrepo-com.svg"
+                              alt="img"
+                              class="injectable"
+                          /></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- instructor-area-end -->
+
+      <!-- feature-cards-area -->
+<section class="feature--cards__area">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-6">
+        <div class="section--title__container text-center mb-50">
+          <span class="sub--title">Our Approach to Learning</span>
+          <h2 class="main--title">Embark on Your Learning Journey Today!</h2>
+          <p class="section--description">
+            Discover, learn, and achieve your aspirations with structured
+            guidance and expert support.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-xl-3 col-lg-4 col-md-6">
+        <div class="feature--card">
+          <div class="feature--card__icon">
+            <img
+              src="./static/images/icons/features_icon01.svg"
+              class="injectable"
+              alt="Industry Experts"
+            />
+          </div>
+          <div class="feature--card__content">
+            <h4 class="feature--card__title">Learn from Industry Experts</h4>
+            <p class="feature--card__description">
+              Gain valuable insights from leaders and professionals in the
+              field.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-4 col-md-6">
+        <div class="feature--card">
+          <div class="feature--card__icon">
+            <img
+              src="./static/images/icons/features_icon02.svg"
+              class="injectable"
+              alt="Lifetime Access"
+            />
+          </div>
+          <div class="feature--card__content">
+            <h4 class="feature--card__title">Lifetime Access</h4>
+            <p class="feature--card__description">
+              Enjoy unrestricted access to our courses for as long as you
+              need.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-4 col-md-6">
+        <div class="feature--card">
+          <div class="feature--card__icon">
+            <img
+              src="./static/images/icons/features_icon03.svg"
+              class="injectable"
+              alt="Official Certificate"
+            />
+          </div>
+          <div class="feature--card__content">
+            <h4 class="feature--card__title">Receive an Official Certificate</h4>
+            <p class="feature--card__description">
+              Earn a digital certificate upon successful course completion.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-4 col-md-6">
+        <div class="feature--card">
+          <div class="feature--card__icon">
+            <img
+              src="./static/images/icons/features_icon04.svg"
+              class="injectable"
+              alt="Earn Rewards"
+            />
+          </div>
+          <div class="feature--card__content">
+            <h4 class="feature--card__title">Promote & Earn Rewards</h4>
+            <p class="feature--card__description">
+              Invite others to join and earn exclusive rewards.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- feature-cards-area-end -->
+
+
+      <!-- faq-area -->
+
+      <section class="faq__area">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-6">
+              <div class="faq__img-wrap tg-svg">
+                <div class="faq__round-text">
+                </div>
+                <div class="faq__img">
+                  <img
+                    src="./static/images/others/faq_img.jpg"
+                    alt="img"
+                    style="
+                      display: block;
+                      max-width: 100%;
+                      height: auto;
+                      object-fit: cover;
+                      margin: 0 auto;
+                    "
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="faq__content">
+                <div class="section__title pb-10">
+                  <span class="sub-title">FAQs</span>
+                  <h2 class="title">
+                    Start Learning From <br />
+                    World-Class Instructors
+                  </h2>
+                </div>
+                <p>
+                  SKILL-STUDY offers a unique blend of education,
+                  skill-building, and affiliate marketing, helping learners
+                  achieve success in their chosen fields.
+                </p>
+                <div class="faq__wrap">
+                  <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button
+                          class="accordion-button"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#collapseOne"
+                          aria-expanded="true"
+                          aria-controls="collapseOne"
+                        >
+                          What does SKILL-STUDY offer?
+                        </button>
+                      </h2>
+                      <div
+                        id="collapseOne"
+                        class="accordion-collapse collapse show"
+                        data-bs-parent="#accordionExample"
+                      >
+                        <div class="accordion-body">
+                          <p>
+                            SKILL-STUDY provides expertly designed study
+                            packages, professional courses, and an affiliate
+                            marketing platform, enabling users to learn and earn
+                            simultaneously.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button
+                          class="accordion-button collapsed"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#collapseTwo"
+                          aria-expanded="false"
+                          aria-controls="collapseTwo"
+                        >
+                          Why choose SKILL-STUDY for your education?
+                        </button>
+                      </h2>
+                      <div
+                        id="collapseTwo"
+                        class="accordion-collapse collapse"
+                        data-bs-parent="#accordionExample"
+                      >
+                        <div class="accordion-body">
+                          <p>
+                            We provide high-quality, industry-relevant courses
+                            with flexible learning options. Our platform bridges
+                            the gap between education and career growth,
+                            ensuring practical knowledge and success.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button
+                          class="accordion-button collapsed"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#collapseThree"
+                          aria-expanded="false"
+                          aria-controls="collapseThree"
+                        >
+                          How does SKILL-STUDY deliver its services?
+                        </button>
+                      </h2>
+                      <div
+                        id="collapseThree"
+                        class="accordion-collapse collapse"
+                        data-bs-parent="#accordionExample"
+                      >
+                        <div class="accordion-body">
+                          <p>
+                            We offer a seamless online learning experience with
+                            expert-led courses, interactive content, and an
+                            affiliate program that allows users to earn by
+                            sharing knowledge.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button
+                          class="accordion-button collapsed"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#collapseFour"
+                          aria-expanded="false"
+                          aria-controls="collapseFour"
+                        >
+                          Are SKILL-STUDY courses affordable?
+                        </button>
+                      </h2>
+                      <div
+                        id="collapseFour"
+                        class="accordion-collapse collapse"
+                        data-bs-parent="#accordionExample"
+                      >
+                        <div class="accordion-body">
+                          <p>
+                            Absolutely! We provide affordable learning solutions
+                            with lifetime access. Additionally, our affiliate
+                            program allows learners to earn rewards while they
+                            study.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> 
+      <!-- faq-area-end -->
+
+      <!-- testimonial-area -->
+      <section class="testimonial__area section-py-120" style="background-color: #F4F6F9; border-top: 1px solid rgba(0, 0, 0, 0.078);">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-xl-5">
+              <div class="section__title text-center mb-50">
+                <span class="sub-title">Our Testimonials</span>
+                <h2 class="title">
+                  What Students Think and Say About Skill Study
+                </h2>
+                <p>Hear from our students about their learning experiences.</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="testimonial__item-wrap">
+                <div class="swiper-container testimonial-swiper-active">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <div class="testimonial__item">
+                        <div class="testimonial__item-top">
+                          <div class="testimonial__author">
+                            <div class="testimonial__author-thumb">
+                              <img
+                                src="./static/images/icons/user.svg"
+                                alt="img"
+                                class="feedback-img"
+                              />
+                            </div>
+                            <div class="testimonial__author-content">
+                              <h2 class="title">Aarav Patel</h2>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="testimonial__content">
+                          <p>
+                            “I was searching for an effective way to learn
+                            digital marketing and stumbled upon Skill Study.
+                            Their structured courses and hands-on approach
+                            helped me gain confidence. Now, I run my own digital
+                            agency and earn a stable income. Thank you, Skill
+                            Study!”
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="testimonial__item">
+                        <div class="testimonial__item-top">
+                          <div class="testimonial__author">
+                            <div class="testimonial__author-thumb">
+                              <img
+                                src="./static/images/icons/user.svg"
+                                alt="img"
+                                class="feedback-img"
+                              />
+                            </div>
+                            <div class="testimonial__author-content">
+                              <h2 class="title">Riya Sharma</h2>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="testimonial__content">
+                          <p>
+                            “Being a student, I wanted to gain practical skills
+                            alongside my studies. Skill Study provided me with
+                            the perfect platform to learn Affiliate Marketing
+                            and Facebook Ads. Now, I earn a decent side income
+                            while continuing my education. Highly recommended!”
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="testimonial__item">
+                        <div class="testimonial__item-top">
+                          <div class="testimonial__author">
+                            <div class="testimonial__author-thumb">
+                              <img
+                                src="./static/images/icons/user.svg"
+                                alt="img"
+                                class="feedback-img"
+                              />
+                            </div>
+                            <div class="testimonial__author-content">
+                              <div class="rating">
+                              </div>
+                              <h2 class="title">Kunal Verma</h2>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="testimonial__content">
+                          <p>
+                            “Skill Study has been a game-changer for me. The
+                            Platinum package gave me access to high-income
+                            skills like video editing and freelancing. Today, I
+                            work with international clients and make a
+                            sustainable income. This platform truly transformed
+                            my career.”
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="testimonial__item">
+                        <div class="testimonial__item-top">
+                          <div class="testimonial__author">
+                            <div class="testimonial__author-thumb">
+                              <img
+                                src="./static/images/icons/user.svg"
+                                alt="img"
+                                class="feedback-img"
+                              />
+                            </div>
+                            <div class="testimonial__author-content">
+                              <div class="rating">
+                              </div>
+                              <h2 class="title">Meera Joshi</h2>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="testimonial__content">
+                          <p>
+                            “I always wanted to become financially independent
+                            while studying. Thanks to Skill Study’s
+                            well-structured courses, I learned affiliate
+                            marketing and digital skills that now help me earn
+                            over ₹50,000 per month. This platform truly empowers
+                            students!”
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="testimonial__nav">
+                  <button class="testimonial-button-prev">
+                    <img src="./static/images/icons/arrow_left.svg" alt="←">
+                  </button>
+                  <button class="testimonial-button-next">
+                    <img src="./static/images/icons/right-arrow-svgrepo-com.svg" alt="→">
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- testimonial-area-end -->
+
+      <!-- newsletter-area -->
+      <section class="newsletter__area">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-4">
+              <div class="newsletter__img-wrap" style="height: 25rem;">
+                <img src="./static/images/others/STAY connected.png" alt="" style="border-radius: 2rem;">
+              </div>
+            </div>
+
+            <div class="col-lg-8">
+              <div class="newsletter__content">
+                <h2 class="title">
+                  Want to stay <span>informed</span> about <br />
+                  new <span>courses & updates?</span>
+                </h2>
+                <div class="newsletter__form">
+                  <a
+                    href="#"
+                    class="btn arrow-btn"
+                    style="background-color: #ffc224; color: #ffffff"
+                    >Follow On Instagram</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- newsletter-area-end -->
+    </main>
+    <!-- main-area-end -->
+
+    <style>
+      .designed-by {
+        text-align: right;
+      }
+    </style>
+
+    <!-- footer-area -->
+
+    <footer class="footer__area" style="background-color: rgba(246, 246, 249, 0.166); border-radius: 2rem;">
+      <div class="footer__top">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-3 col-lg-4 col-md-6">
+              <div class="footer__widget">
+                <div class="logo mb-35">
+                  <a href="https://skill-study.com/"
+                    ><img
+                    src="{% static '/images/favicon.png' %}"
+                      alt="img"
+                  /></a>
+                </div>
+                <div class="footer__content">
+                  <p>
+                    SkillStudy is an E-learning platform. This platform helps
+                    people build their personal brand on social media and create
+                    passive income.
+                  </p>
+                  <ul class="list-wrap footer__social">
+                    <li>
+                      <a href="#" target="_blank">
+                        <img
+                          src="./static/images/icons/facebook.svg"
+                          alt="img"
+                          class="injectable"
+                        />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        target="_blank"
+                      >
+                        <img
+                          src="./static/images/icons/instagram.svg"
+                          alt="img"
+                          class="injectable"
+                        />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        target="_blank"
+                      >
+                        <img
+                          src="./static/images/icons/youtube.svg"
+                          alt="img"
+                          class="injectable"
+                        />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+              <div class="footer__widget">
+                <h4 class="footer__widget-title">Course/Packages</h4>
+                <div class="footer__link">
+                  <ul class="list-wrap">
+                    <li>
+                      <a href="./templates/checkout.html?pkg=1" style="color: #000000 !important">Starter Package</a>
+                    </li>
+                    <li>
+                      <a href="./templates/checkout.html?pkg=2" style="color: #000000 !important">Essential Package</a>
+                    </li>
+                    <li>
+                      <a href="./templates/checkout.html?pkg=3" style="color: #000000 !important">Advanced Learning Package</a>
+                    </li>
+                    <li>
+                      <a href="./templates/checkout.html?pkg=4" style="color: #000000 !important">Premium Gold Package</a>
+                    </li>
+                    <li>
+                      <a href="./templates/checkout.html?pkg=5" style="color: #000000 !important">Ultimate Diamond Package</a>
+                    </li>
+                    <li>
+                      <a href="./templates/checkout.html?pkg=6" style="color: #000000 !important">Elite Platinum Package</a>
+                    </li>
+                    <li>
+                      <a href="./templates/checkout.html?pkg=7" style="color: #000000 !important">Exclusive Premium Package</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+              <div class="footer__widget">
+                <h4 class="footer__widget-title">Quick Links</h4>
+                <div class="footer__link">
+                  <ul class="list-wrap">
+                    <li>
+                      <a href="./templates/contact.html" style="color: #000000 !important">Contact Us</a>
+                    </li>
+                    <li>
+                      <a href="./templates/disclaimer.html" style="color: #000000 !important">Disclaimer</a>
+                    </li>
+                    <li>
+                      <a href="./templates/privacy-policy.html" style="color: #000000 !important">Privacy Policy</a>
+                    </li>
+                    <li>
+                      <a href="./templates/refund-policy.html" style="color: #000000 !important">Refund Policy</a>
+                    </li>
+                    <li>
+                      <a href="./templates/terms.html" style="color: #000000 !important">Terms & Conditions</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6">
+              <div class="footer__widget">
+                <h4 class="footer__widget-title">Get In Touch</h4>
+                <div class="footer__contact-content">
+                  <p style="color: #000000 !important">
+                    Contact us at +91 80806 66817 or support@skillstudy.com. We are based in Nagar, Maharashtra.
+                  </p>
+                  <ul class="list-wrap">
+                    <li style="color: black; transition: color 0.3s ease-in-out;" onmouseover="this.style.color='rgb(10, 100, 255)'" onmouseout="this.style.color='black'">+91 80806 66817</li>
+                    <li style="color: black; transition: color 0.3s ease-in-out;" onmouseover="this.style.color='rgb(10, 100, 255)'" onmouseout="this.style.color='black'">support@skillstudy.com</li>
+                    <li style="color: #000000 !important">Nagar, Maharashtra, India</li>
+                  </ul>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-7">
+              <div class="copy-right-text">
+                <p>Copyright © 2025 Skill-Study. All rights reserved.</p>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="copy-right-text">
+                <p class="designed-by" style="user-select: none;">
+                  Developed by
+                  <a
+                    class="made"
+                    href="https://utkarshportfolio-gamma.vercel.app"
+                    style="color: whitesmoke;"
+                    target="_blank"
+                    >Utkarsh</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- footer-area-end -->
+
+    <!-- LENIS Smooth scroll -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.26"></script>
+    <!-- JS here -->
+
+    <script  src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <script  src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script  src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
+    <script  src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script  src="{% static 'js/jquery.odometer.min.js' %}"></script>
+    <script  src="{% static 'js/jquery.appear.js' %}"></script>
+    <script  src="{% static 'js/tween-max.min.js' %}"></script>
+    <script  src="{% static 'js/select2.min.js' %}"></script>
+    <script  src="{% static 'js/swiper-bundle.min.js' %}"></script>
+    <script  src="{% static 'js/jquery.marquee.min.js' %}"></script>
+    <script  src="{% static 'js/tg-cursor.min.js' %}"></script>
+    <script  src="{% static 'js/vivus.min.js' %}"></script>
+    <script  src="{% static 'js/ajax-form.js' %}"></script>
+    <script  src="{% static 'js/svg-inject.min.js' %}"></script>
+    <script  src="{% static 'js/jquery.circleType.js' %}"></script>
+    <script  src="{% static 'js/jquery.lettering.min.js' %}"></script>
+    <script  src="{% static 'js/plyr.min.js' %}"></script>
+    <script  src="{% static 'js/wow.min.js' %}"></script>
+    <script  src="{% static 'js/aos.js' %}"></script>
+    <script  src="{% static 'js/main.js' %}"></script>
+
+
+    <script src="https://cdn.rawgit.com/HubSpot/odometer/master/odometer.min.js"></script>
+
+    <script>
+      SVGInject(document.querySelectorAll("img.injectable"));
+    </script>
+
+    
+  </body>
+</html>

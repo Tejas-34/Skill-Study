@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy | Skill-Study</title>
+    <link rel="icon" href="../favicon.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        background: #f8f9fd;
+        color: #333;
+        padding: 2rem;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+      .container {
+        max-width: 900px;
+        margin: auto;
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        animation: fadeIn 1s ease-in-out;
+      }
+      h1 {
+        color: blueviolet;
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 1rem;
+        font-weight: 600;
+        animation: pulse 1.5s infinite alternate;
+      }
+      .policy-section {
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 1rem;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+      .policy-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .policy-section h2 {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .policy-section p {
+        font-size: 1rem;
+        color: #555;
+        display: none;
+      }
+      .policy-section.active p {
+        display: block;
+        animation: fadeInText 0.5s ease-in-out;
+      }
+      .policy-section h2 i {
+        transition: transform 0.3s ease-in-out;
+      }
+      .policy-section.active h2 i {
+        transform: rotate(180deg);
+      }
+      footer {
+        text-align: center;
+        margin-top: 2rem;
+        font-size: 0.9rem;
+        color: #777;
+        opacity: 0;
+        animation: fadeIn 1s 0.5s forwards;
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeInText {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes pulse {
+        from {
+          transform: scale(1);
+        }
+        to {
+          transform: scale(1.05);
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        body {
+          padding: 1rem;
+        }
+        .container {
+          padding: 1.5rem;
+        }
+        h1 {
+          font-size: 1.8rem;
+        }
+        .policy-section h2 {
+          font-size: 1.2rem;
+        }
+        .policy-section p {
+          font-size: 0.95rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" data-aos="fade-up">
+      <h1>Privacy Policy</h1>
+
+      <div class="policy-section" data-aos="fade-up">
+        <h2>1. Information We Collect 
+          
+          <img src="../assets/images/icons/dropdown.svg" alt="V">
+        </h2>
+        <p>
+          We may collect personal data such as your name, email, phone number,
+          and payment details when you interact with our website or services.
+        </p>
+      </div>
+
+      <div class="policy-section" data-aos="fade-up">
+        <h2>
+          2. How We Use Your Information 
+          
+          <img src="../assets/images/icons/dropdown.svg" alt="V">
+        </h2>
+        <p>
+          Your data helps us improve user experience, process transactions, and
+          provide better customer support. We do not sell your personal
+          information.
+        </p>
+      </div>
+
+      <div class="policy-section" data-aos="fade-up">
+        <h2>
+          3. Data Protection & Security 
+          
+          <img src="../assets/images/icons/dropdown.svg" alt="V">
+        </h2>
+        <p>
+          We implement industry-standard security measures to protect your data.
+          However, no method of transmission over the internet is 100% secure.
+        </p>
+      </div>
+
+      <div class="policy-section" data-aos="fade-up">
+        <h2>
+          4. Cookies & Tracking Technologies 
+          
+          <img src="../assets/images/icons/dropdown.svg" alt="">
+        </h2>
+        <p>
+          Our website uses cookies to enhance performance and provide
+          personalized experiences. You can disable cookies in your browser
+          settings.
+        </p>
+      </div>
+
+      <div class="policy-section" data-aos="fade-up">
+        <h2>5. Your Rights & Choices <img src="../assets/images/icons/dropdown.svg" alt="V">
+        </h2>
+        <p>
+          You have the right to access, modify, or delete your personal data.
+          Contact us if you wish to exercise these rights.
+        </p>
+      </div>
+    </div>
+
+    <footer>&copy; 2025 Skill Study. All Rights Reserved.</footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      AOS.init();
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const sections = document.querySelectorAll(".policy-section h2");
+        sections.forEach((section) => {
+          section.addEventListener("click", function () {
+            this.parentElement.classList.toggle("active");
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

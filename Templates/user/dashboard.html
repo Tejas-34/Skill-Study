@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="description" content="" />
+    <meta name="keyword" content="" />
+    <meta name="author" content="flexilecode" />
+    <!--! BEGIN: Apps Title-->
+    <title>Dashboard || SKILL-STUDY</title>
+    <!--! END:  Apps Title-->
+    <!--! BEGIN: Favicon-->
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.png" />
+    <!--! END: Favicon-->
+    <!--! BEGIN: Bootstrap CSS-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../assets/css/bootstrap.min.css"
+    />
+    <!--! END: Bootstrap CSS-->
+    <!--! BEGIN: Vendors CSS-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../assets/user/vendors/css/vendors.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../assets/user/vendors/css/daterangepicker.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../assets/user/vendors/css/jquery-jvectormap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../assets/user/vendors/css/select2.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../assets/user/vendors/css/select2-theme.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../assets/user/vendors/css/jquery.time-to.min.css"
+    />
+    <!--! END: Vendors CSS-->
+    <!--! BEGIN: Custom CSS-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../assets/user/css/theme.min.css"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/user/css/mainu.css" />
+
+  </head>
+
+  <body>
+    <!--! ================================================================ !-->
+    <!--! [Start] Navigation Manu !-->
+    <!--! ================================================================ !-->
+    <nav class="nxl-navigation">
+      <div class="navbar-wrapper">
+        <div class="m-header">
+          <a href="../favicon.png" class="b-brand">
+            <img src="../favicon.png" alt="logo" class="logo logo-lg" />
+            <img src="../favicon.png" alt="logo" class="logo logo-sm" />
+          </a>
+        </div>
+        <div class="navbar-content">
+          <ul class="nxl-navbar">
+            <li class="nxl-item nxl-hasmenu">
+              <a href="dashboard.html" class="nxl-link">
+                <span class="nxl-micon">
+                  <img src="../assets/user/images/dash.svg" alt="D" />
+                </span>
+                <span class="nxl-mtext">Dashboard</span>
+              </a>
+            </li>
+            <li class="nxl-item nxl-hasmenu">
+              <a href="profile.html" class="nxl-link">
+                <span class="nxl-micon">
+                  <img src="../assets/user/images/profile.svg" alt="" />
+                </span>
+                <span class="nxl-mtext">My Profile</span>
+              </a>
+            </li>
+            <li class="nxl-item nxl-hasmenu">
+              <a href="affiliate-links.html" class="nxl-link">
+                <span class="nxl-micon">
+                  <img src="../assets/user/images/link.svg" alt="D" />
+                </span>
+                <span class="nxl-mtext">Affiliate Link</span>
+              </a>
+            </li>
+            <li class="nxl-item nxl-hasmenu">
+              <a href="courses.html" class="nxl-link">
+                <span class="nxl-micon">
+                  <img src="../assets/user/images/course.svg" alt="D" />
+                </span>
+                <span class="nxl-mtext">My Courses</span>
+              </a>
+            </li>
+            <li class="nxl-item nxl-hasmenu">
+              <a href="upgrade.html" class="nxl-link">
+                <span class="nxl-micon">
+                  <img src="../assets/user/images/upgrade.svg" alt="D" />
+                </span>
+                <span class="nxl-mtext">Upgrade</span>
+              </a>
+            </li>
+            <li class="nxl-item nxl-hasmenu">
+              <a href="leaderboard.html" class="nxl-link">
+                <span class="nxl-micon">
+                  <img src="../assets/user/images/leaderboard.svg" alt="D" />
+                </span>
+                <span class="nxl-mtext">Leaderboard</span>
+              </a>
+            </li>
+            <li class="nxl-item nxl-hasmenu">
+              <a href="my-team.html" class="nxl-link">
+                <span class="nxl-micon">
+                  <img src="../assets/user/images/team.svg" alt="D" />
+                </span>
+                <span class="nxl-mtext">My Team</span>
+              </a>
+            </li>
+            <li class="nxl-item nxl-hasmenu">
+              <a href="javascript:void(0);" class="nxl-link">
+                <span class="nxl-micon">
+                  <img src="../assets/user/images/team.svg" alt="D" />
+                </span>
+                <span class="nxl-mtext">Reports</span>
+                <span class="nxl-arrow">
+                  <img src="../assets/user/images/report.svg" alt="D" />
+                </span>
+              </a>
+              <ul class="nxl-submenu">
+                <li class="nxl-item">
+                  <a class="nxl-link" href="referrals">My Referrals</a>
+                </li>
+                <li class="nxl-item">
+                  <a class="nxl-link" href="payouts">Payout History</a>
+                </li>
+                <li class="nxl-item">
+                  <a class="nxl-link" href="wallet-history">Wallet History</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nxl-item nxl-hasmenu">
+              <a href="leads.html" class="nxl-link">
+                <span class="nxl-micon">
+                  <img src="../assets/user/images/freelead.svg" alt="D" />
+                </span>
+                <span class="nxl-mtext">Free Leads</span>
+              </a>
+            </li>
+            <li class="nxl-item nxl-hasmenu">
+              <a href="trainings.html" class="nxl-link">
+                <span class="nxl-micon">
+                  <img src="../assets/user/images/training.svg" alt="D" />
+                </span>
+                <span class="nxl-mtext">Training</span>
+              </a>
+            </li>
+            <li class="nxl-item nxl-hasmenu">
+              <a href="webinars.html" class="nxl-link">
+                <span class="nxl-micon">
+                  <img src="../assets/user/images/webinar.svg" alt="D" />
+                </span>
+                <span class="nxl-mtext">Webinars</span>
+              </a>
+            </li>
+            <li class="nxl-item nxl-hasmenu">
+              <a href="offers.html" class="nxl-link">
+                <span class="nxl-micon">
+                  <img src="../assets/user/images/offers.svg" alt="D" />
+                </span>
+                <span class="nxl-mtext">Offers</span>
+              </a>
+            </li>
+            <li class="nxl-item nxl-hasmenu">
+              <a href="referral-offers.html" class="nxl-link">
+                <span class="nxl-micon">
+                  <img src="../assets/user/images/target.svg" alt="D" />
+                </span>
+                <span class="nxl-mtext">Earning Target</span>
+              </a>
+            </li>
+            <li class="nxl-item nxl-hasmenu">
+              <a href="community.html" class="nxl-link">
+                <span class="nxl-micon">
+                  <img src="../assets/user/images/group.svg" alt="D" />
+                </span>
+                <span class="nxl-mtext">Community Links</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!--! ================================================================ !-->
+    <!--! [End] Navigation Menu !-->
+    <!--! ================================================================ !-->
+
+    <!--! ================================================================ !-->
+    <!--! [Start] Header !-->
+    <!--! ================================================================ !-->
+    <header
+      class="nxl-header"
+      style="
+        margin-left: 2rem;
+        background-color: #f3f4f600;
+        margin-top: 2rem;
+        border-radius: 1rem;
+      "
+    >
+      <div
+        class="header-wrapper"
+        style="
+          background: #ffffff;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+          border-radius: 1rem;
+          width: 98%;
+          box-shadow: 0 4px 8px rgba(106, 13, 173, 0.23);
+        "
+      >
+        <!--! [Start] Header Left !-->
+        <div class="header-left d-flex align-items-center w-50">
+          <!--! [Start] nxl-head-mobile-toggler !-->
+          <img
+            src="../favicon.png"
+            alt=""
+            class="d-md-none"
+            style="width: 100%"
+          />
+        </div>
+
+        <div class="header-right ms-auto">
+          <div class="d-flex justify-content-end align-items-center">
+            <div class="dropdown nxl-h-item">
+              <a
+                href="javascript:void(0);"
+                data-bs-toggle="dropdown"
+                role="button"
+                data-bs-auto-close="outside"
+              >
+                <!-- 🟢 User image coming from backend -->
+                <img
+                  src="{{ user.profile_image_url }}"
+                  alt="user-image"
+                  class="rounded-circle img-fluid user-avtar me-0"
+                  style="width: 40px; height: 40px"
+                  onerror="this.onerror=null; this.src='SOURCE LINK TEJAS'"
+                />
+                <img src="../assets/user/images/dropdown.svg" alt="" />
+              </a>
+              <div
+                class="dropdown-menu dropdown-menu-end nxl-h-dropdown nxl-user-dropdown"
+                style="border-radius: 15px; overflow: hidden"
+              >
+                <div class="dropdown-header">
+                  <div class="d-flex align-items-center">
+                    <!-- 🟢 User profile image from backend -->
+                    <img
+                      src="{{ user.profile_image_url }}"
+                      alt="user-imfage"
+                      class="rounded-circle img-fluid user-avtar me-0"
+                      style="width: 40px; height: 40px"
+                      onerror="this.onerror=null; this.src='SOURCE LINK TEJAS'"
+                    />
+                    <div>
+                      <!-- 🟢 User name from backend -->
+                      <h6 class="text-dark mb-0">
+                        {{ user.name }}
+                        <span class="badge bg-soft-success text-success ms-1"
+                          >Online</span
+                        >
+                      </h6>
+                      <!-- 🟢 User email from backend -->
+                      <span class="fs-12 fw-medium text-muted"
+                        >{{ user.email }}</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="dropdown">
+                  <a
+                    href="javascript:void(0);"
+                    class="dropdown-item"
+                    data-bs-toggle="dropdown"
+                  >
+                    <span class="hstack">
+                      <i
+                        class="wd-10 ht-10 border border-2 border-gray-1 bg-success rounded-circle me-2"
+                      ></i>
+                      <!-- 🟢 User package from backend -->
+                      <span>{{ user.package_name }}</span>
+                    </span>
+                  </a>
+                </div>
+                <div class="dropdown-divider"></div>
+
+                <a href="profile.html" class="dropdown-item">
+                  <i class="feather-user"></i>
+                  <span>Profile Details</span>
+                </a>
+
+                <a href="profile.html" class="dropdown-item">
+                  <i class="feather-shield"></i>
+                  <span>Security Setting</span>
+                </a>
+
+                <div class="dropdown-divider"></div>
+
+                <a
+                  href="javascript:void(0);"
+                  class="dropdown-item ls-btn mt-3"
+                  id="logout-btn"
+                >
+                  <i class="feather-log-out"></i>
+                  <span>Logout</span>
+                </a>
+              </div>
+            </div>
+
+            <a
+              href="javascript:void(0);"
+              class="nxl-head-mobile-toggler"
+              id="mobile-collapse"
+              style="margin-left: 10px; font-size: 22px"
+            >
+            <img src="../assets/user/images/menu_toggle.svg" alt="V" style="color: black;">
+            </a>
+          </div>
+        </div>
+
+        <!--! [End] Header Right !-->
+      </div>
+    </header>
+    <!--! ================================================================ !-->
+    <!--! [End] Header !-->
+    <!--! ================================================================ !-->
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+      .counter {
+        color: #fff;
+        font-size: 24px !important;
+      }
+
+      .dash2Counter {
+        font-size: 24px !important;
+      }
+
+      #referralChart {
+        width: 100% !important;
+        height: 350px !important;
+        margin: 20px auto;
+      }
+
+      @media (max-width: 767px) {
+        #referralChart {
+          width: 100% !important;
+          height: 280px !important;
+        }
+      }
+
+      .profile-bg {
+        position: relative;
+        overflow: hidden;
+        border-radius: 5px;
+        z-index: 1;
+        padding: 8px 15px;
+        border-radius: 10px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+
+      .profile-bg::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("../assets/images/background/breadcrumb_bg.jpg");
+        background-position: center;
+        background-size: cover;
+        transform: rotate(180deg);
+        z-index: -1;
+        /*rotate: 180deg;*/
+        opacity: 0.5;
+      }
+
+      .rank {
+        display: inline-block;
+        background-color: #4b33d1e6;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 400;
+        padding: 2px 6px;
+        border-radius: 5px;
+      }
+
+      .dash-uname {
+        font-size: 18px;
+        color: #000;
+      }
+
+      @media (max-width: 767px) {
+        .dash-uname {
+          font-size: 16px;
+        }
+      }
+
+      .greet {
+        color: #000;
+        font-size: 15px;
+        font-weight: 500;
+      }
+
+      @media (max-width: 767px) {
+        .greet {
+          font-size: 14px;
+        }
+      }
+
+      .custom-card-action {
+        position: relative;
+        min-height: 400px;
+        padding: 1rem;
+      }
+
+      .u-img {
+        border: 2px solid #fff !important;
+      }
+
+      .bx {
+        font-size: 22px !important;
+      }
+
+      @media (max-width: 480px) {
+        .custom-card-action {
+          min-height: 300px;
+          padding: 0.5rem;
+        }
+        .card-title {
+          font-size: 14px;
+        }
+      }
+
+      .card-body {
+        padding: 20px;
+        border: 2px solid white;
+        color: white;
+        background-size: cover;
+        background-repeat: no-repeat;
+        animation: slideBackground 5s linear infinite alternate !important;
+      }
+
+      @keyframes slideBackground {
+        0%,
+        100% {
+          background-position: 0 0;
+        }
+        50% {
+          background-position: 0 100%;
+        }
+      }
+    </style>
+
+    <!-- This is the main section -->
+    <br />
+    <main class="nxl-container">
+      <div class="nxl-content">
+        <div class="main-content">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <p class="greet mb-0">Welcome back, (name here)!</p>
+            <!-- tejas put the dynamiic  -->
+            <a href="#" onclick="changeDashboard()">
+              <img src="../assets/user/images/target.svg" alt="" />
+            </a>
+          </div>
+          <div
+            class="card radius-10"
+            style="border: 2px solid rgb(0, 0, 0, 0.2); overflow: hidden"
+          >
+            <div class="card-body profile-bg">
+              <div class="d-flex align-items-center">
+                <img
+                  src="{{USER IMAGE TEJAS}}"
+                  class="rounded-circle u-img"
+                  alt="user-image"
+                  width="90"
+                  height="90"
+                />
+
+                <div class="flex-grow-1 ms-3">
+                  <h5 class="mt-0 dash-uname">dynamic name</h5>
+                  <!-- tejas put the dynamiic  -->
+                  <p class="mb-0 rank">dynamic package name</p>
+                  <!-- HERE PROFILE -->
+                  <!-- tejas put the dynamiic  -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col-xxl-3 col-md-6 sb-earning-box">
+              <div class="earning-card">
+                <div class="icon-container">
+                  <img src="../assets/user/images/rupee.svg" alt="🤑" />
+                </div>
+                <div class="earning-info">
+                  <h5 class="counter">
+                    <span id="rupeeSymbol"></span>{{ todays_earning }}
+                  </h5>
+                  <span class="earning-label">Today's Earning</span>
+                  <!-- Backend: Load today's earnings dynamically -->
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xxl-3 col-md-6 sb-earning-box">
+              <div class="earning-card blue-gradient">
+                <div class="icon-container">
+                  <img src="../assets/user/images/rupee.svg" alt="🤑" />
+                </div>
+                <div class="earning-info">
+                  <h5 class="counter">
+                    <span id="rupeeSymbol"></span>{{ weekly_earning }}
+                  </h5>
+                  <span class="earning-label">Weekly Earning</span>
+                  <!-- Backend: Load weekly earnings dynamically -->
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xxl-3 col-md-6 sb-earning-box">
+              <div class="earning-card orange-gradient">
+                <div class="icon-container">
+                  <img
+                    src="../assets/user/images/rupee.svg"
+                    alt="Earnings Icon"
+                  />
+                </div>
+                <div class="earning-info">
+                  <h5 class="counter">
+                    <span id="rupeeSymbol"></span>{{ monthly_earning }}
+                  </h5>
+                  <span class="earning-label">Monthly Earning</span>
+                  <!-- Backend: Load monthly earnings dynamically -->
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xxl-3 col-md-6 sb-earning-box">
+              <div class="earning-card purple-gradient">
+                <div class="icon-container">
+                  <img src="../assets/user/images/rupee.svg" alt="🤑" />
+                </div>
+                <div class="earning-info">
+                  <h5 class="counter">
+                    <span id="rupeeSymbol"></span>{{ alltime_earning }}
+                  </h5>
+                  <span class="earning-label">All Time Earning</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xxl-12">
+              <div class="card stretch stretch-full">
+                <div class="card-header">
+                  <h5 class="card-title">Recent Sales Graph</h5>
+                </div>
+                <div class="card-body custom-card-action">
+                  <canvas
+                    id="salesChart"
+                    style="width: 100%; height: 300px"
+                  ></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- chart -->
+        </div>
+      </div>
+    </main>
+    <!-- THE MAIN SECTION ENDS UP HERE -->
+
+    <!-- TEJAS LOGOUT PART HAI  -->
+
+    <!-- CHAT GPT SUGGESTIONS 
+  • Replace /api/logout with your actual backend logout API.
+	•	Ensure your backend clears user sessions upon logout.
+	•	If using JWT authentication, clear the token on both frontend & backend. -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .querySelector("#logout-btn") // Use #logout-btn instead of .logout-btn
+          .addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent default link behavior
+
+            // TEJAS LINK OF API LOGOUT
+            fetch("/api/logout", {
+              method: "POST",
+              credentials: "include", // Send cookies for authentication
+              headers: {
+                "Content-Type": "application/json",
+                "X-Requested-With": "XMLHttpRequest",
+              },
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                if (data.status === "success") {
+                  // Clear frontend session (if using localStorage or cookies)
+                  localStorage.removeItem("userToken");
+                  localStorage.removeItem("userData");
+
+                  swal.fire({
+                    icon: "success",
+                    title: "Logged Out",
+                    text: "You have been logged out successfully.",
+                    showConfirmButton: false,
+                    timer: 1500,
+                  });
+
+                  setTimeout(() => {
+                    window.location.href = "/login"; // Redirect to login page
+                  }, 1500);
+                } else {
+                  swal.fire({
+                    icon: "error",
+                    title: "Logout Failed",
+                    text: data.message || "Something went wrong!",
+                    showConfirmButton: false,
+                    timer: 2000,
+                  });
+                }
+              })
+              .catch((error) => {
+                console.error("Logout Error:", error);
+                swal.fire({
+                  icon: "error",
+                  title: "Error",
+                  text: "Unable to process logout request.",
+                  showConfirmButton: false,
+                  timer: 2000,
+                });
+              });
+          });
+      });
+    </script>
+
+    <!-- // This is for counting effect of the rupees! -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        function formatNumber(num) {
+          return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        function counterUp(element, start = 0, end, duration = 2000) {
+          const range = end - start;
+          const startTime = performance.now();
+
+          function update() {
+            const elapsed = performance.now() - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const current = Math.floor(start + range * progress);
+            element.innerHTML = `${formatNumber(current)} /-`;
+            if (progress < 1) {
+              requestAnimationFrame(update);
+            }
+          }
+          requestAnimationFrame(update);
+        }
+        const counters = document.querySelectorAll(".counter");
+        counters.forEach((counter) => {
+          const value = parseInt(counter.textContent.replace(/[^\d]/g, ""));
+          counterUp(counter, 0, value);
+        });
+      });
+
+      // This is for converting it into lakhs and adding formatting how the pricing is represented
+      document.addEventListener("DOMContentLoaded", function () {
+        function formatNumber(num) {
+          return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        function formatInLakh(num) {
+          if (num >= 100000) {
+            return (num / 100000).toFixed(1) + "Lakh";
+          }
+          return formatNumber(num);
+        }
+
+        function dash2CounterUp(element, start = 0, end, duration = 2000) {
+          const range = end - start;
+          const startTime = performance.now();
+
+          function update() {
+            const elapsed = performance.now() - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const current = Math.floor(start + range * progress);
+            element.innerHTML = `${formatInLakh(current)}`;
+            if (progress < 1) {
+              requestAnimationFrame(update);
+            }
+          }
+          requestAnimationFrame(update);
+        }
+
+        // Animation part
+        const dash2Counters = document.querySelectorAll(".dash2Counter");
+        dash2Counters.forEach((dash2Counter) => {
+          const value = parseInt(
+            dash2Counter.textContent.replace(/[^\d]/g, "")
+          );
+          dash2CounterUp(dash2Counter, 0, value);
+        });
+      });
+
+      $(document).ready(function () {
+        var lastShown = localStorage.getItem("presentationModalShown");
+        var now = new Date().getTime();
+        if (!lastShown || now - lastShown > 86400000) {
+          var dashboardGuideModal = new bootstrap.Modal(
+            document.getElementById("presentationModal")
+          );
+          dashboardGuideModal.show();
+          localStorage.setItem("presentationModalShown", now);
+        }
+      });
+
+      // dashboard change
+      function changeDashboard() {
+        // The backend URL needs to be provided by the backend developer
+        // Replace the URL with the correct endpoint that handles the dashboard change
+        fetch("TEJAS CHANGE DASHBOARD URL", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+          },
+          body: JSON.stringify({
+            dashboard: "old", // Adjust this based on what data the backend needs to receive
+          }),
+        })
+          .then((response) => response.json()) // Handle the response from the backend
+          .then((data) => {
+            // The backend will return a status of success or failure
+            // The backend developer should make sure the response follows this structure
+            if (data.status == "success") {
+              // On success, show a success message
+              swal.fire({
+                icon: "success",
+                title: "Success",
+                text: data.message, // This message will be returned by the backend
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              setTimeout(function () {
+                // After success, reload the page or make changes to the frontend
+                window.location.reload();
+              }, 1500);
+            } else {
+              // On failure, show an error message
+              swal.fire({
+                icon: "error",
+                title: "Error",
+                text: data.message, // The error message from the backend
+                showConfirmButton: false,
+                timer: 1500,
+              });
+            }
+          })
+          .catch((error) => {
+            // If there's an issue with the network or the backend API, handle it here
+            swal.fire({
+              icon: "error",
+              title: "Network Error",
+              text: "There was an issue connecting to the backend. Please try again later.",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          });
+      }
+    </script>
+
+    <!-- implementing the chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("/user/getLast7DaysSalesData")
+          .then((response) => response.json())
+          .then((result) => {
+            if (result.status === "success") {
+              const ctx = document
+                .getElementById("salesChart")
+                .getContext("2d");
+
+              new Chart(ctx, {
+                type: "line",
+                data: {
+                  labels: result.data.map((item) => item.date),
+                  datasets: [
+                    {
+                      label: "Sales (Last 7 Days)",
+                      data: result.data.map((item) => item.amount),
+                      borderColor:
+                        "rgba(87, 81, 225, 1)" ,
+                      backgroundColor:
+                        "rgba(87, 81, 225, 0.2)" ,
+                      tension: 0.3,
+                      borderWidth: 3,
+                      pointRadius: 4,
+                      pointBackgroundColor: "#5751e1",
+                      pointBorderColor: "#fff",
+                      fill: true,
+                    },
+                  ],
+                },
+                options: {
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  plugins: {
+                    legend: {
+                      display: true,
+                      labels: {
+                        color: "#333",
+                        font: { size: 14, weight: "bold" },
+                      },
+                    },
+                  },
+                  scales: {
+                    x: {
+                      grid: { display: false },
+                      ticks: { color: "#333" },
+                    },
+                    y: {
+                      beginAtZero: true,
+                      ticks: {
+                        color: "#333",
+                        callback: (value) => "" + value,
+                      },
+                      grid: { color: "rgba(0, 0, 0, 0.1)" },
+                    },
+                  },
+                },
+              });
+            } else {
+              console.error("Error: Invalid response from API");
+            }
+          })
+          .catch((error) => {
+            console.error("Failed to fetch sales data:", error);
+          });
+      });
+    </script>
+
+    <script src="../assets/user/vendors/js/vendors.min.js"></script>
+    <!-- vendors.min.js {always must need to be top} -->
+    <script src="../assets/user/vendors/js/daterangepicker.min.js"></script>
+    <script src="../assets/user/vendors/js/apexcharts.min.js"></script>
+    <script src="../assets/user/vendors/js/jquery.time-to.min.js"></script>
+    <script src="../assets/user/vendors/js/circle-progress.min.js"></script>
+    <!--! END: Vendors JS !-->
+
+    <!--! BEGIN: Apps Init  !-->
+    <script src="../assets/user/js/common-init.min.js"></script>
+    <script src="../assets/user/js/dashboard-init.min.js"></script>
+    <script src="../assets/user/js/analytics-init.min.js"></script>
+    <!--! END: Apps Init !-->
+
+    <!--! BEGIN: Theme Customizer  !-->
+    <script src="../assets/user/js/theme-customizer-init.min.js"></script>
+    <!--! END: Theme Customizer !-->
+  </body>
+</html>
