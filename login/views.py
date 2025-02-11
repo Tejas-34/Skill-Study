@@ -20,7 +20,6 @@ import uuid
 
 
 
-
 def get_tokens_for_user(user):
     refresh = RefreshToken.for_user(user)
     RefreshTokenStore.objects.update_or_create(user=user, defaults={'token': str(refresh)})

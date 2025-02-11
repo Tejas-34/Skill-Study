@@ -13,6 +13,7 @@
     <!-- Place favicon.png.ico in the root directory -->
 
     <!-- CSS here -->
+     
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/animate.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/magnific-popup.css' %}" />
@@ -404,3 +405,29 @@
     </script>
   </body>
 </html>
+
+
+
+
+<script>
+
+import { API_BASE_URL } from "./config.js"; // Import the API base URL
+
+// Function to fetch data from an API endpoint
+function fetchData() {
+    fetch(`http://127.0.0.1:8000/test/`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    .then(response => response.json())  // Convert response to JSON
+    .then(data => alert(data.error))    // Handle the data
+    .catch(error => console.error("Error:", error)); // Handle errors
+}
+
+// Call the function when the page loads
+document.addEventListener("DOMContentLoaded", fetchData);
+
+  
+</script>

@@ -99,7 +99,13 @@
             <div class="details"><span>Product:</span> <span>{PACKAGE DETAILS}</span></div>
             <div class="details"><span>Amount:</span> <span>{DYNAMIC PRICING}</span></div>
         </div>
-        <a href="https://cosmofeed.com/vp/67a86d37aceb24001394af38" class="download-btn btn btn-success">Payment</a>
+
+        <form action="{% url 'create_payment' %}" method="POST" class="upload-section">
+            <h3>Upload Payment Receipt</h3>
+            <!-- hidden input -->
+            <input type="hidden" name="ref" value="{{user.referal_id}}">
+            <button type="submit" class="submit-btn btn btn-success">Submit</button>
+        </form>
     </div>
 </body>
 </html>

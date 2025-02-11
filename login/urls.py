@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import logout_user, user_profile, send_otp, verify_otp, index, regi, AboutUs, ContactUs, login, Register, create_payment, payment_success, RegisterM
+from .views import logout_user, user_profile, send_otp, verify_otp, index, regi, AboutUs, ContactUs, login, Register, create_payment, payment_success,RegisterM
 
 urlpatterns = [
 
@@ -17,8 +17,9 @@ urlpatterns = [
     path('about/', AboutUs, name='about'),
     path('contact/', ContactUs, name='contact'),
 
-    path('pay/', create_payment, name='cosmofeed_webhook'),
-    path('verPay/', payment_success, name='cosmofeed_webhook'),
+    path('pay/', create_payment, name='create_payment'),
+    path('verPay/', payment_success, name='cosmofeed_success'),
+
 
     
 

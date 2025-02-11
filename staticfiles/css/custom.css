@@ -1,0 +1,60 @@
+.navigation {
+  margin: 0 !important;
+  justify-content: end;
+}
+
+.si-logo {
+  width: 15%;
+}
+
+.courses__item-thumb img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.instructor__bg {
+  background-size: cover;
+  background-position: center;
+  padding: 200px 0 70px;
+  margin-top: -145px;
+  position: relative;
+  z-index: 1;
+}
+
+.faq__area {
+  background: var(--tg-common-color-gray);
+  padding: 80px 0 120px;
+  margin-top: 0px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.founder-img {
+  width: 75%;
+}
+
+.instructor__content-three {
+  margin-left: 0px;
+  margin-top: 40px;
+}
+
+.feedback-img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.instructor__thumb-three {
+  min-height: 365px;
+}
+@media (max-width: 767px) {
+  .si-logo {
+    width: 46%;
+  }
+  .founder-img {
+    width: 100%;
+  }
+}

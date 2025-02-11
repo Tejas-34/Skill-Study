@@ -18,9 +18,15 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, name, phone, password=None, **extra_fields):
-        extra_fields.setdefault('is_staff', True)
-        extra_fields.setdefault('is_superuser', True)
+    def create_superuser(self, email, name=None, phone=None, password=None, **extra_fields):
+        extra_fields.setdefault("is_staff", True)
+        extra_fields.setdefault("is_superuser", True)
+
+        if name is None:
+            name = "Admin"
+        if phone is None:
+            phone = "0000000000"
+
         return self.create_user(email, name, phone, password, **extra_fields)
 
 
@@ -30,7 +36,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     name = models.CharField(max_length=255)
     phone = models.BigIntegerField(unique=True, db_index=True)
     email = models.EmailField(unique=True, db_index=True)
-    package = models.CharField(max_length=255, blank=True, null=True)
+    package = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     is_verified = models.BooleanField(default=False)
@@ -123,7 +129,10 @@ class Payment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     payment_id = models.CharField(max_length=100, unique=True)
     status = models.CharField(max_length=20, choices=[('pending', 'Pending'), ('completed', 'Completed')], default='pending')
+    amount = models.DecimalField(max_digits=12, decimal_places=2)
+    package = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
+
 
     def __str__(self):
         return f"{self.user.username} - {self.status}"

@@ -1,3 +1,6 @@
+
+{% loads static %}
+
 <!DOCTYPE html>
 <html lang="zxx">
   <head>
@@ -19,23 +22,28 @@
       rel="stylesheet"
       type="text/css"
       href="../assets/css/bootstrap.min.css"
+
     />
     <!--! END: Bootstrap CSS-->
     <!--! BEGIN: Vendors CSS-->
     <link
       rel="stylesheet"
       type="text/css"
-      href="../assets/user/vendors/css/vendors.min.css"
+      href="{% static 'user/vendors/css/vendors.min.css' %}"
+
     />
     <link
       rel="stylesheet"
       type="text/css"
-      href="../assets/user/vendors/css/daterangepicker.min.css"
+      href="{% static 'user/vendors/css/daterangepicker.min.css' %}"
+    
+   
     />
     <link
       rel="stylesheet"
       type="text/css"
-      href="../assets/user/vendors/css/jquery-jvectormap.min.css"
+      href="{% static 'user/vendors/css/jquery-jvectormap.min.css' %}"
+      
     />
     <link
       rel="stylesheet"

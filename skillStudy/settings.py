@@ -13,6 +13,15 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import os
 from datetime import timedelta
+from environ import Env
+import dj_database_url
+
+env = Env()
+Env.read_env()
+Environment=env('ENVIRONMENT', default='production')
+
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,12 +31,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-6v%@ag9ks#-+8ivbm2y3y076f4+*trca57ttd*3f)c7+n%254z"
+SECRET_KEY = env('SECRET_KEY')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if Environment == 'production':
+    DEBUG = True
+else:
+    DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -42,6 +55,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     "login",
+    "dj_database_url",
 ]
 
 REST_FRAMEWORK = {
@@ -58,6 +72,7 @@ SIMPLE_JWT = {
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -90,17 +105,19 @@ WSGI_APPLICATION = "skillStudy.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "skill-Study",
-        "USER": "tejas",
-        "PASSWORD": "1234",
-        "HOST": "localhost",
-        "PORT": "5432",
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'skill-study.sqlite3',
     }
 }
 
+
+POSTGRES_LOCALLY = True
+if Environment == 'production' or POSTGRES_LOCALLY==True:
+    DATABASES['default'] = dj_database_url.parse(env('DATABASE_URL'))
 
 
 
@@ -144,6 +161,10 @@ STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")  # For production (collectstatic)
 
 
@@ -151,6 +172,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")  # For production (collectst
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
