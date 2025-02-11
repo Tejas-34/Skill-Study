@@ -40,7 +40,7 @@ if Environment == 'production':
 else:
     DEBUG = False
 
-ALLOWED_HOSTS = ['hmoyr9vp.up.railway.app', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['skill-study-production.up.railway.app', '127.0.0.1', 'localhost']
 CSRF_TRUSTED_ORIGINS = ['https://hmoyr9vp.up.railway.app']
 
 # Application definition
