@@ -1,1 +1,1 @@
-web: gunicorn skillStudy.wsgi
+gunicorn --bind 0.0.0.0:$PORT skillStudy.wsgi
