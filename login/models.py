@@ -7,6 +7,7 @@ from datetime import date
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 import uuid
 from django.utils.timezone import now
+from django.core.files.storage import default_storage
 
 class UserManager(BaseUserManager):
     def create_user(self, email, name, phone, password=None, **extra_fields):
@@ -73,8 +74,17 @@ class Profile(models.Model):
     dob = models.DateField( blank=True, default=date.today)
     pro_photo = models.ImageField(upload_to='profile_pics/', null=True, blank=True)
 
+    def delete(self, *args, **kwargs):
+        """
+        Delete profile photo from storage when the profile is deleted.
+        """
+        if self.pro_photo and default_storage.exists(self.pro_photo.name):
+            default_storage.delete(self.pro_photo.name)
+        super().delete(*args, **kwargs)
     def __str__(self):
         return f"Profile of {self.user.name}"
+    
+
 
 
 class KYC(models.Model):

@@ -1,925 +1,622 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="zxx">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="noindex, nofollow" />
-    <meta name="description" content="" />
-    <meta name="keyword" content="" />
-    <meta name="author" content="flexilecode" />
-    <!--! BEGIN: Apps Title-->
-    <title>Profile || SKILL-STUDY</title>
-    <!--! END:  Apps Title-->
-    <!--! BEGIN: Favicon-->
-    <link rel="shortcut icon" type="image/x-icon" href="../favicon.png" />
-    <!--! END: Favicon-->
-    <!--! BEGIN: Bootstrap CSS-->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="../assets/css/bootstrap.min.css"
-    />
-    <!--! END: Bootstrap CSS-->
-    <!--! BEGIN: Vendors CSS-->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="../assets/user/vendors/css/vendors.min.css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="../assets/user/vendors/css/daterangepicker.min.css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="../assets/user/vendors/css/jquery-jvectormap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="../assets/user/vendors/css/select2.min.css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="../assets/user/vendors/css/select2-theme.min.css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="../assets/user/vendors/css/jquery.time-to.min.css"
-    />
-    <!--! END: Vendors CSS-->
-    <!--! BEGIN: Custom CSS-->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="../assets/user/css/theme.min.css"
-    />
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../assets/user/css/mainu.css">
-    <style>
 
-    </style>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="" />
+  <meta name="keyword" content="" />
+  <meta name="author" content="flexilecode" />
+  <!--! BEGIN: Apps Title-->
+  <title>Profile || SKILL-STUDY</title>
+  <!--! END:  Apps Title-->
+  <!--! BEGIN: Favicon-->
+  <link rel="shortcut icon" type="image/x-icon" href="../favicon.png" />
+  <!--! END: Favicon-->
+  <!--! BEGIN: Bootstrap CSS-->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" />
+  <!--! END: Bootstrap CSS-->
+  <!--! BEGIN: Vendors CSS-->
+  <link rel="stylesheet" type="text/css" href="{% static 'user/vendors/css/vendors.min.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'user/vendors/css/daterangepicker.min.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'user/vendors/css/jquery-jvectormap.min.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'user/vendors/css/select2min.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'user/vendors/css/select2-theme.min.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'user/vendors/css/jquery.time-to.min.css' %}" />
+  <!--! END: Vendors CSS-->
+  <!--! BEGIN: Custom CSS-->
+  <link rel="stylesheet" type="text/css" href="{% static 'user/css/theme.min.css' %}" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'user/css/mainu.css' %}" />
+  <style>
 
-    
-  </head>
+  </style>
 
-  <body>
-    <!--! ================================================================ !-->
-    <!--! [Start] Navigation Manu !-->
-    <!--! ================================================================ !-->
-    <nav class="nxl-navigation">
-      <div class="navbar-wrapper">
-        <div class="m-header">
-          <a href="../favicon.png" class="b-brand">
-            <img src="../favicon.png" alt="logo" class="logo logo-lg" />
-            <img src="../favicon.png" alt="logo" class="logo logo-sm" />
-          </a>
-        </div>
-        <div class="navbar-content">
-          <ul class="nxl-navbar">
-            <li class="nxl-item nxl-hasmenu">
-              <a href="dashboard.html" class="nxl-link">
-                <span class="nxl-micon">
-                  <img src="../assets/user/images/dash.svg" alt="D" />
-                </span>
-                <span class="nxl-mtext">Dashboard</span>
-              </a>
-            </li>
-            <li class="nxl-item nxl-hasmenu">
-              <a href="profile.html" class="nxl-link">
-                <span class="nxl-micon">
-                  <img src="../assets/user/images/profile.svg" alt="" />
-                </span>
-                <span class="nxl-mtext">My Profile</span>
-              </a>
-            </li>
-            <li class="nxl-item nxl-hasmenu">
-              <a href="affiliate-links.html" class="nxl-link">
-                <span class="nxl-micon">
-                  <img src="../assets/user/images/link.svg" alt="D" />
-                </span>
-                <span class="nxl-mtext">Affiliate Link</span>
-              </a>
-            </li>
-            <li class="nxl-item nxl-hasmenu">
-              <a href="courses.html" class="nxl-link">
-                <span class="nxl-micon">
-                  <img src="../assets/user/images/course.svg" alt="D" />
-                </span>
-                <span class="nxl-mtext">My Courses</span>
-              </a>
-            </li>
-            <li class="nxl-item nxl-hasmenu">
-              <a href="upgrade.html" class="nxl-link">
-                <span class="nxl-micon">
-                  <img src="../assets/user/images/upgrade.svg" alt="D" />
-                </span>
-                <span class="nxl-mtext">Upgrade</span>
-              </a>
-            </li>
-            <li class="nxl-item nxl-hasmenu">
-              <a href="leaderboard.html" class="nxl-link">
-                <span class="nxl-micon">
-                  <img src="../assets/user/images/leaderboard.svg" alt="D" />
-                </span>
-                <span class="nxl-mtext">Leaderboard</span>
-              </a>
-            </li>
-            <li class="nxl-item nxl-hasmenu">
-              <a href="my-team.html" class="nxl-link">
-                <span class="nxl-micon">
-                  <img src="../assets/user/images/team.svg" alt="D" />
-                </span>
-                <span class="nxl-mtext">My Team</span>
-              </a>
-            </li>
-            <li class="nxl-item nxl-hasmenu">
-              <a href="javascript:void(0);" class="nxl-link">
-                <span class="nxl-micon">
-                  <img src="../assets/user/images/team.svg" alt="D" />
-                </span>
-                <span class="nxl-mtext">Reports</span>
-                <span class="nxl-arrow">
-                  <img src="../assets/user/images/report.svg" alt="D" />
-                </span>
-              </a>
-              <ul class="nxl-submenu">
-                <li class="nxl-item">
-                  <a class="nxl-link" href="referrals">My Referrals</a>
-                </li>
-                <li class="nxl-item">
-                  <a class="nxl-link" href="payouts">Payout History</a>
-                </li>
-                <li class="nxl-item">
-                  <a class="nxl-link" href="wallet-history">Wallet History</a>
-                </li>
-              </ul>
-            </li>
-            <li class="nxl-item nxl-hasmenu">
-              <a href="leads.html" class="nxl-link">
-                <span class="nxl-micon">
-                  <img src="../assets/user/images/freelead.svg" alt="D" />
-                </span>
-                <span class="nxl-mtext">Free Leads</span>
-              </a>
-            </li>
-            <li class="nxl-item nxl-hasmenu">
-              <a href="trainings.html" class="nxl-link">
-                <span class="nxl-micon">
-                  <img src="../assets/user/images/training.svg" alt="D" />
-                </span>
-                <span class="nxl-mtext">Training</span>
-              </a>
-            </li>
-            <li class="nxl-item nxl-hasmenu">
-              <a href="webinars.html" class="nxl-link">
-                <span class="nxl-micon">
-                  <img src="../assets/user/images/webinar.svg" alt="D" />
-                </span>
-                <span class="nxl-mtext">Webinars</span>
-              </a>
-            </li>
-            <li class="nxl-item nxl-hasmenu">
-              <a href="offers.html" class="nxl-link">
-                <span class="nxl-micon">
-                  <img src="../assets/user/images/offers.svg" alt="D" />
-                </span>
-                <span class="nxl-mtext">Offers</span>
-              </a>
-            </li>
-            <li class="nxl-item nxl-hasmenu">
-              <a href="referral-offers.html" class="nxl-link">
-                <span class="nxl-micon">
-                  <img src="../assets/user/images/target.svg" alt="D" />
-                </span>
-                <span class="nxl-mtext">Earning Target</span>
-              </a>
-            </li>
-            <li class="nxl-item nxl-hasmenu">
-              <a href="community.html" class="nxl-link">
-                <span class="nxl-micon">
-                  <img src="../assets/user/images/group.svg" alt="D" />
-                </span>
-                <span class="nxl-mtext">Community Links</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!--! ================================================================ !-->
-    <!--! [End] Navigation Menu !-->
-    <!--! ================================================================ !-->
+</head>
 
-    <!--! ================================================================ !-->
-    <!--! [Start] Header !-->
-    <!--! ================================================================ !-->
-    <header
-      class="nxl-header"
-      style="
-        margin-left: 2rem;
-        background-color: #f3f4f600;
-        margin-top: 2rem;
-        border-radius: 1rem;
-      "
-    >
-      <div
-        class="header-wrapper"
-        style="
-          background: #ffffff;
-          border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-          border-radius: 1rem;
-          width: 98%;
-        "
-      >
-        <!--! [Start] Header Left !-->
-        <div class="header-left d-flex align-items-center w-50">
-          <!--! [Start] nxl-head-mobile-toggler !-->
-          <img
-            src="../favicon.png"
-            alt=""
-            class="d-md-none"
-            style="width: 100%"
-          />
-        </div>
+<body>
+  <!--! ================================================================ !-->
+  <!--! [Start] Navigation Manu !-->
+  <!--! ================================================================ !-->
+  {% include 'user/usernav.html' %}
+  <!--! ================================================================ !-->
+  <!--! [End] Navigation Menu !-->
+  <!--! ================================================================ !-->
 
-        <div class="header-right ms-auto">
-          <div class="d-flex justify-content-end align-items-center">
-            <div class="dropdown nxl-h-item">
-              <a
-                href="javascript:void(0);"
-                data-bs-toggle="dropdown"
-                role="button"
-                data-bs-auto-close="outside"
-              >
-                <!-- 🟢 User image coming from backend -->
-                <img
-                  src="{{ user.profile_image_url }}"
-                  alt="user-image"
-                  class="rounded-circle img-fluid user-avtar me-0"
-                  style="width: 40px; height: 40px"
-                  onerror="this.onerror=null; this.src='SOURCE LINK TEJAS'"
-                />
-              </a>
-              <div
-                class="dropdown-menu dropdown-menu-end nxl-h-dropdown nxl-user-dropdown"
-                style="border-radius: 15px; overflow: hidden"
-              >
-                <div class="dropdown-header">
-                  <div class="d-flex align-items-center">
-                    <!-- 🟢 User profile image from backend -->
-                    <img
-                      src="{{ user.profile_image_url }}"
-                      alt="user-image"
-                      class="rounded-circle img-fluid user-avtar me-0"
-                      style="width: 40px; height: 40px"
-                      onerror="this.onerror=null; this.src='SOURCE LINK TEJAS'"
-                    />
-                    <div>
-                      <!-- 🟢 User name from backend -->
-                      <h6 class="text-dark mb-0">
-                        {{ user.name }}
-                        <span class="badge bg-soft-success text-success ms-1"
-                          >Online</span
-                        >
-                      </h6>
-                      <!-- 🟢 User email from backend -->
-                      <span class="fs-12 fw-medium text-muted"
-                        >{{ user.email }}</span
-                      >
-                    </div>
-                  </div>
-                </div>
-                <div class="dropdown">
-                  <a
-                    href="javascript:void(0);"
-                    class="dropdown-item"
-                    data-bs-toggle="dropdown"
-                  >
-                    <span class="hstack">
-                      <i
-                        class="wd-10 ht-10 border border-2 border-gray-1 bg-success rounded-circle me-2"
-                      ></i>
-                      <!-- 🟢 User package from backend -->
-                      <span>{{ user.package_name }}</span>
-                    </span>
-                  </a>
-                </div>
-                <div class="dropdown-divider"></div>
+  <!--! ================================================================ !-->
+  <!--! [Start] Header !-->
+  <!--! ================================================================ !-->
+  {% include 'user/header.html' %}
+  <!--! ================================================================ !-->
+  <!--! [End] Header !-->
+  <!--! ================================================================ !-->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-                <a href="profile.html" class="dropdown-item">
-                  <i class="feather-user"></i>
-                  <span>Profile Details</span>
-                </a>
+  <!-- MAIN CONTAINER -->
+  <!-- MAIN CONTAINER -->
+  <br />
+  <main class="nxl-container">
+    <div class="nxl-content">
+      <div class="main-content">
+        <h2>Profile</h2>
+        <hr />
 
-                <a href="profile.html" class="dropdown-item">
-                  <i class="feather-shield"></i>
-                  <span>Security Setting</span>
-                </a>
-
-                <div class="dropdown-divider"></div>
-
-                <a
-                  href="javascript:void(0);"
-                  class="dropdown-item ls-btn mt-3"
-                  id="logout-btn"
-                >
-                  <i class="feather-log-out"></i>
-                  <span>Logout</span>
-                </a>
-              </div>
-            </div>
-
-            <a
-              href="javascript:void(0);"
-              class="nxl-head-mobile-toggler"
-              id="mobile-collapse"
-              style="margin-left: 10px; font-size: 22px"
-            >
-            <img src="../assets/user/images/menu_toggle.svg" alt="V" style="color: black;">
-            </a>
-          </div>
-        </div>
-
-        <!--! [End] Header Right !-->
-      </div>
-    </header>
-    <!--! ================================================================ !-->
-    <!--! [End] Header !-->
-    <!--! ================================================================ !-->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <!-- MAIN CONTAINER -->
-    <!-- MAIN CONTAINER -->
-    <br />
-    <main class="nxl-container">
-      <div class="nxl-content">
-        <div class="main-content">
-          <h2>Profile</h2>
-          <hr />
-          <div class="row">
-            <div class="col-xxl-4 col-xl-6">
-              <div class="card">
-                <div class="card-body p-0">
-                  <div
-                    style="
+        <div class="row">
+          <!-- from this profile is started  -->
+          <div class="col-xxl-4 col-xl-6">
+            <div class="card">
+              <div class="card-body p-0">
+                <div style="
                       border-radius: 15px 15px 0 0;
                       padding: 20px 20px 1px 20px;
-                    "
-                  >
-                    <div class="mb-3 text-center">
-                      <div class="wd-150 ht-150 mx-auto mb-3 position-relative">
-                        <div
-                          class="avatar-image wd-150 ht-150 border border-5 border-gray-3"
-                        >
-                          <!-- Backend: Load user profile picture -->
-                          <!-- Backend: Profile picture URL -->
-                          <img
-                            src="{{ user.profileImageUrl }}"
-                            alt="user profile image"
-                            class="img-fluid"
-                          />
-                        </div>
-                        <div
-                          class="wd-10 ht-10 text-success rounded-circle position-absolute translate-middle"
-                          style="top: 76%; right: 10px"
-                        >
-                          <i class="bi bi-patch-check-fill"></i>
-                        </div>
+                    ">
+                  <div class="mb-3 text-center">
+                    <div class="wd-150 ht-150 mx-auto mb-3 position-relative">
+                      <div class="avatar-image wd-150 ht-150 border border-5 border-gray-3">
+                        <!-- Backend: Load user profile picture -->
+                        <!-- Backend: Profile picture URL -->
+                        <img src="{{ user.profileImageUrl }}" alt="user profile image" class="img-fluid" />
                       </div>
-                      <div class="mb-4">
-                        <!-- Backend: Load user name -->
-                        <a
-                          href="javascript:void(0);"
-                          class="fs-14 fw-bold d-block"
-                          >{{ username }}</a
-                        >
-                        <!-- Backend: User name -->
-
-                        <!-- Backend: Load user email dynamically from the database -->
-                        <!-- Backend: Load user email dynamically from the database -->
-                        <a
-                          href="javascript:void(0);"
-                          class="fs-12 fw-normal text-muted d-block"
-                        >
-                          {{ user_email }}
-                          <!-- This should be populated dynamically from the backend -->
-                        </a>
-                        <!-- Backend: User email -->
+                      <div class="wd-10 ht-10 text-success rounded-circle position-absolute translate-middle"
+                        style="top: 76%; right: 10px">
+                        <i class="bi bi-patch-check-fill"></i>
                       </div>
                     </div>
-                  </div>
-                  <div style="padding: 20px 20px 0 20px">
-                    <ul class="list-unstyled mb-4">
-                      <!-- USER SI CODE  -->
-                      <!-- USER SI CODE  -->
-                      <li class="hstack justify-content-between mb-3">
-                        <span class="text-muted fw-medium hstack gap-3">
-                          <img src="../assets/user/images/copy.svg" alt="C" />
-                          SI Code
-                        </span>
-                        <!-- Backend: Load unique SI code dynamically for the logged-in user -->
-                        <a
-                          href="javascript:void(0);"
-                          class="float-end"
-                          id="copyRefCode"
-                        >
-                          {{ user_si_code }}
-                          <!-- This should be dynamically loaded from the backend -->
-                          &nbsp;&nbsp;<img
-                            src="../assets/user/images/copy.svg"
-                            alt="C"
-                          />
-                        </a>
-                      </li>
+                    <div class="mb-4">
+                      <!-- Backend: Load user name -->
+                      <a href="javascript:void(0);" class="fs-14 fw-bold d-block">{{ username }}</a>
+                      <!-- Backend: User name -->
 
-                      <!-- USER PACKAGE NAME -->
-                      <li class="hstack justify-content-between mb-3">
-                        <span class="text-muted fw-medium hstack gap-3">
-                          <i class="feather-bookmark"></i>Package
-                        </span>
-
-                        <!-- Backend: Fetch and display the user's subscribed package type -->
-                        <a href="javascript:void(0);" class="float-end">
-                          {{ user_package }}
-                          <!-- This should be dynamically populated from the backend -->
-                        </a>
-
-                        <!-- Backend: Ensure that the correct package type (e.g., Diamond, Gold, Silver) is retrieved from the database -->
-                      </li>
-
-                      <li class="hstack justify-content-between mb-3">
-                        <span class="text-muted fw-medium hstack gap-3"
-                          ><i class="feather-file-text"></i>Kyc Status</span
-                        >
-                        <a href="javascript:void(0);" class="float-end"></a>
-                        <!-- Backend: Load KYC status -->
-                      </li>
-                      <li class="hstack justify-content-between mb-0">
-                        <span class="text-muted fw-medium hstack gap-3"
-                          ><i class="feather-user"></i>Sponsor</span
-                        >
-
-                        <!-- Backend: Load sponsor name dynamically for the logged-in user -->
-                        <a href="javascript:void(0);" class="float-end">
-                          {{ sponsor_name }}
-                          <!-- This should be dynamically loaded from the backend -->
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                  <hr />
-                  <div style="padding: 15px 20px 20px 20px">
-                    <div
-                      class="fs-12 fw-normal text-muted text-center d-flex flex-wrap gap-3"
-                    >
-                      <!-- Backend: Load wallet balance dynamically -->
-                      <div
-                        class="flex-fill py-3 px-4 rounded-4 border border-dashed border-gray-5"
-                      >
-                        <h6 class="fs-15 fw-bolder">{{ wallet_balance }}</h6>
-                        <p class="fs-12 text-muted mb-0">Wallet Balance</p>
-                        <!-- Backend: Fetch the wallet balance from the database based on the logged-in user -->
-                      </div>
-
-                      <!-- Backend: Load pending withdrawal amount dynamically -->
-                      <div
-                        class="flex-fill py-3 px-4 rounded-4 border border-dashed border-gray-5"
-                      >
-                        <h6 class="fs-15 fw-bolder">
-                          {{ pending_withdrawal }}
-                        </h6>
-                        <p class="fs-12 text-muted mb-0">Pending Withdrawal</p>
-                        <!-- Backend: Fetch the pending withdrawal amount from the transaction history -->
-                      </div>
-                    </div>
-                    <div class="d-flex gap-2 text-center pt-4">
-                      <a
-                        href="javascript:void(0);"
-                        class="w-50 btn ls-btn"
-                        data-bs-toggle="modal"
-                        data-bs-target="#withdrawalModel"
-                      >
-                        <span>Withdraw Amount</span>
+                      <!-- Backend: Load user email dynamically from the database -->
+                      <!-- Backend: Load user email dynamically from the database -->
+                      <a href="javascript:void(0);" class="fs-12 fw-normal text-muted d-block">
+                        {{ user_email }}
+                        <!-- This should be populated dynamically from the backend -->
                       </a>
-                      <a href="payout.html" class="w-50 btn ls-btn">
-                        <span>Payout History</span>
-                      </a>
+                      <!-- Backend: User email -->
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
+                <div style="padding: 20px 20px 0 20px">
+                  <ul class="list-unstyled mb-4">
+                    <!-- USER SI CODE  -->
+                    <!-- USER SI CODE  -->
+                    <li class="hstack justify-content-between mb-3">
+                      <span class="text-muted fw-medium hstack gap-3">
 
-            <!-- This part is over -->
-            <div class="col-xxl-8 col-xl-6">
-              <div class="card border-top-0">
-                <div class="card-header p-0">
-                  <!-- Nav tabs -->
-                  <ul
-                    class="nav nav-tabs flex-wrap w-100 text-center customers-nav-tabs"
-                    id="myTab"
-                    role="tablist"
-                  >
-                    <li
-                      class="nav-item flex-fill border-top"
-                      role="presentation"
-                    >
-                      <a
-                        href="javascript:void(0);"
-                        class="nav-link tab active show"
-                        data-bs-toggle="tab"
-                        data-bs-target="#overviewTab"
-                        role="tab"
-                        aria-selected="true"
-                        >Profile Details</a
-                      >
+                        <img src="{% static 'user/images/copy.svg' %}" alt="C" />
+                        SI Code
+                      </span>
+                      <!-- Backend: Load unique SI code dynamically for the logged-in user -->
+                      <a href="javascript:void(0);" class="float-end" id="copyRefCode">
+                        {{ user_si_code }}
+                        <!-- This should be dynamically loaded from the backend -->
+                        &nbsp;&nbsp;<img src="{% static 'user/images/copy.svg' %}" alt="C" />
+                      </a>
                     </li>
-                    <li
-                      class="nav-item flex-fill border-top"
-                      role="presentation"
-                    >
-                      <a
-                        href="javascript:void(0);"
-                        class="nav-link tab"
-                        data-bs-toggle="tab"
-                        data-bs-target="#kycTab"
-                        role="tab"
-                        aria-selected="false"
-                        >Kyc Details</a
-                      >
+
+                    <!-- USER PACKAGE NAME -->
+                    <li class="hstack justify-content-between mb-3">
+                      <span class="text-muted fw-medium hstack gap-3">
+                        <i class="feather-bookmark"></i>Package
+                      </span>
+
+                      <!-- Backend: Fetch and display the user's subscribed package type -->
+                      <a href="javascript:void(0);" class="float-end">
+                        {{ user_package }}
+                        <!-- This should be dynamically populated from the backend -->
+                      </a>
+
+                      <!-- Backend: Ensure that the correct package type (e.g., Diamond, Gold, Silver) is retrieved from the database -->
                     </li>
-                    <li
-                      class="nav-item flex-fill border-top"
-                      role="presentation"
-                    >
-                      <a
-                        href="javascript:void(0);"
-                        class="nav-link tab"
-                        data-bs-toggle="tab"
-                        data-bs-target="#changePasswordTab"
-                        role="tab"
-                        aria-selected="false"
-                        >Change Password</a
-                      >
+
+                    <li class="hstack justify-content-between mb-3">
+                      <span class="text-muted fw-medium hstack gap-3"><i class="feather-file-text"></i>Kyc Status</span>
+                      <a href="javascript:void(0);" class="float-end"></a>
+                      <!-- Backend: Load KYC status -->
+                    </li>
+                    <li class="hstack justify-content-between mb-0">
+                      <span class="text-muted fw-medium hstack gap-3"><i class="feather-user"></i>Sponsor</span>
+
+                      <!-- Backend: Load sponsor name dynamically for the logged-in user -->
+                      <a href="javascript:void(0);" class="float-end">
+                        {{ sponsor_name }}
+                        <!-- This should be dynamically loaded from the backend -->
+                      </a>
                     </li>
                   </ul>
                 </div>
-                <div class="tab-content">
-                  <div
-                    class="tab-pane fade p-4 active show"
-                    id="overviewTab"
-                    role="tabpanel"
-                  >
-                    <!-- tejas is form ka API -->
-                    <form
-                      action="/api/user/profile"
-                      method="POST"
-                      enctype="multipart/form-data"
-                      class="row g-3"
-                    >
-                      <!-- Profile photo here tejas -->
-                      <input type="hidden" name="csrf_token" value="PP" />
-                      <div class="col-12">
-                        <label for="image" class="form-label"
-                          >Profile Picture</label
-                        >
-                        <input
-                          type="file"
-                          name="image"
-                          class="form-control"
-                          aria-describedby="avatarhelp"
-                        />
-                        <small
-                          id="avatarhelp"
-                          class="form-text text-muted text-info"
-                          >Upload Your profile photo here.</small
-                        >
-                      </div>
-                      <div class="col-12">
-                        <label class="form-label">Name</label>
-                        <!-- TEJAS NAME FROM BACKEND -->
-                        <input
-                          type="text"
-                          name="name"
-                          value="NAME VALUE HERE"
-                          class="form-control"
-                          required
-                        />
-                      </div>
-                      <div class="col-12">
-                        <label class="form-label">Phone</label>
-                        <!-- TEJAS PHONE NUMBER VALUE HERE -->
-                        <input
-                          type="text"
-                          name="phone"
-                          value="PHONE NO."
-                          class="form-control"
-                          disabled
-                        />
-                      </div>
-                      <div class="col-12">
-                        <label class="form-label">Email ID</label>
-                        <!-- TEJAS EMAIL ID HERE -->
-                        <input
-                          type="email"
-                          name="email"
-                          value="EMAIL ID VALUE WHICH ENTERED"
-                          class="form-control"
-                          disabled
-                        />
-                      </div>
-                      <div class="col-3">
-                        <div class="d-grid">
-                          <input
-                            type="submit"
-                            class="btn ls-btn"
-                            value="Save Changes"
-                          />
-                        </div>
-                      </div>
-                    </form>
-                  </div>
 
-                  <!-- KYC Form -->
-                  <div class="tab-pane fade p-4" id="kycTab" role="tabpanel">
-                    <!-- API LOCATION TEJAS -->
-                    <form action="/user/kyc" method="POST" class="row g-3">
-                      <!-- 0b077113d423ca6fd9b8ee1308709f0d -->
-                      <input
-                        type="hidden"
-                        name="csrf_token"
-                        value="tejas the value here"
-                      />
-                      <!-- Backend: Collect and save KYC details like Bank Name, Holder Name, Account Number, etc. -->
-                      <div class="col-12">
-                        <label class="form-label">Bank Name</label>
-                        <input
-                          type="text"
-                          name="bank_name"
-                          class="form-control"
-                          required
-                        />
-                      </div>
-                      <div class="col-12">
-                        <label class="form-label">Holder Name</label>
-                        <input
-                          type="text"
-                          name="holder_name"
-                          class="form-control"
-                          required
-                        />
-                      </div>
-                      <div class="col-12">
-                        <label class="form-label">Ac. Number</label>
-                        <input
-                          type="number"
-                          name="account_number"
-                          class="form-control"
-                          required
-                        />
-                      </div>
-                      <div class="col-12">
-                        <label class="form-label">IFSC</label>
-                        <input
-                          type="text"
-                          name="ifsc"
-                          class="form-control"
-                          required
-                        />
-                      </div>
-                      <div class="col-3">
-                        <div class="d-grid">
-                          <input
-                            type="submit"
-                            class="btn ls-btn"
-                            value="Save Changes"
-                          />
-                        </div>
-                      </div>
-                    </form>
-                  </div>
+                <hr />
+                <div style="padding: 15px 20px 20px 20px">
+                  <div class="fs-12 fw-normal text-muted text-center d-flex flex-wrap gap-3">
+                    <!-- Backend: Load wallet balance dynamically -->
+                    <div class="flex-fill py-3 px-4 rounded-4 border border-dashed border-gray-5">
+                      <h6 class="fs-15 fw-bolder">{{ wallet_balance }}</h6>
+                      <p class="fs-12 text-muted mb-0">Wallet Balance</p>
+                      <!-- Backend: Fetch the wallet balance from the database based on the logged-in user -->
+                    </div>
 
-                  <!-- Change Password -->
-                  <div
-                    class="tab-pane fade p-4"
-                    id="changePasswordTab"
-                    role="tabpanel"
-                  >
-                    <form
-                      action="-- Replace this with the appropriate backend URL --"
-                      method="POST"
-                      class="row g-3"
-                    >
-                      <input
-                        type="hidden"
-                        name="csrf_token"
-                        value="- Placeholder for CSRF token injected by backend -"
-                      />
-                      <!-- Backend: Implement password change functionality -->
-                      <div class="col-12">
-                        <label class="form-label">Current Password</label>
-                        <input
-                          type="password"
-                          name="current_password"
-                          class="form-control"
-                          required
-                        />
-                      </div>
-                      <div class="col-12">
-                        <label class="form-label">New Password</label>
-                        <input
-                          type="password"
-                          name="new_password"
-                          class="form-control"
-                          required
-                        />
-                      </div>
-                      <div class="col-12">
-                        <label class="form-label">Confirm New Password</label>
-                        <input
-                          type="password"
-                          name="confirm_password"
-                          class="form-control"
-                          required
-                        />
-                      </div>
-                      <div class="col-3">
-                        <div class="d-grid">
-                          <input
-                            type="submit"
-                            class="btn ls-btn"
-                            value="Change Password"
-                          />
-                        </div>
-                      </div>
-                    </form>
+                    <!-- Backend: Load pending withdrawal amount dynamically -->
+                    <div class="flex-fill py-3 px-4 rounded-4 border border-dashed border-gray-5">
+                      <h6 class="fs-15 fw-bolder">
+                        {{ pending_withdrawal }}
+                      </h6>
+                      <p class="fs-12 text-muted mb-0">Pending Withdrawal</p>
+                      <!-- Backend: Fetch the pending withdrawal amount from the transaction history -->
+                    </div>
                   </div>
+                  <div class="d-flex gap-2 text-center pt-4">
+                    <a href="javascript:void(0);" class="w-50 btn ls-btn" data-bs-toggle="modal"
+                      data-bs-target="#withdrawalModel">
+                      <span>Withdraw Amount</span>
+                    </a>
+                    <a href="payout.html" class="w-50 btn ls-btn">
+                      <span>Payout History</span> 
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- This part is over -->
+          <div class="col-xxl-8 col-xl-6">
+            <div class="card border-top-0">
+              <div class="card-header p-0">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs flex-wrap w-100 text-center customers-nav-tabs" id="myTab" role="tablist">
+                  <li class="nav-item flex-fill border-top" role="presentation">
+                    <a href="javascript:void(0);" class="nav-link tab active show" data-bs-toggle="tab"
+                      data-bs-target="#overviewTab" role="tab" aria-selected="true">Profile Details</a>
+                  </li>
+                  <li class="nav-item flex-fill border-top" role="presentation">
+                    <a href="javascript:void(0);" class="nav-link tab" data-bs-toggle="tab" data-bs-target="#kycTab"
+                      role="tab" aria-selected="false">Kyc Details</a>
+                  </li>
+                  <li class="nav-item flex-fill border-top" role="presentation">
+                    <a href="javascript:void(0);" class="nav-link tab" data-bs-toggle="tab"
+                      data-bs-target="#changePasswordTab" role="tab" aria-selected="false">Change Password</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="tab-content">
+                <div class="tab-pane fade p-4 active show" id="overviewTab" role="tabpanel">
+
+
+                  <!-- this is a profile detail form -->
+
+
+                  <form id='profileForm' enctype="multipart/form-data" class="row g-3">
+                    <!-- Profile photo here tejas -->
+                    <input type="hidden" name="csrf_token" value="PP" />
+                    <div class="col-12">
+                      <label for="image" class="form-label">Profile Picture</label>
+                      <input type="file" name="image" class="form-control" aria-describedby="avatarhelp" />
+                      <small id="avatarhelp" class="form-text text-muted text-info">Upload Your profile photo
+                        here.</small>
+                    </div>
+
+                    <div class="col-12">
+                      <label class="form-label">Name</label>
+                      <!-- TEJAS NAME FROM BACKEND -->
+                      <input type="text" name="name" class="form-control" />
+                    </div>
+
+                    <div class="col-12">
+                      <label class="form-label">Phone</label>
+                      <p id="userPhonee" class="form-control r">Loading...</p>
+                    </div>
+
+                    <div class="col-12 update-email">
+                      <label class="form-label">Email ID</label>
+                      <p id="userEmaill" class="form-control">Loading...</p>
+                    </div>
+
+
+                    <div class="col-3">
+                      <div class="d-grid">
+                        <input type="submit" class="btn ls-btn" value="Save Changes" />
+                      </div>
+
+                    </div>
+
+                  </form>
+                </div>
+
+                <!-- KYC Form -->
+
+                <div class="tab-pane fade p-4" id="kycTab" role="tabpanel">
+                  <!-- API LOCATION TEJAS -->
+                  <form method="POST" class="row g-3">
+                    <!-- 0b077113d423ca6fd9b8ee1308709f0d -->
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token }}" />
+                    <!-- Backend: Collect and save KYC details like Bank Name, Holder Name, Account Number, etc. -->
+                    <div class="col-12">
+                      <label class="form-label">Bank Name</label>
+                      <input type="text" id="bank_name" name="bank_name" class="form-control" required />
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label">Holder Name</label>
+                      <input type="text" id="holder_name" name="holder_name" class="form-control" required />
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label">Ac. Number</label>
+                      <input type="number" id="account_number" name="account_number" class="form-control" required />
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label">IFSC</label>
+                      <input type="text" id="ifsc" name="ifsc" class="form-control" required />
+                    </div>
+
+                    <div class="col-3">
+                      <div class="d-grid">
+                        <input type="submit" class="btn ls-btn" value="Save Changes" />
+                      </div>
+                    </div>
+                  </form>
+                </div>
+
+                <!-- Change Password -->
+                <div class="tab-pane fade p-4" id="changePasswordTab" role="tabpanel">
+                  <form class="row g-3">
+                    <input type="hidden" name="csrf_token" value="- Placeholder for CSRF token injected by backend -" />
+                    <!-- Backend: Implement password change functionality -->
+                    <div class="col-12">
+                      <label class="form-label">Current Password</label>
+                      <input type="password" name="current_password" class="form-control" required />
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label">New Password</label>
+                      <input type="password" name="new_password" class="form-control" required />
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label">Confirm New Password</label>
+                      <input type="password" name="confirm_password" class="form-control" required />
+                    </div>
+                    <div class="col-3">
+                      <div class="d-grid">
+                        <input type="submit" class="btn ls-btn" value="Change Password" />
+                      </div>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </main>
-
-    <!-- Modal -->
-    <div
-      class="modal fade"
-      id="withdrawalModel"
-      tabindex="-1"
-      aria-labelledby="withdrawalModelLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1
-              class="modal-title"
-              id="withdrawalModelLabel"
-              style="font-size: 16px"
-            >
-              Request For Withdrawal
-            </h1>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <p>Minimum withdrawal: 500</p>
-            <!-- Tejas API -->
-            <form action="/api/user/withdraw" method="POST" class="row g-3">
-              <input
-                type="hidden"
-                name="csrf_token"
-                value="Tejas value idhar"
-              />
-              <div class="col-12">
-                <input
-                  type="number"
-                  name="amount"
-                  class="form-control"
-                  placeholder="Enter amount"
-                  required
-                />
-              </div>
-              <div class="col-12">
-                <input
-                  type="submit"
-                  class="btn ls-btn w-100"
-                  value="Submit Request"
-                />
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
     </div>
+  </main>
 
-    <div
-      class="modal fade"
-      id="bankDetails"
-      tabindex="-1"
-      aria-labelledby="bankDetailsLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1
-              class="modal-title"
-              id="bankDetailsLabel"
-              style="font-size: 16px"
-            >
-              Your Bank Details
-            </h1>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <div class="col-12 mb-3">
-              <label>Bank Name</label>
-              <input type="text" class="form-control" value="" readonly />
-            </div>
-            <div class="col-12 mb-3">
-              <label>Holder Name</label>
-              <input type="text" class="form-control" value="" readonly />
-            </div>
-            <div class="col-12 mb-3">
-              <label>Account Number</label>
-              <input type="text" class="form-control" value="" readonly />
-            </div>
-            <div class="col-12 mb-3">
-              <label>IFSC Code</label>
-              <input type="text" class="form-control" value="" readonly />
-            </div>
-            <div class="col-12 mb-3">
-              <label>UPI Id</label>
-              <input type="text" class="form-control" value="" readonly />
-            </div>
-            <div class="col-12 mb-3">
-              <label>Adhar No.</label>
-              <input type="text" class="form-control" value="" readonly />
+  <!-- Modal -->
+  <div class="modal fade" id="withdrawalModel" tabindex="-1" aria-labelledby="withdrawalModelLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title" id="withdrawalModelLabel" style="font-size: 16px">
+            Request For Withdrawal
+          </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Minimum withdrawal: 500</p>
+          <!-- Tejas API -->
+          <form action="/api/user/withdraw" method="POST" class="row g-3">
+            <input type="hidden" name="csrf_token" value="Tejas value idhar" />
+            <div class="col-12">
+              <input type="number" name="amount" class="form-control" placeholder="Enter amount" required />
             </div>
             <div class="col-12">
-              <label>Pan No.</label>
-              <input type="text" class="form-control" value="" readonly />
+              <input type="submit" class="btn ls-btn w-100" value="Submit Request" />
             </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="bankDetails" tabindex="-1" aria-labelledby="bankDetailsLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title" id="bankDetailsLabel" style="font-size: 16px">
+            Your Bank Details
+          </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="col-12 mb-3">
+            <label>Bank Name</label>
+            <input type="text" class="form-control" value="" readonly />
+          </div>
+          <div class="col-12 mb-3">
+            <label>Holder Name</label>
+            <input type="text" class="form-control" value="" readonly />
+          </div>
+          <div class="col-12 mb-3">
+            <label>Account Number</label>
+            <input type="text" class="form-control" value="" readonly />
+          </div>
+          <div class="col-12 mb-3">
+            <label>IFSC Code</label>
+            <input type="text" class="form-control" value="" readonly />
+          </div>
+          <div class="col-12 mb-3">
+            <label>UPI Id</label>
+            <input type="text" class="form-control" value="" readonly />
+          </div>
+          <div class="col-12 mb-3">
+            <label>Adhar No.</label>
+            <input type="text" class="form-control" value="" readonly />
+          </div>
+          <div class="col-12">
+            <label>Pan No.</label>
+            <input type="text" class="form-control" value="" readonly />
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <script>
-      document
-        .getElementById("copyRefCode")
-        .addEventListener("click", function () {
-          var tempInput = document.createElement("input");
-          tempInput.value = this.textContent;
-          document.body.appendChild(tempInput);
-          tempInput.select();
-          document.execCommand("copy");
-          document.body.removeChild(tempInput);
-          swal.fire({
-            icon: "success",
-            title: "Copied!",
-            text: "Referral code copied to clipboard.",
-            showConfirmButton: false,
-            timer: 1500,
-          });
+  <script>
+    document
+      .getElementById("copyRefCode")
+      .addEventListener("click", function () {
+        var tempInput = document.createElement("input");
+        tempInput.value = this.textContent;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+        swal.fire({
+          icon: "success",
+          title: "Copied!",
+          text: "Referral code copied to clipboard.",
+          showConfirmButton: false,
+          timer: 1500,
         });
-    </script>
-    <script src="../assets/user/vendors/js/vendors.min.js"></script>
-    <!-- vendors.min.js {always must need to be top} -->
-    <script src="../assets/user/vendors/js/daterangepicker.min.js"></script>
-    <script src="../assets/user/vendors/js/apexcharts.min.js"></script>
-    <script src="../assets/user/vendors/js/jquery.time-to.min.js"></script>
-    <script src="../assets/user/vendors/js/circle-progress.min.js"></script>
-    <!--! END: Vendors JS !-->
+      });
+  </script>
+  <script src="{% static 'user/vendors/js/vendors.min.js' %}"></script>
 
-    <!--! BEGIN: Apps Init  !-->
-    <script src="../assets/user/js/common-init.min.js"></script>
-    <script src="../assets/user/js/dashboard-init.min.js"></script>
-    <script src="../assets/user/js/analytics-init.min.js"></script>
-    <!--! END: Apps Init !-->
+  <!-- vendors.min.js {always must need to be top} -->
+  <script src="{% static 'user/vendors/js/daterangepicker.min.js' %}"></script>
 
-    <!--! BEGIN: Theme Customizer  !-->
-    <script src="../assets/user/js/theme-customizer-init.min.js"></script>
-    <!--! END: Theme Customizer !-->
-  </body>
+  <script src="{% static 'user/vendors/js/apexcharts.min.js' %}"></script>
+
+  <script src="{% static 'user/vendors/js/jquery.time-to.min.js' %}"></script>
+
+
+  <script src="{% static 'user/vendors/js/circle-progress.min.js' %}"></script>
+
+  <!--! END: Vendors JS !-->
+
+  <!--! BEGIN: Apps Init  !-->
+
+  <script src="{% static 'user/js/common-init.min.js' %}"></script>
+
+  <script src="{% static 'user/js/dashboard-init.min.js' %}"></script>
+
+  <script src="{% static 'user/js/analytics-init.min.js' %}"></script>
+
+  <!--! END: Apps Init !-->
+
+  <!--! BEGIN: Theme Customizer  !-->
+  <script src="{% static 'user/js/theme-customizer.min.js' %}"></script>
+  <!--! END: Theme Customizer !-->
+</body>
+
 </html>
+<!-- Include jwt-decode library -->
+<script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
+
+<script>
+  const url = "http://localhost:8000";
+
+  // for change password
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("changePasswordTab");
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const csrfToken = document.querySelector('input[name="csrf_token"]').value;
+      const currentPassword = document.querySelector('input[name="current_password"]').value;
+      const newPassword = document.querySelector('input[name="new_password"]').value;
+      const confirmPassword = document.querySelector('input[name="confirm_password"]').value;
+
+      const formData = {
+        csrf_token: csrfToken,
+        current_password: currentPassword,
+        new_password: newPassword,
+        confirm_password: confirmPassword
+      };
+
+      try {
+        let response = await fetch(url + "/change_password/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData)
+        });
+
+        let result = await response.json();
+        if (response.ok) {
+          alert("Password changed successfully!");
+        } else {
+          alert("Error changing password: " + result.message);
+        }
+      } catch (error) {
+        console.error("Request failed", error);
+        alert("Something went wrong!");
+      }
+    });
+  })
+
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+    // Fetch KYC details when the page loads
+    fetch(url + "/get_kyc_details/")  // Make sure this matches your Django route
+      .then(response => response.json())  // Convert response to JSON
+      .then(data => {
+        // Check if KYC data exists and populate the form
+        console.log(data);
+        if (data) {
+          document.getElementById("bank_name").value = data.bank_name || "rushikesh";
+          document.getElementById("holder_name").value = data.holder_name || "rushikesh";
+          document.getElementById("account_number").value = data.account_number || "rushikesh";
+          document.getElementById("ifsc").value = data.ifsc || "rushikesh";
+        }
+      })
+      .catch(error => console.error("Error fetching KYC details:", error));
+  });
+
+
+  document.getElementById("profileForm").addEventListener("submit", async function (e) {
+    e.preventDefault(); // Prevent default form submission
+
+    // Collect input values
+    let csrfToken = document.querySelector('input[name="csrf_token"]').value;
+    let name = document.querySelector('input[name="name"]').value;
+    let image = document.querySelector('input[name="image"]').files[0]; // Get file
+
+    // Create FormData object
+    let formData = new FormData();
+    formData.append("csrf_token", csrfToken);
+    formData.append("name", name);
+    if (image) formData.append("image", image);
+
+    // let jwtToken = localStorage.getItem('jwtToken'); // Assuming the JWT token is stored in localStorage
+    // Send data to backend
+    try {
+      let response = await fetch(url + "/update_profile/", {
+        method: "POST",
+        body: formData,
+        headers: {
+          "X-CSRFToken": csrfToken, // CSRF protection
+          // "Authorization": `Bearer ${jwtToken}`, // JWT token
+        },
+      });
+
+      let result = await response.json();
+      if (response.ok) {
+        alert("Profile updated successfully!");
+      } else {
+        alert("Error: " + JSON.stringify(result.errors));
+      }
+    } catch (error) {
+      console.error("Request failed", error);
+      alert("Something went wrong!");
+    }
+  });
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+    console.log("Waiting for 1 minute before fetching user details...");
+
+    function fetchUserDetails() {
+        console.log("Fetching user details...");
+
+        const token = sessionStorage.getItem('jwtToken')
+
+        fetch(url + "/get_user_details/", {
+            headers: {
+                'Content-Type': 'application/json',
+                "Authorization": `Bearer ${token}`,
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+            if (data.success) {
+              console.log("User details fetched successfull for porifile y!");
+
+                console.log(data.user_email);
+                console.log(data.user_phone);
+
+                document.querySelector("img[alt='user profile image']").src = data.profileImageUrl;
+                document.querySelector(".fs-14.fw-bold").textContent = data.username;
+                document.querySelector(".fs-12.fw-normal.text-muted").textContent = data.user_email;
+                document.getElementById("copyRefCode").innerHTML = `${data.user_si_code}`;
+                document.getElementById("user_package").textContent = data.user_package;
+                document.getElementById("sponsor_name").textContent = data.sponsor_name;
+            } else {
+                console.error("Failed to fetch user details:", data.message);
+            }
+        })
+    
+        .catch(error => console.error("Error fetching user details:", error));
+    }
+
+    // Delay calling the function by 1 minute (60,000 milliseconds)
+    setTimeout(fetchUserDetails, 0);
+});
+
+
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const kycForm = document.querySelector("#kycTab form");
+
+    kycForm.addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent default form submission
+
+      // Collecting form data
+      const formData = {
+        csrf_token: document.querySelector("input[name='csrf_token']").value,
+        bank_name: document.querySelector("input[name='bank_name']").value,
+        holder_name: document.querySelector("input[name='holder_name']").value,
+        account_number: document.querySelector("input[name='account_number']").value,
+        ifsc: document.querySelector("input[name='ifsc']").value
+      };
+
+      // Sending data to backend
+      fetch(url + "/update_kyc/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            alert("KYC details updated successfully!");
+          } else {
+            alert("Error updating KYC: " + data.message);
+          }
+        })
+        .catch(error => console.error("Error:", error));
+    });
+  });
+
+
+
+
+
+</script>

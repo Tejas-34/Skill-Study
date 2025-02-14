@@ -314,6 +314,10 @@
   • Replace /api/logout with your actual backend logout API.
 	•	Ensure your backend clears user sessions upon logout.
 	•	If using JWT authentication, clear the token on both frontend & backend. -->
+
+  <!-- Include jwt-decode library -->
+<script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
+
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       document
@@ -510,8 +514,11 @@
   <!-- implementing the chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
+
+    const api="http://localhost:8000/"
+
     document.addEventListener("DOMContentLoaded", function () {
-      fetch("http://127.0.0.1:8000/get_last_7_days_sales/")
+      fetch(api+"get_last_7_days_sales/")
         .then((response) => response.json())
         .then((result) => {
           if (result.status === "success") {
@@ -608,7 +615,7 @@
 
 
 <script>
-  const API_URL = 'http://127.0.0.1:8000';
+  const API_URL = 'http://localhost:8000/';
 
     document.addEventListener("DOMContentLoaded", function () {
     function fetchEarnings() {
@@ -618,6 +625,7 @@
         let allTimeEl = document.querySelector("#alltime_earning");
 
         fetch(API_URL + "/earnings_summary/")
+
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
@@ -646,50 +654,10 @@
 
 
 
-// document.addEventListener("DOMContentLoaded", function () {
-//     function fetchEarnings() {
-//         let todayEl = document.querySelector("#todays_earning");
-//         let weeklyEl = document.querySelector("#weekly_earning");
-//         let monthlyEl = document.querySelector("#monthly_earning");
-//         let allTimeEl = document.querySelector("#alltime_earning");
-
-//         // If elements are not found, retry after 100ms
-//         if (!todayEl || !weeklyEl || !monthlyEl || !allTimeEl) {
-//             console.warn("Earnings elements not found. Retrying...");
-//             setTimeout(fetchEarnings, 2000); // Retry after 100ms
-//             return;
-//         }
-
-
-//         fetch(API_URL + "/earnings_summary/")
-//             .then(response => {
-//                 if (!response.ok) {
-//                     throw new Error(`HTTP error! status: ${response.status}`);
-//                 }
-//                 return response.json();
-//             })
-//             .then(data => {
-//                 if (data.status === "success") {
-//                     console.log("Earnings Data:", data);
-//                     todayEl.innerHTML = data.todays_earning;
-//                     weeklyEl.innerHTML = data.weekly_earning;
-//                     monthlyEl.innerHTML = data.monthly_earning;
-//                     allTimeEl.innerHTML = data.alltime_earning;
-//                 } else {
-//                     console.error("Error fetching earnings:", data.message);
-//                 }
-//             })
-//             .catch(error => console.error("Fetch Error:", error));
-//     }
-
-//     // Call the function once DOM is ready
-//     fetchEarnings();
-// });
 
 
 
-
-  const url = "http://127.0.0.1:8000";
+  const url = "http://localhost:8000/";
 
   document.addEventListener("DOMContentLoaded", function () {
     console.log("Waiting for 2 minutes before fetching user details...");
@@ -697,8 +665,10 @@
     setTimeout(() => {
       console.log("Fetching user details...");
 
-      fetch("http://127.0.0.1:8000/get_user_details/", {
+      fetch(url+"get_user_details/", {
         headers: {
+          
+          "Authorization": `Bearer ${sessionStorage.getItem('jwtToken')}`, // Uncomment if using JWT
           // "Authorization": `Bearer ${localStorage.getItem('jwtToken')}`, // Uncomment if using JWT
         },
       })

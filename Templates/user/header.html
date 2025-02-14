@@ -94,6 +94,10 @@
         <!--! [End] Header Right !-->
     </div>
 </header>
+<!-- Include jwt-decode library -->
+ 
+<script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
+
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -156,9 +160,11 @@
             logoutButton.addEventListener("click", function () {
                 // Clear localStorage
                 localStorage.removeItem("userData");
+                sessionStorage.removeItem("jwtToken");
+
 
                 // Redirect to the login page (replace with your actual logout URL)
-                window.location.href = "/logout/";
+                window.location.href = "/login/";
             });
         }
 
@@ -166,3 +172,6 @@
 
     });
 </script>
+
+
+<!--! [End] Header !-->

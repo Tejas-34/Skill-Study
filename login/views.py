@@ -19,7 +19,10 @@ import json
 import uuid
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from environ import Env
-
+from datetime import timedelta, date
+import random
+from django.contrib.auth.hashers import check_password, make_password
+from django.db.models import Sum
 
 
 def get_tokens_for_user(user):
@@ -114,7 +117,7 @@ class login(APIView):
 
                                     immediate_earning = total_earning * package_earnings[user.package]
                                     next_level_earning = total_earning * secound_user_earning[user.package]
-                                    
+
                                     # Update immediate referrer's earnings
                                     Earning.objects.create(user=referrer, earn=immediate_earning)
 
@@ -617,5 +620,288 @@ class CallPaymentAPI(View):
 
         except Exception as e:
             return JsonResponse({"error": str(e)}, status=500)
+
+
+
+
+
+
+
+
+
+
+# -------------------- Rushikesh Work -----------------
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def dashboard(request):
+    referal_id = "SK-0666"
+
+    return render(request, 'user/dashboard.html')
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def leaderboard(request):
+    referal_id = "SK-0666"
+
+    return render(request, 'user/leaderboard.html')
+    
+  
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def my_profile(request):
+    referal_id = "SK-0666"
+    
+    return render(request, 'user/profile.html')
+    
+    
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def get_last_7_days_sales(request):
+    print("calledddd last 7 dys")
+    sales_data = [
+        {
+            "date": (datetime.today() - timedelta(days=i)).strftime("%Y-%m-%d"),
+            "amount": random.randint(100, 500)  # Random sales amount
+        }
+        for i in range(6, -1, -1)  # Last 7 days
+    ]
+    print(sales_data)
+
+    return JsonResponse({"status": "success", "data": sales_data})
+
+   
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def earnings_summary(request):
+    print("Earnings Summary")
+
+    user = User.objects.get(email='pataretejas1885@gmail.com') 
+
+    today = date.today()
+    start_of_week = today - timedelta(days=today.weekday())  # Monday
+    start_of_month = today.replace(day=1)  # First day of the month
+
+    # Fetch earnings for the authenticated user
+    todays_earning = Earning.objects.filter(user=user, date=today).aggregate(total=Sum('earn'))['total'] or 0
+    weekly_earning = Earning.objects.filter(user=user, date__gte=start_of_week).aggregate(total=Sum('earn'))['total'] or 0
+    monthly_earning = Earning.objects.filter(user=user, date__gte=start_of_month).aggregate(total=Sum('earn'))['total'] or 0
+    alltime_earning = Earning.objects.filter(user=user).aggregate(total=Sum('earn'))['total'] or 0
+
+    return JsonResponse({
+        'status': 'success',
+        'todays_earning': todays_earning,
+        'weekly_earning': weekly_earning,
+        'monthly_earning': monthly_earning,
+        'alltime_earning': alltime_earning
+    })
+    
+    
+    
+    
+@api_view(['POST'])
+@permission_classes([AllowAny])  # Allows both authenticated and unauthenticated users
+def update_profile(request):
+    print("Update Profile")
+    # here in user i get user from token 
+    user = User.objects.get(email='pataretejas1885@gmail.com')  # Get the authenticated user
+    print(user)
+
+    image = request.FILES.get("image")  # Get uploaded profile picture
+    name = request.POST.get("name")  # Get updated name
+  
+
+    print(f"Received Name: {name}")
+    print(f"Received Image: {image}")
+
+
+    # Update or create the user's profile
+    profile, _ = Profile.objects.get_or_create(user=user)
+
+
+    if name:
+        user.name = name  # Update user's name only if provided
+
+
+    if image:
+        profile.delete()  # Delete existing profile picture
+        profile.pro_photo = image  # Update profile picture if provided
+
+    user.save()
+    profile.save()
+
+    return JsonResponse({"message": "Profile updated successfully"}, status=200)
+
+
+
+
+
+
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def header_user(request):
+    user = User.objects.get(referal_id='b691661b-df7e-43ac-8a9f-1f3817bb3e3a')
+
+    user_data = {
+        "success": True,
+        "profileImageUrl": user.profile.pro_photo.url if user.profile.pro_photo else "/static/default-profile.png",
+        "username": user.name,
+        "user_email": user.email,
+        "user_si_code": user.referal_id,
+        "user_package": user.package,
+        "user_phone": user.phone,
+    }
+
+    return JsonResponse(user_data)
+
+
+
+
+   
+@api_view(['GET'])  # Use JWT Authentication
+@permission_classes([IsAuthenticated])
+def get_user_details(request):
+    packages = {
+        
+        1: {"name": "Starter Package - ₹299", "image": "images/packages/STARTER PACKAGE.png"},
+        2: {"name": "Essential Package - ₹599", "image": "images/packages/ESSENTIAL PACKAGE.png"},
+        3: {"name": "Advanced Learning Package - ₹999", "image": "images/packages/ADVANCED PACKAGE.png"},
+        4: {"name": "Premium Gold Package - ₹2399", "image": "images/packages/GOLD PACKAGE.png"},
+        5: {"name": "Ultimate Diamond Package - ₹4199", "image": "images/packages/DIAMOND PACKAGE.png"},
+        6: {"name": "Elite Platinum Package - ₹6999", "image": "images/packages/PLATINUM PACKAGE.png"},
+        7: {"name": "Exclusive Premium Package - ₹9999", "image": "images/packages/PREMIUM PACKAGE.png"},
+    }
+
+
+    print("Fetching from database")
+    try:
+        # here in user get user from token
+        #get user from token
+        user = request.user 
+        print("user",user.name)
+
+        try:
+            profile_image_url = user.profile.pro_photo.url if user.profile.pro_photo else ""
+        except Profile.DoesNotExist:
+            profile_image_url = ""
+
+        user_data = {
+            "success": True,
+            "profileImageUrl": profile_image_url,
+            "username": user.name,
+            "user_email": user.email,
+            "user_si_code": user.referal_id,
+            "user_package": packages[user.package+1]["name"],
+            "user_phone": user.phone,
+        }
+
+        print(user_data)
+
+        return JsonResponse(user_data)
+
+    except User.DoesNotExist:
+        return JsonResponse({"success": False, "message": "User not found"}, status=404)
+        
+        
+        
+        
+      
+      
+      
+      
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def get_kyc_details(request):
+    """Fetch KYC details for the logged-in user."""
+    print("Get KYC Details")
+    random_kyc = {
+        "bank_name": random.choice(["HDFC Bank", "SBI Bank", "ICICI Bank", "Axis Bank"]),
+        "holder_name": random.choice(["Tejas Sharma", "Rohan Mehta", "Amit Kumar", "Priya Singh"]),
+        "account_number": str(random.randint(1000000000, 9999999999)),
+        "ifsc": f"IFSC{random.randint(1000,9999)}XYZ"
+    }
+    print(random_kyc)
+    return JsonResponse(random_kyc)
+
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def update_kyc(request):
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body)  # Parse JSON request data
+            
+            bank_name = data.get("bank_name")
+            holder_name = data.get("holder_name")
+            account_number = data.get("account_number")
+            ifsc = data.get("ifsc")
+
+            # Validation
+            if not all([bank_name, holder_name, account_number, ifsc]):
+                return JsonResponse({"success": False, "message": "Missing required fields"}, status=400)
+
+            # TODO: Save to database (replace with actual DB logic)
+    
+            return JsonResponse({"success": True, "message": "KYC updated successfully!"})
+        except json.JSONDecodeError:
+            return JsonResponse({"success": False, "message": "Invalid JSON data"}, status=400)
+    
+    return JsonResponse({"success": False, "message": "Invalid request method"}, status=405)
+
+
+
+
+
+
+
+
+@api_view(['POST'])
+@permission_classes([AllowAny])  # Ensure the user is authenticated
+def change_password(request):
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body)  # Parse JSON request data
+
+            current_password = data.get("current_password")
+            print("current_pass",current_password)
+            new_password = data.get("new_password")
+            print("new_pass", new_password)
+            confirm_password = data.get("confirm_password")
+            print("confirm_pass", confirm_password)
+
+            # Validate the request data
+            if not all([current_password, new_password, confirm_password]):
+                return JsonResponse({"success": False, "message": "Missing required fields"}, status=400)
+
+            if new_password != confirm_password:
+                return JsonResponse({"success": False, "message": "New password and confirm password do not match"}, status=400)
+
+            user = User.objects.get(referal_id='b602ad93-134f-4793-b031-5193154001be')
+            print(user.password)
+
+            # Check if the current password is correct
+            if not check_password(current_password, user.password):
+                return JsonResponse({"success": False, "message": "Current password is incorrect"}, status=400)
+
+            # Update the user's password
+            user.password = make_password(new_password)
+            user.save()
+
+            return JsonResponse({"success": True, "message": "Password changed successfully!"})
+
+        except json.JSONDecodeError:
+            return JsonResponse({"success": False, "message": "Invalid JSON data"}, status=400)
+
+    return JsonResponse({"success": False, "message": "Invalid request method"}, status=405)
+    
+    
+    
+    
+    
+    
+    
+
+
 
 
