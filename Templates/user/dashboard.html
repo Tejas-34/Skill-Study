@@ -1,5 +1,5 @@
 
-{% loads static %}
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="zxx">
@@ -21,7 +21,7 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="../assets/css/bootstrap.min.css"
+      href="{% static 'user/vendors/css/bootstrap.min.css' %}"
 
     />
     <!--! END: Bootstrap CSS-->
@@ -267,7 +267,7 @@
               >
                 <!-- 🟢 User image coming from backend -->
                 <img
-                  src="{{ user.profile_image_url }}"
+                  src=""
                   alt="user-image"
                   class="rounded-circle img-fluid user-avtar me-0"
                   style="width: 40px; height: 40px"
@@ -283,7 +283,7 @@
                   <div class="d-flex align-items-center">
                     <!-- 🟢 User profile image from backend -->
                     <img
-                      src="{{ user.profile_image_url }}"
+                      src=""
                       alt="user-imfage"
                       class="rounded-circle img-fluid user-avtar me-0"
                       style="width: 40px; height: 40px"
@@ -292,14 +292,14 @@
                     <div>
                       <!-- 🟢 User name from backend -->
                       <h6 class="text-dark mb-0">
-                        {{ user.name }}
+                        
                         <span class="badge bg-soft-success text-success ms-1"
                           >Online</span
                         >
                       </h6>
                       <!-- 🟢 User email from backend -->
                       <span class="fs-12 fw-medium text-muted"
-                        >{{ user.email }}</span
+                        ></span
                       >
                     </div>
                   </div>
@@ -315,7 +315,7 @@
                         class="wd-10 ht-10 border border-2 border-gray-1 bg-success rounded-circle me-2"
                       ></i>
                       <!-- 🟢 User package from backend -->
-                      <span>{{ user.package_name }}</span>
+                      <span></span>
                     </span>
                   </a>
                 </div>
@@ -510,7 +510,7 @@
             <div class="card-body profile-bg">
               <div class="d-flex align-items-center">
                 <img
-                  src="{{USER IMAGE TEJAS}}"
+                  src=""
                   class="rounded-circle u-img"
                   alt="user-image"
                   width="90"
@@ -537,7 +537,7 @@
                 </div>
                 <div class="earning-info">
                   <h5 class="counter">
-                    <span id="rupeeSymbol"></span>{{ todays_earning }}
+                    <span id="rupeeSymbol"></span>
                   </h5>
                   <span class="earning-label">Today's Earning</span>
                   <!-- Backend: Load today's earnings dynamically -->
@@ -570,7 +570,7 @@
                 </div>
                 <div class="earning-info">
                   <h5 class="counter">
-                    <span id="rupeeSymbol"></span>{{ monthly_earning }}
+                    <span id="rupeeSymbol"></span>
                   </h5>
                   <span class="earning-label">Monthly Earning</span>
                   <!-- Backend: Load monthly earnings dynamically -->
@@ -585,7 +585,7 @@
                 </div>
                 <div class="earning-info">
                   <h5 class="counter">
-                    <span id="rupeeSymbol"></span>{{ alltime_earning }}
+                    <span id="rupeeSymbol"></span>
                   </h5>
                   <span class="earning-label">All Time Earning</span>
                 </div>

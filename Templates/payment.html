@@ -4,15 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment Receipt</title>
+   
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Receipt</title>
     <style>
+        /* Your existing CSS remains unchanged */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', Arial, sans-serif;
         }
         body {
-            background-color: #f8f9fa;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -21,91 +30,247 @@
         }
         .container {
             background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            max-width: 450px;
             width: 100%;
         }
         .section {
             background: #f1f1f1;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 15px;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
         }
         .section h3 {
-            margin-bottom: 10px;
-            font-size: 1.1rem;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
         }
         .details {
             display: flex;
             justify-content: space-between;
-            font-size: 0.9rem;
-            margin-bottom: 5px;
+            font-size: 1rem;
+            margin-bottom: 10px;
         }
-        .qr-container {
-            text-align: center;
-            margin-bottom: 15px;
+        .change-package {
+          margin-top: 15px; 
+          text-align:center; 
+          font-size:.9rem;
+          color:#007bff; 
+          cursor:pointer; 
+          text-decoration:none; 
         }
-        .qr-container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
+        .change-package:hover {
+          text-decoration:underline; 
         }
-        .download-btn {
-            display: block;
-            text-align: center;
-            padding: 10px;
-            background: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            margin: 10px 0;
+        .package-dropdown {
+          display:none; /* Hidden by default */
+          margin-top:10px; 
         }
-        .upload-section input,
-        .utr-input {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+        select {
+          width:100%; 
+          padding:10px; 
+          border-radius:5px; 
+          border:1px solid #ccc; 
         }
         .submit-btn {
-            width: 100%;
-            background: #28a745;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
+          width:100%; 
+          background-color:#28a745; 
+          color:white; 
+          padding:12px; 
+          border-radius:5px; 
+          cursor:pointer; 
         }
         .submit-btn:hover {
-            background: #218838;
+          background-color:#218838 ; 
         }
     </style>
+    <script>
+        // Package details mapping
+        const packageDetails = {
+            "1": { product: "Starter Package", price: "₹299", url: "https://cosmofeed.com/vp/67a86d37aceb24001394af38" },
+            "2": { product: "Essential Package", price: "₹599", url: "https://cosmoffedd.com/package2" },
+            "3": { product: "Advanced Learning Package", price: "₹1199", url: "https://cosmoffedd.com/package3" },
+            "4": { product: "Premium Gold Package", price: "₹2399", url: "https://cosmoffedd.com/package4" },
+            "5": { product: "Ultimate Diamond Package", price: "₹4199", url: "https://cosmoffedd.com/package5" },
+            "6": { product: "Elite Platinum Package", price: "₹6999", url: "https://cosmoffedd.com/package6" },
+            "7": { product: "Exclusive Premium Package", price: "₹9999", url: "https://cosmoffedd.com/package7" }
+        };
+
+        // Function to update package details
+        function updatePackageDetails(packageId) {
+            if (packageDetails[packageId]) {
+                document.querySelector('#product-name').textContent = packageDetails[packageId].product;
+                document.querySelector('#product-price').textContent = packageDetails[packageId].price;
+                document.querySelector('input[name="package_id"]').value = packageId;
+            }
+        }
+
+        // Function to toggle package dropdown
+        function togglePackageDropdown() {
+            const dropdown = document.querySelector('.package-dropdown');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // On page load, check URL and set package
+        document.addEventListener('DOMContentLoaded', function() {
+            const pathMatch = window.location.pathname.match(/\/payment\/(\d+)/);
+            
+            if (pathMatch && pathMatch[1]) {
+                const packageId = pathMatch[1];
+                updatePackageDetails(packageId);
+            }
+        });
+
+
+        function addAuthHeader(headers = {}) {
+            const token = sessionStorage.getItem('jwtToken');
+            if (token) {
+            headers['Authorization'] = `Bearer ${token}`;
+            }
+            return headers;
+        }
+
+
+      // Handle form submission
+        function handlePaymentSubmission(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Get selected package ID
+            const selectedPackageId = document.querySelector('input[name="package_id"]').value;
+            if (!selectedPackageId || !packageDetails[selectedPackageId]) {
+                alert("Please select a valid package.");
+                return;
+            }
+
+            // Get CSRF token
+            const csrfToken = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
+
+            const token = sessionStorage.getItem('jwtToken');
+            console.log(token)
+
+            // Construct POST request
+            fetch(`http://localhost:8000/payment/${selectedPackageId}`, { // Ensure this matches your Django route
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization':`Bearer ${token}`, // Add JWT token if required
+                },
+                body: JSON.stringify({
+                    email: sessionStorage.getItem('email')  // Ensure this template variable is rendered correctly
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    console.log(JSON.stringify(response))
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.response && data.response.payment_link) {
+                    window.location.href = data.response.payment_link;
+                } else {
+                    alert("Failed to create payment. Please try again.");
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("An error occurred while processing your payment. Please try again later.");
+            });
+        }
+    
+    
+    </script>
+
 </head>
 <body>
     <div class="container">
+        
+        <!-- Billing Details Section -->
         <div class="section">
             <h3>Billing Details</h3>
             <div class="details"><span>Customer:</span> <span>{{user.name}}</span></div>
             <div class="details"><span>Phone:</span> <span>{{user.phone}}</span></div>
-            <div class="details"><span>Email:</span> <span>{BACKEND NUMBER MAIL ID}</span></div>
-        </div>
-        <div class="section">
-            <h3>Order Summary</h3>
-            <div class="details"><span>TXN Id:</span> <span>{RANDOM ID }</span></div>
-            <div class="details"><span>Product:</span> <span>{PACKAGE DETAILS}</span></div>
-            <div class="details"><span>Amount:</span> <span>{DYNAMIC PRICING}</span></div>
+            <div class="details"><span>Email:</span> <span>{{user.email}}</span></div>
         </div>
 
-        <form action="{% url 'create_payment' %}" method="POST" class="upload-section">
-            <h3>Upload Payment Receipt</h3>
-            <!-- hidden input -->
-            <input type="hidden" name="ref" value="{{user.referal_id}}">
-            <button type="submit" class="submit-btn btn btn-success">Submit</button>
-        </form>
+        <!-- Order Summary Section -->
+        <div class="section">
+            <h3>Order Summary</h3>
+            <div class="details"><span>Product:</span> <span id="product-name">Starter Package</span></div>
+            <div class="details"><span>Amount:</span> <span id="product-price">₹299</span></div>
+
+            <!-- Change Package Option -->
+            <a href="#" class="change-package" onclick="togglePackageDropdown()">Change Package</a>
+
+            <!-- Dropdown for Package Selection -->
+            <div class="package-dropdown">
+                <select id="package-select" onchange="updatePackageDetails(this.value)">
+                    <option value="" disabled selected>Select Course Package</option>
+                    <option value="1">Starter Package - ₹299</option>
+                    <option value="2">Essential Package - ₹599</option>
+                    <option value="3">Advanced Learning Package - ₹1199</option>
+                    <option value="4">Premium Gold Package - ₹2399</option>
+                    <option value="5">Ultimate Diamond Package - ₹4199</option>
+                    <option value="6">Elite Platinum Package - ₹6999</option>
+                    <option value="7">Exclusive Premium Package - ₹9999</option>
+                </select>
+                <!-- Hidden input to store selected package ID -->
+                <input type="hidden" name="package_id" value="">
+            </div>
+        </div>
+
+        <!-- Payment Submission Section -->
+       <form onsubmit="handlePaymentSubmission(event)">
+           {% csrf_token %}
+           <!-- Submit Button -->
+           <button type="submit" class="submit-btn">Proceed to Payment</button>
+       </form>
+
     </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+  // Function to add JWT token to headers for API requests
+  function addAuthHeader(headers = {}) {
+    const token = sessionStorage.getItem('jwtToken');
+    if (token) {
+      headers['Authorization'] = `Bearer ${token}`;
+    }
+    return headers;
+  }
+
+  
+
+  // Example usage of authenticated API request
+  function fetchProtectedData() {
+    fetch('/protected-endpoint/', {
+      method: 'GET',
+      headers: addAuthHeader({
+        'Content-Type': 'application/json',
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log('Protected Data:', data))
+      .catch((error) => console.error('Error fetching protected data:', error));
+  }
+
+</script>

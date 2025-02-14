@@ -8,6 +8,9 @@
     <title>Courses | Skill-Study</title>
     <meta name="description" content="Skill-Study" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Include SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
     <link rel="shortcut icon" href="../favicon.png" type="image/x-icon" />
 
@@ -30,8 +33,83 @@
       input.error-border, select.error-border {
         border: 1px solid red !important;
       }
+
+      /* Style for the package image container */
+      .package-image-container {
+        display: flex; /* Enable flexbox for centering */
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+        width: 300px; /* Fixed width for the container */
+        height: 300px; /* Fixed height for the container */
+        margin: auto; /* Center horizontally on small screens */
+        position: absolute; /* Position relative to the viewport */
+        top: 50%; /* Center vertically */
+        left: 50%; /* Center horizontally */
+        transform: translate(-50%, -50%); /* Adjust position to truly center */
+        background-color: #f9f9f9; /* Light gray background for contrast */
+        border-radius: 15px; /* Rounded corners for a modern look */
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+        overflow: hidden; /* Ensure content stays within the rounded corners */
+      }
+
+      /* Style for the image inside the container */
+      .package-image-container img {
+        max-width: 100%; /* Ensure the image scales to fit the container width */
+        max-height: 100%; /* Ensure the image scales to fit the container height */
+        object-fit: cover; /* Crop and scale the image proportionally to fill the box */
+      }
+
+      /* Add responsiveness for smaller screens */
+      @media (max-width: 768px) {
+        .package-image-container {
+          width: 250px; /* Smaller width on smaller screens */
+          height: 250px; /* Smaller height on smaller screens */
+          border-radius: 10px; /* Slightly smaller rounded corners */
+          box-shadow: none; /* Remove shadow for minimalistic design on mobile devices */
+          padding: 10px;
+          background-color: #ffffff;
+          transform :translate(-50,-50)
+          
+      }
+    }
+
+
+    .hidden {
+  display: none;
+}
+
+#loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+.spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+      
     </style>
-  </head>
+
+
+</head>
 
   <body>
     <!-- Scroll-top -->
@@ -41,6 +119,14 @@
 
     <!-- Header -->
     {% include 'nav.html' %}
+
+    <!-- Header end-->
+    
+
+
+
+
+
 
     <!-- Main Area -->
     <main class="main-area fix">
@@ -62,6 +148,16 @@
         </div>
       </section>
 
+
+      <div id="loader" class="hidden">
+        <div class="spinner"></div>
+      </div>
+      
+      <!-- Container for displaying the selected package image -->
+      <div id="package-image" class="package-image-container">
+        <!-- Dynamically injected package image will appear here -->
+      </div>
+
       <!-- Signup Area -->
       <section class="singUp-area section-py-120">
         <div class="container">
@@ -73,8 +169,10 @@
                 <p>Enter your details below and select a course package to get started!</p>
 
                 <!-- Form -->
-                <form action="/register/" method="post" class="account__form">
+                <form id="account-form" class="account__form">
                   {% csrf_token %}
+
+                  <input type="hidden" id="package_id" name="package_id" value="{{ pkg }}">
                   
                   <!-- Referral Code -->
                   <div class="form-grp">
@@ -90,11 +188,13 @@
                     <!-- Enabled select field for user selection -->
                     <select id="package-select" name="package_id" class="form-control">
                       <option value="" disabled selected>Select Course Package</option>
-                      <option value="1">Starter Package - ₹299</option>
-                      <option value="2">Essential Package - ₹599</option>
-                      <option value="3">Advanced Learning Package - ₹999</option>
-                      <option value="4">Premium Gold Package - ₹1499</option>
-                      <option value="5">Platinum Package - ₹1999</option>
+                      <option id="1" value="1">Starter Package - ₹299</option>
+                      <option id="2" value="2">Essential Package - ₹599</option>
+                      <option id="3" value="3">Advanced Learning Package - ₹1199</option>
+                      <option id="4" value="4">Premium Gold Package - ₹2399</option>
+                      <option id="5" value="5">Ultimate Diamond Package- ₹4199</option>
+                      <option id="6" value="6">Elite Platinum Package - ₹6999</option>
+                      <option id="7" value="7">Exclusive Premium Package - ₹9999</option>
                     </select>
                     <!-- Error message for course package -->
                     <div id="package-error" class="error-message"></div>
@@ -112,14 +212,14 @@
                   <!-- Phone Number -->
                   <div class="form-grp">
                     <label for="phone">Phone Number</label>
-                    <input id="phone-number" name="phone" type="number" placeholder="Phone Number">
+                    <input id="phone-number" name="phone" type="number" placeholder="+91XXXXXXXXXX">
                     <!-- Error message for phone number -->
                     <div id="phone-error" class="error-message"></div>
                   </div>
 
                   <!-- Email Address -->
                   <div class="form-grp">
-                    <label for="email">Email Address</label>
+                    <label for="">Email Address</label>
                     <input id="email-address" name="email" type="email" placeholder="Email Address">
                     <!-- Error message for email address -->
                     <div id="email-error" class="error-message"></div>
@@ -131,7 +231,7 @@
                     <div class="password-input-wrapper" style="position: relative;">
                       <input id="password-field" name="password" type="password" placeholder="Create a Password">
                       <button type="button" class="password-toggle" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); border: none; background: none; cursor: pointer;">
-                        <img src="../assets/images/icons/eye.svg" alt="Show/Hide Password">
+                        <img src="{% static 'images/icons/eye.svg' %}" alt="Show/Hide Password">
                       </button>
                     </div>
                     <!-- Error message for password -->
@@ -148,171 +248,208 @@
                     </div>
                   </div>
 
-                  <!-- Payment Methods -->
-                  <p style="margin-top: 20px; font-size: 16px; font-weight: 600;">Select Payment Method</p>
-                  <div class="single-method mb-2">
-                    <input type="radio" id="payment_upi_qr" name="gateway" value="upi_qr">
-                    <label for="payment_upi_qr">&nbsp;UPI QR</label>
-                  </div>
-                  <div class="single-method mb-2">
-                    <input type="radio" id="payment_wallet" name="gateway" value="wallet">
-                      <label for="payment_wallet">&nbsp;Wallet</label></input></label>
-                    </input>
-                          <!-- Error message for payment method -->
-                          <div id="payment-error" class="error-message"></div>
-                        </div>
-      
-                        <!-- Submit Button -->
-                        <button type="submit" style="padding: 1rem;" class="btn btn-two arrow-btn">
-                          Register
-                          <img src="../assets/images/icons/right-arrow-svgrepo-com.svg" alt="">
-                        </button>
-                      </form>
-      
-                      <!-- Already Have an Account -->
-                      <div class="account__switch">
-                        <p>Already have an account? <a href="/login/">Sign In</a></p>
-                      </div>
-                    </div>
-                  </div>
+                  <!-- Submit Button -->
+                  <button type="submit" style="padding: 1rem;" class="btn btn-two arrow-btn">
+                    Register
+                    <img src="{% static 'images/icons/right-arrow-svgrepo-com.svg' %}" alt="">
+                  </button>
+                </form>
+
+                <!-- Already Have an Account -->
+                <div class="account__switch">
+                  <p>Already have an account? <a href="/login/">Sign In</a></p>
                 </div>
               </div>
-            </section>
-          </main>
-      
-          <!-- Footer -->
-          
-      
-          <!-- JS Scripts -->
-          <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
-          <script src="{% static 'js/bootstrap.min.js' %}"></script>
-      
-          <!-- Frontend Validation and Error Handling -->
-          <script>
-            document.addEventListener('DOMContentLoaded', function () {
-              const form = document.querySelector('.account__form');
-      
-              // Input fields and their corresponding error containers
-              const refCodeInput = document.getElementById('ref-code');
-              const refCodeError = document.getElementById('ref-code-error');
-      
-              const packageSelect = document.getElementById('package-select');
-              const packageError = document.getElementById('package-error');
-      
-              const fullNameInput = document.getElementById('full-name');
-              const nameError = document.getElementById('name-error');
-      
-              const phoneInput = document.getElementById('phone-number');
-              const phoneError = document.getElementById('phone-error');
-      
-              const emailInput = document.getElementById('email-address');
-              const emailError = document.getElementById('email-error');
-      
-              const passwordInput = document.getElementById('password-field');
-              const passwordError = document.getElementById('password-error');
-      
-              const termsCheck = document.getElementById('terms-check');
-              const termsError = document.getElementById('terms-error');
-      
-              const paymentError = document.getElementById('payment-error');
-      
-              form.addEventListener('submit', function (e) {
-                e.preventDefault(); // Prevent default submission
-      
-                let errors = 0;
-      
-                // Clear previous errors
-                [refCodeError, packageError, nameError, phoneError, emailError, passwordError, termsError, paymentError].forEach(error => {
-                  error.style.display = 'none';
-                });
-                [refCodeInput, packageSelect, fullNameInput, phoneInput, emailInput, passwordInput].forEach(input => {
-                  input.classList.remove('error-border');
-                });
-      
-                // Validate Referral Code (optional)
-                if (refCodeInput.value.trim() === '') {
-                  refCodeError.textContent = "Referral code is required.";
-                  refCodeError.style.display = 'block';
-                  refCodeInput.classList.add('error-border');
-                  errors++;
-                }
-      
-                // Validate Course Package
-                if (packageSelect.value === '') {
-                  packageError.textContent = "Please select a course package.";
-                  packageError.style.display = 'block';
-                  packageSelect.classList.add('error-border');
-                  errors++;
-                }
-      
-                // Validate Full Name
-                if (fullNameInput.value.trim() === '') {
-                  nameError.textContent = "Full name is required.";
-                  nameError.style.display = 'block';
-                  fullNameInput.classList.add('error-border');
-                  errors++;
-                }
-      
-                // Validate Phone Number
-                if (phoneInput.value.trim() === '' || phoneInput.value.length !== 10) {
-                  phoneError.textContent = "Valid phone number is required.";
-                  phoneError.style.display = 'block';
-                  phoneInput.classList.add('error-border');
-                  errors++;
-                }
-      
-                // Validate Email Address
-                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
-                  emailError.textContent = "Valid email address is required.";
-                  emailError.style.display = 'block';
-                  emailInput.classList.add('error-border');
-                  errors++;
-                }
-      
-                // Validate Password
-                if (passwordInput.value.trim().length < 6) {
-                  passwordError.textContent = "Password must be at least 6 characters long.";
-                  passwordError.style.display = 'block';
-                  passwordInput.classList.add('error-border');
-                  errors++;
-                }
-      
-                // Validate Terms and Conditions
-                if (!termsCheck.checked) {
-                  termsError.textContent = "You must agree to the Terms & Conditions.";
-                  termsError.style.display = 'block';
-                  errors++;
-                }
-      
-                // Validate Payment Method
-                if (!document.querySelector('input[name="gateway"]:checked')) {
-                  paymentError.textContent = "Please select a payment method.";
-                  paymentError.style.display = 'block';
-                  errors++;
-                }
-      
-                // If no errors, submit the form
-                if (errors === 0) {
-                  form.submit();
-                }
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    {% include 'footer.html' %}
+
+    <!-- JS Scripts -->
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <!-- Frontend Validation and Error Handling -->
+<script>
+
+    function displayLoader() {
+      document.getElementById('loader').classList.remove('hidden');
+    }
+
+    function hideLoader() {
+      document.getElementById('loader').classList.add('hidden');
+    }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // Package selection logic
+    const urlParams = new URLSearchParams(window.location.search);
+    const pkg = document.getElementById('package_id').value || 0;
+
+    const packages = {
+      1: { name: "Starter Package - ₹299", image: "{% static 'images/packages/STARTER PACKAGE.png' %}" },
+      2: { name: "Essential Package - ₹599", image: "{% static 'images/packages/ESSENTIAL PACKAGE.png' %}" },
+      3: { name: "Advanced Learning Package - ₹999", image: "{% static 'images/packages/ADVANCED PACKAGE.png' %}" },
+      4: { name: "Premium Gold Package - ₹2399", image: "{% static 'images/packages/GOLD PACKAGE.png' %}" },
+      5: { name: "Ultimate Diamond Package - ₹4199", image: "{% static 'images/packages/DIAMOND PACKAGE.png' %}" },
+      6: { name: "Elite Platinum Package - ₹6999", image: "{% static 'images/packages/PLATINUM PACKAGE.png' %}" },
+      7: { name: "Exclusive Premium Package - ₹9999", image: "{% static 'images/packages/PREMIUM PACKAGE.png' %}" },
+    };
+
+    const packageSelect = document.getElementById('package-select');
+    const packageImageContainer = document.getElementById('package-image');
+
+    if (packages[pkg]) {
+      packageSelect.value = pkg;
+      if (packageImageContainer) {
+        packageImageContainer.innerHTML = `<img src="${packages[pkg].image}" alt="${packages[pkg].name}" style="max-width: 100%; height: auto;">`;
+      }
+    } else if (pkg === 0) {
+      console.log("Default state, no package selected.");
+    } else {
+      console.error("Invalid package ID.");
+    }
+
+    packageSelect.addEventListener('change', function () {
+      const selectedPkg = parseInt(this.value);
+      if (packages[selectedPkg]) {
+        if (packageImageContainer) {
+          packageImageContainer.innerHTML = `<img src="${packages[selectedPkg].image}" alt="${packages[selectedPkg].name}" style="max-width: 100%; height: auto;">`;
+        }
+      }
+    });
+
+    // Form validation and submission logic
+    const form = document.getElementById('account-form');
+    const refCodeInput = document.getElementById('ref-code');
+    const fullNameInput = document.getElementById('full-name');
+    const phoneInput = document.getElementById('phone-number');
+    const emailInput = document.getElementById('email-address');
+    const passwordInput = document.getElementById('password-field');
+    const termsCheck = document.getElementById('terms-check');
+
+    const refCodeError = document.getElementById('ref-code-error');
+    const packageError = document.getElementById('package-error');
+    const nameError = document.getElementById('name-error');
+    const phoneError = document.getElementById('phone-error');
+    const emailError = document.getElementById('email-error');
+    const passwordError = document.getElementById('password-error');
+    const termsError = document.getElementById('terms-error');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      let errors = 0;
+
+      [refCodeError, packageError, nameError, phoneError, emailError, passwordError, termsError].forEach((error) => {
+        error.style.display = 'none';
+      });
+      [refCodeInput, packageSelect, fullNameInput, phoneInput, emailInput, passwordInput].forEach((input) => {
+        input.classList.remove('error-border');
+      });
+
+      if (!packageSelect.value) {
+        packageError.textContent = "Please select a course package.";
+        packageError.style.display = 'block';
+        packageSelect.classList.add('error-border');
+        errors++;
+      }
+
+      if (fullNameInput.value.trim() === '') {
+        nameError.textContent = "Full name is required.";
+        nameError.style.display = 'block';
+        fullNameInput.classList.add('error-border');
+        errors++;
+      }
+
+      if (phoneInput.value.trim() === '' || phoneInput.value.length !== 10) {
+        phoneError.textContent = "Valid phone number is required.";
+        phoneError.style.display = 'block';
+        phoneInput.classList.add('error-border');
+        errors++;
+      }
+
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
+        emailError.textContent = "Valid email address is required.";
+        emailError.style.display = 'block';
+        emailInput.classList.add('error-border');
+        errors++;
+      }
+
+      if (passwordInput.value.trim().length < 6) {
+        passwordError.textContent = "Password must be at least 6 characters long.";
+        passwordError.style.display = 'block';
+        passwordInput.classList.add('error-border');
+        errors++;
+      }
+
+      if (!termsCheck.checked) {
+        termsError.textContent = "You must agree to the Terms & Conditions.";
+        termsError.style.display = 'block';
+        errors++;
+      }
+
+      if (errors === 0) {
+        const formData = {
+          ref_by: refCodeInput.value.trim(),
+          package_id: packageSelect.value.trim(),
+          name: fullNameInput.value.trim(),
+          phone: phoneInput.value.trim(),
+          email: emailInput.value.trim(),
+          password: passwordInput.value.trim(),
+        };
+
+        console.log(formData);
+        
+        localStorage.setItem('email', formData.email); // Store email in localStorage
+
+        displayLoader();
+        fetch("http://localhost:8000/register/" + pkg, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            hideLoader();
+            if (data.sent || data.success || data.message) {
+              Swal.fire({
+                icon: 'success',
+                title: data.sent ? 'OTP Already Sent!' : 'OTP Sent Successfully!',
+                text: data.message || 'Please check your email for the OTP.',
+              }).then(() => {
+                window.location.href = '/verify-otp/';
               });
-      
-              // Toggle Password Visibility
-              const toggleButton = document.querySelector('.password-toggle');
-              toggleButton.addEventListener('click', function () {
-                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-                passwordInput.setAttribute('type', type);
-              });
-      
-              // Update hidden input when user selects a package
-              packageSelect.addEventListener('change', function () {
-                packageSelect.classList.remove('error-border'); // Remove error border on change
-              });
+            } else {
+              throw data;
+            }
+          })
+          .catch((error) => {
+            Swal.fire({
+              icon: error.sent ? 'info' : 'error',
+              title: error.sent ? 'OTP Already Sent!' : 'Oops!',
+              text: error.error || 'Something went wrong. Please try again.',
+            }).then(() => {
+              if (error.sent) window.location.href = '/verify-otp/';
             });
-          </script>
-      
-          <!-- SweetAlert Script -->
-          <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        </body>
-      </html>
-      
+          });
+      }
+    });
+
+    // Toggle Password Visibility
+    const toggleButton = document.querySelector('.password-toggle');
+    toggleButton.addEventListener('click', function () {
+      const type =
+        passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordInput.setAttribute('type', type);
+    });
+  });
+</script>
+
+    <!-- SweetAlert Script -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>

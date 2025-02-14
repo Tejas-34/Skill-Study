@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Validation</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="loading-container">
+    <div class="loader"></div>
+    <p id="status-message">Validating your payment...</p>
+  </div>
+
+
+<style>
+    /* styles.css */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f9f9f9;
+}
+
+.loading-container {
+  text-align: center;
+}
+
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#status-message {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+</style>
+
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+  const statusMessage = document.getElementById("status-message");
+  const loader = document.querySelector(".loader");
+
+  // Retrieve paymentId and email from localStorage
+  const paymentID = localStorage.getItem("paymentID");
+  const email = localStorage.getItem("email");
+
+  if (!paymentID || !email) {
+    statusMessage.textContent = "Payment information is missing. Please try again.";
+    statusMessage.style.color = "red";
+    loader.style.display = "none";
+    return;
+  }
+
+  // Call the backend API to validate payment
+  const validatePayment = async () => {
+    try {
+      const response = await fetch("http://localhost:8000/Pay/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ paymentID, email }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        if (data.message === "Payment successful!") {
+          statusMessage.textContent = "Payment validated successfully!";
+          statusMessage.style.color = "green";
+
+          // Optionally redirect after success
+          setTimeout(() => {
+            window.location.href = "/confirmation-page";
+          }, 3000);
+        } else {
+          throw new Error(data.error || "Payment validation failed.");
+        }
+      } else {
+        throw new Error("Failed to validate payment. Please try again.");
+      }
+    } catch (error) {
+      statusMessage.textContent = error.message;
+      statusMessage.style.color = "red";
+    } finally {
+      // Stop loader animation
+      loader.style.display = "none";
+    }
+  };
+
+  // Start validation process
+  validatePayment();
+});
+
+
+</script>
+
+  
+</body>
+</html>
+

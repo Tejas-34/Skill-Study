@@ -4,7 +4,7 @@ import json
 import random
 import uuid
 from django.utils.timezone import now
-from .models import OTP
+from .models import OTP, User
 
 TENANT_ID = "d2c1f693-a3c9-485b-ba2c-844166334bd8"
 CLIENT_ID = "b9690156-4dcf-4cde-a4b9-b5220a404132"
@@ -79,3 +79,17 @@ def send_otp_email(recipient_email):
 
 def make_referal_id():
         return "SK-"+str(uuid.uuid4())
+
+
+def make_referal_id():
+    while True:
+        # Generate a random 4-digit number (0000-9999)
+        unique_number = f"{random.randint(0, 9999):04d}"
+        
+        # Create the referral ID
+        referal_id = f"SS-{unique_number}"
+        
+        # Ensure uniqueness
+        user = User.objects.filter(referal_id=referal_id).first()
+        if not user :
+            return referal_id

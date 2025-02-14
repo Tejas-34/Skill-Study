@@ -29,6 +29,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/tg-cursor.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}" />
+    <script  src="{% static 'js/aos.js' %}"></script>
 
     <!-- Odometer CSS -->
 <link rel="stylesheet" href="https://cdn.rawgit.com/HubSpot/odometer/master/themes/odometer-theme-default.css">
@@ -51,7 +52,7 @@
 
     <!-- Scroll-top -->
     <button class="scroll__top scroll-to-target" data-target="html">
-      <img style="color: yellow;" src="./static/images/icons/arrow_up.svg" alt="↑">
+      <img style="color: yellow;" src="{% static 'images/icons/arrow_up.svg' %}" alt="↑">
     </button>
     <!-- Scroll-top-end-->
 
@@ -66,14 +67,14 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img
-              src="./static/images/banner/carousel1.png"
+              src="{% static 'images/banner/carousel1.png' %}"
               class="d-block w-100"
               alt="..."
             />
           </div>
           <div class="carousel-item">
             <img
-              src="./static/images/banner/carousel2.png"
+              src="{% static 'images/banner/carousel2.png' %}"
               class="d-block w-100"
               alt="..."
             />
@@ -101,28 +102,28 @@
       <!-- banner-area -->
       <section
         class="banner-area-two banner-bg-two tg-motion-effects"
-        data-background="./images/banner_bg02.png"
+        data-background="{% static 'images/banner/banner_bg02.png' %}"
         style="background-color: #f4f6f911;"
       >
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-xl-5 col-lg-6">
               <div class="banner__content-two">
-                <h3 class="title" data-aos="fade-right" data-aos-delay="400">
+                <h3 class="title" data-aos="fade-right" data-aos-delay="100">
                   Empower Your Future with SkillStudy. Master Every Skill.
                 </h3>
                 <div
                   class="banner__btn-two"
                   data-aos="fade-right"
-                  data-aos-delay="600"
+                  data-aos-delay="100"
                 >
                 <a href="/#pricing" class="violet-btn arrow-effect">
                   Get Started
-                  <img src="./static/images/icons/right-arrow-svgrepo-com(1).svg" alt="img" class="svg-icon" />
+                  <img src="{% static 'images/icons/right-arrow-svgrepo-com.svg' %}" alt="img" class="svg-icon" />
                 </a>
                 
                 <a href="https://www.youtube.com/watch?v=_nWMP68DqHE" class="video-btn play-animation">
-                  <img src="./static/images/icons/play.svg" alt="">
+                  <img src="{% static 'images/icons/play.svg' %}" alt="img" />
                   Watch Video
                 </a>
                 </div>
@@ -131,7 +132,7 @@
             <div class="col-xl-7 col-lg-6 col-md-8">
               <div class="banner__images-two tg-svg">
                 <img
-                  src="./static/images/banner/Subject.jpeg"
+                  src="{% static 'images/banner/Subject.jpeg' %}"
                   alt="img"
                   class="main-img"
                 />
@@ -142,7 +143,7 @@
                   data-aos-delay="200"
                 >
                   <p class="title"><span>150+</span> Enrolled Students</p>
-                  <img src="./static/images/others/student_grp.png" alt="img" />
+                  <img src="{% static 'images/others/student_grp.png' %}" alt="img" />
                 </div>
                 <div
                   class="banner__student"
@@ -151,7 +152,7 @@
                 >
                   <div class="icon">
                     <img
-                      src="./static/images/banner/h2_banner_icon.svg"
+                      src="{% static 'images/banner/h2_banner_icon.svg' %}"
                       alt="img"
                       class="injectable"
                     />
@@ -234,7 +235,7 @@
           <div class="col">
             <div class="courses__item shine__animate-item">
               <div class="courses__item-thumb">
-                <a href="#" class="shine__animate-link">
+                <a href="/register/1" class="shine__animate-link">
                   <img src="./static/images/packages/STARTER PACKAGE.png" 
                        alt="Starter Package" class="si-pkg-course" />
                 </a>
@@ -247,12 +248,12 @@
                   </li>
                 </ul>
                 <h5 class="title">
-                  <a href="./templates/checkout.html">Starter Package</a>
+                  <a href="/register/1">Starter Package</a>
                 </h5>
                 <p class="author">By <a href="#">Skill Study</a></p>
                 <div class="courses__item-bottom">
                   <div class="button">
-                    <a href="./templates/checkout.html?pkg=1">
+                    <a href="/register/1">
                       <span style="color: #ffffff;" class="text">Get Started</span>
                       <img src="./static/images/icons/right-arrow-svgrepo-com.svg" alt="→">
                     </a>
@@ -266,7 +267,7 @@
           <div class="col">
             <div class="courses__item shine__animate-item">
               <div class="courses__item-thumb">
-                <a href="#" class="shine__animate-link">
+                <a href="/register/2" class="shine__animate-link">
                   <img src="./static/images/packages/ESSENTIAL PACKAGE.png" 
                        alt="Essential Package" class="si-pkg-course" />
                 </a>
@@ -279,14 +280,14 @@
                   </li>
                 </ul>
                 <h5 class="title">
-                  <a href="./templates/checkout.html">Essential Package</a>
+                  <a href="/register/2">Essential Package</a>
                 </h5>
                 <p class="author">By <a href="#">Skill Study</a></p>
                 <div class="courses__item-bottom">
                   <div class="button">
-                    <a href="./templates/checkout.html?pkg=2">
+                    <a href="/register/2">
                       <span style="color: #ffffff;" class="text">Start Learning</span>
-                      <img src="./static/images/icons/right-arrow-svgrepo-com.svg" alt="→">
+                      <img src="{% static 'images/icons/right-arrow-svgrepo-com.svg' %}" alt="→">
                     </a>
                   </div>
                   <h5 class="price">₹599</h5>
@@ -298,8 +299,8 @@
           <div class="col">
             <div class="courses__item shine__animate-item">
               <div class="courses__item-thumb">
-                <a href="#" class="shine__animate-link">
-                  <img src="./static/images/packages/ADVANCED PACKAGE.png" 
+                <a href="/register/3" class="shine__animate-link">
+                  <img src="{% static 'images/packages/ADVANCED PACKAGE.png' %}"
                        alt="Advanced Package" class="si-pkg-course" />
                 </a>
               </div>
@@ -311,12 +312,12 @@
                   </li>
                 </ul>
                 <h5 class="title">
-                  <a href="./templates/checkout.html">Advanced Learning Package</a>
+                  <a href="/register/3">Advanced Learning Package</a>
                 </h5>
                 <p class="author">By <a href="#">Skill Study</a></p>
                 <div class="courses__item-bottom">
                   <div class="button">
-                    <a href="./templates/checkout.html?pkg=3">
+                    <a href="/register/3">
                       <span style="color: #ffffff;" class="text">Start Learning</span>
                       <img src="./static/images/icons/right-arrow-svgrepo-com.svg" alt="→">
                     </a>
@@ -343,12 +344,12 @@
                   </li>
                 </ul>
                 <h5 class="title">
-                  <a href="./templates/checkout.html">Premium Gold Package</a>
+                  <a href="/register/4">Premium Gold Package</a>
                 </h5>
                 <p class="author">By <a href="#">Skill Study</a></p>
                 <div class="courses__item-bottom">
                   <div class="button">
-                    <a href="./templates/checkout.html?pkg=4">
+                    <a href="/register/4">
                       <span style="color: #ffffff;" class="text">Start Learning</span>
                       <img src="./static/images/icons/right-arrow-svgrepo-com.svg" alt="→">
                     </a>
@@ -375,12 +376,12 @@
                   </li>
                 </ul>
                 <h5 class="title">
-                  <a href="./templates/checkout.html">Ultimate Diamond Package</a>
+                  <a href="/register/5">Ultimate Diamond Package</a>
                 </h5>
                 <p class="author">By <a href="#">Skill Study</a></p>
                 <div class="courses__item-bottom">
                   <div class="button">
-                    <a href="./templates/checkout.html?pkg=5">
+                    <a href="/register/5">
                       <span style="color: #ffffff;" class="text">Start Learning</span>
                       <img src="./static/images/icons/right-arrow-svgrepo-com.svg" alt="→">
                     </a>
@@ -407,12 +408,12 @@
         </li>
       </ul>
       <h5 class="title">
-        <a href="./templates/checkout.html">Elite Platinum Package</a>
+        <a href="/register/6">Elite Platinum Package</a>
       </h5>
       <p class="author">By <a href="#">Skill Study</a></p>
       <div class="courses__item-bottom">
         <div class="button">
-          <a href="./templates/checkout.html?pkg=6">
+          <a href="/register/6">
             <span style="color: #ffffff;" class="text">Start Learning</span>
             <img src="./static/images/icons/right-arrow-svgrepo-com.svg" alt="">
           </a>
@@ -439,12 +440,12 @@
         </li>
       </ul>
       <h5 class="title">
-        <a href="./templates/checkout.html">Exclusive Premium Package</a>
+        <a href="/register/7">Exclusive Premium Package</a>
       </h5>
       <p class="author">By <a href="#">Skill Study</a></p>
       <div class="courses__item-bottom">
         <div class="button">
-          <a href="./templates/checkout.html?pkg=7">
+          <a href="/register/7">
             <span style="color: #ffffff;" class="text">Start Learning</span>
             <img src="./static/images/icons/right-arrow-svgrepo-com.svg" alt="→">
           </a>
@@ -543,7 +544,7 @@
                   <a href="/about" class="btn arrow-btn"
                     >Discover More
                     <img
-                      src="./static/images/icons/right-arrow-svgrepo-com.svg"
+                      src="{% static 'images/icons/right-arrow-svgrepo-com.svg' %}"
                       alt="img"
                       class="injectable"
                   /></a>
@@ -605,26 +606,26 @@
                     <div class="instructor__item-three">
                       <div class="instructor__thumb-three">
                         <img
-                          src="./static/images/others/Tejas.webp"
+                          src="{% static 'images/icons/right-arrow-svgrepo-com.svg' %}"
                           alt="img"
                           class="rounded-4 founder-img"
                         />
                         
                       </div>
                       <div class="instructor__content-three">
-                        <h2 class="title">Tejas Patare</h2>
+                        <h2 class="title">Sudhanshu Gupta</h2>
                         <span class="designation">Founder & CEO</span>
                         <p>
-                          <strong>Tejas Patare</strong> is the Founder & CEO of
+                          <strong>Sudhanshu Gupta</strong> is the Founder & CEO of
                           <strong>Skill-Study</strong> , a platform dedicated to
                           empowering individuals with cutting-edge digital
                           skills. A second-year student at
-                          <strong>IIT Madras</strong> , Tejas is an aspiring
+                          <strong>IIT Madras</strong> Sudhanshu, Gupta is an aspiring
                           entrepreneur with a strong foundation in web
                           development and data science. His technical expertise
                           includes Python, Flask, VueJS, and SQL, which he
                           applies to build innovative applications that bridge
-                          the gap between education and industry demands. Tejas
+                          the gap between education and industry demands. Sudhanshu
                           is committed to creating impactful, scalable solutions
                           and fostering a community of skilled digital
                           professionals through his entrepreneurial vision.
@@ -1094,164 +1095,7 @@
     </style>
 
     <!-- footer-area -->
-
-    <footer class="footer__area" style="background-color: rgba(246, 246, 249, 0.166); border-radius: 2rem;">
-      <div class="footer__top">
-        <div class="container">
-          <div class="row">
-            <div class="col-xl-3 col-lg-4 col-md-6">
-              <div class="footer__widget">
-                <div class="logo mb-35">
-                  <a href="https://skill-study.com/"
-                    ><img
-                    src="{% static '/images/favicon.png' %}"
-                      alt="img"
-                  /></a>
-                </div>
-                <div class="footer__content">
-                  <p>
-                    SkillStudy is an E-learning platform. This platform helps
-                    people build their personal brand on social media and create
-                    passive income.
-                  </p>
-                  <ul class="list-wrap footer__social">
-                    <li>
-                      <a href="#" target="_blank">
-                        <img
-                          src="./static/images/icons/facebook.svg"
-                          alt="img"
-                          class="injectable"
-                        />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        target="_blank"
-                      >
-                        <img
-                          src="./static/images/icons/instagram.svg"
-                          alt="img"
-                          class="injectable"
-                        />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        target="_blank"
-                      >
-                        <img
-                          src="./static/images/icons/youtube.svg"
-                          alt="img"
-                          class="injectable"
-                        />
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-              <div class="footer__widget">
-                <h4 class="footer__widget-title">Course/Packages</h4>
-                <div class="footer__link">
-                  <ul class="list-wrap">
-                    <li>
-                      <a href="./templates/checkout.html?pkg=1" style="color: #000000 !important">Starter Package</a>
-                    </li>
-                    <li>
-                      <a href="./templates/checkout.html?pkg=2" style="color: #000000 !important">Essential Package</a>
-                    </li>
-                    <li>
-                      <a href="./templates/checkout.html?pkg=3" style="color: #000000 !important">Advanced Learning Package</a>
-                    </li>
-                    <li>
-                      <a href="./templates/checkout.html?pkg=4" style="color: #000000 !important">Premium Gold Package</a>
-                    </li>
-                    <li>
-                      <a href="./templates/checkout.html?pkg=5" style="color: #000000 !important">Ultimate Diamond Package</a>
-                    </li>
-                    <li>
-                      <a href="./templates/checkout.html?pkg=6" style="color: #000000 !important">Elite Platinum Package</a>
-                    </li>
-                    <li>
-                      <a href="./templates/checkout.html?pkg=7" style="color: #000000 !important">Exclusive Premium Package</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-              <div class="footer__widget">
-                <h4 class="footer__widget-title">Quick Links</h4>
-                <div class="footer__link">
-                  <ul class="list-wrap">
-                    <li>
-                      <a href="./templates/contact.html" style="color: #000000 !important">Contact Us</a>
-                    </li>
-                    <li>
-                      <a href="./templates/disclaimer.html" style="color: #000000 !important">Disclaimer</a>
-                    </li>
-                    <li>
-                      <a href="./templates/privacy-policy.html" style="color: #000000 !important">Privacy Policy</a>
-                    </li>
-                    <li>
-                      <a href="./templates/refund-policy.html" style="color: #000000 !important">Refund Policy</a>
-                    </li>
-                    <li>
-                      <a href="./templates/terms.html" style="color: #000000 !important">Terms & Conditions</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-              <div class="footer__widget">
-                <h4 class="footer__widget-title">Get In Touch</h4>
-                <div class="footer__contact-content">
-                  <p style="color: #000000 !important">
-                    Contact us at +91 80806 66817 or support@skillstudy.com. We are based in Nagar, Maharashtra.
-                  </p>
-                  <ul class="list-wrap">
-                    <li style="color: black; transition: color 0.3s ease-in-out;" onmouseover="this.style.color='rgb(10, 100, 255)'" onmouseout="this.style.color='black'">+91 80806 66817</li>
-                    <li style="color: black; transition: color 0.3s ease-in-out;" onmouseover="this.style.color='rgb(10, 100, 255)'" onmouseout="this.style.color='black'">support@skillstudy.com</li>
-                    <li style="color: #000000 !important">Nagar, Maharashtra, India</li>
-                  </ul>
-                </div>
-              </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-md-7">
-              <div class="copy-right-text">
-                <p>Copyright © 2025 Skill-Study. All rights reserved.</p>
-              </div>
-            </div>
-            <div class="col-md-5">
-              <div class="copy-right-text">
-                <p class="designed-by" style="user-select: none;">
-                  Developed by
-                  <a
-                    class="made"
-                    href="https://utkarshportfolio-gamma.vercel.app"
-                    style="color: whitesmoke;"
-                    target="_blank"
-                    >Utkarsh</a
-                  >
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-
+    {% include 'footer.html' %}
     <!-- footer-area-end -->
 
     <!-- LENIS Smooth scroll -->
@@ -1276,7 +1120,7 @@
     <script  src="{% static 'js/jquery.lettering.min.js' %}"></script>
     <script  src="{% static 'js/plyr.min.js' %}"></script>
     <script  src="{% static 'js/wow.min.js' %}"></script>
-    <script  src="{% static 'js/aos.js' %}"></script>
+    
     <script  src="{% static 'js/main.js' %}"></script>
 
 

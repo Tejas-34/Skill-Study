@@ -26,7 +26,6 @@ class UserManager(BaseUserManager):
             name = "Admin"
         if phone is None:
             phone = "0000000000"
-
         return self.create_user(email, name, phone, password, **extra_fields)
 
 
@@ -37,6 +36,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     phone = models.BigIntegerField(unique=True, db_index=True)
     email = models.EmailField(unique=True, db_index=True)
     package = models.IntegerField(default=0)
+    paid = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     is_verified = models.BooleanField(default=False)

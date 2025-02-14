@@ -35,13 +35,25 @@ SECRET_KEY = env('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if Environment == 'production':
+if Environment == 'development':
     DEBUG = True
 else:
-    DEBUG = False
+    DEBUG = True
 
-ALLOWED_HOSTS = ['skill-study-production.up.railway.app', '127.0.0.1', 'localhost']
-CSRF_TRUSTED_ORIGINS = ['https://hmoyr9vp.up.railway.app']
+SESSION_COOKIE_SAMESITE = None
+SESSION_COOKIE_SECURE = True  # Ensure HTTPS is used
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+SESSION_COOKIE_AGE = 86400  # 1 day
+SESSION_SAVE_EVERY_REQUEST = True
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+
+
+
+
+
+
+ALLOWED_HOSTS = ["after-yesterday-448105-q3.as.r.appspot.com", "127.0.0.1", "localhost", "skill-study.com", "www.skill-study.com"]
 
 # Application definition
 
@@ -65,10 +77,12 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+    "ROTATE_REFRESH_TOKENS": False,
+    "BLACKLIST_AFTER_ROTATION": True,
+    "UPDATE_LAST_LOGIN": False,
 }
-
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -86,7 +100,7 @@ ROOT_URLCONF = "skillStudy.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [ BASE_DIR / "Templates" ],
+        "DIRS": [ BASE_DIR / "templates" ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -109,15 +123,23 @@ WSGI_APPLICATION = "skillStudy.wsgi.application"
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'skill-study.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'skill-study',
+        'USER': 'tejas',
+        'PASSWORD': '1234',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
 
-POSTGRES_LOCALLY = True
-if Environment == 'production' or POSTGRES_LOCALLY==True:
-    DATABASES['default'] = dj_database_url.parse(env('DATABASE_URL'))
+
+
+# POSTGRES_LOCALLY = True
+# if Environment == 'production' or POSTGRES_LOCALLY==True:
+#     DATABASES['default'] = dj_database_url.parse(env('DATABASE_URL'))
+
+
 
 
 
@@ -162,6 +184,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 

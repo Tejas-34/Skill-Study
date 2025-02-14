@@ -1,81 +1,239 @@
-{% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OTP Verification</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <script>
-        function checkCooldown() {
-            const lastSent = localStorage.getItem("otpSentTime");
-            const now = new Date().getTime();
-            if (lastSent && now - lastSent < 300000) { // 5 minutes = 300000 ms
-                document.getElementById("resend-otp").disabled = true;
-                document.getElementById("cooldown-msg").innerText = "Please wait before requesting a new OTP.";
-            }
-        }
 
-        function startCooldown() {
-            localStorage.setItem("otpSentTime", new Date().getTime());
-            document.getElementById("resend-otp").disabled = true;
-            document.getElementById("cooldown-msg").innerText = "You can resend OTP after 5 minutes.";
-        }
-    </script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <style>
         body {
-            background-color: #f4f4f4;
+            background-color: #f8f9fa;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
+            font-family: 'Arial', sans-serif;
         }
         .otp-container {
-            background: #fff;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            background: #ffffff;
+            padding: 2rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             text-align: center;
             max-width: 400px;
             width: 100%;
         }
+        .otp-title {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #343a40;
+        }
+        .otp-description {
+            font-size: 0.95rem;
+            color: #6c757d;
+        }
         .otp-input {
             letter-spacing: 2px;
             text-align: center;
-            font-size: 18px;
+            font-size: 1rem;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .cooldown-msg {
+            font-size: 0.85rem;
+            color: #dc3545;
         }
     </style>
 </head>
-<body onload="checkCooldown()">
+<body>
 
-    <div class="otp-container"> 
-        <h2>OTP Verification</h2>
-        <p>Enter the 6-digit OTP sent to your email.</p>
-        {% if otp_sent %}
-            <p class="text-success">OTP has been sent successfully.</p>
-        {% endif %}
-        {% if error %}
-            <p class="text-danger">{{ error }}</p>
-        {% endif %}
+    <div class="otp-container">
+        <!-- Title -->
+        <h2 class="otp-title">OTP Verification</h2>
         
-        <form action="/reg/verify-otp/" method="post">
-            {% csrf_token %}
-            <input type="text" name="otp" id="otp" maxlength="6" class="form-control otp-input mb-3" placeholder="Enter OTP" required>
-            <input type="hidden" name="referal_id" value="{{ referal }}">
-            <button type="submit" class="btn btn-primary w-100">Verify</button>
+        <!-- Description -->
+        <p class="otp-description">Enter the OTP sent to your registered email address.</p>
+
+        <!-- Success/Error Messages -->
+        <p id="message-box"></p>
+
+        <!-- Verify OTP Form -->
+        <form id="verify-otp-form" onsubmit="verifyOtp(event)" class="mt-4">
+            
+            <!-- OTP Input -->
+            <input type="text" id="otp" maxlength="6" 
+                   class="form-control otp-input mb-3" 
+                   placeholder="Enter OTP" required>
+
+            <!-- Verify Button -->
+            <button type="submit" class="btn btn-primary w-100">Verify OTP</button>
         </form>
 
-        <p id="error-msg" class="text-danger mt-2"></p>
+        <!-- Resend OTP Section -->
+        <form id="resend-otp-form" onsubmit="resendOtp(event)" class="mt-3">
+            
+            <!-- Resend Button -->
+            <button type="submit" id="resend-otp-btn" 
+                    class="btn btn-secondary w-100 mt-2">Resend OTP</button>
 
-        <!-- Resend OTP Button -->
-        <form action="/reg/resend-otp/" method="post" class="mt-3">
-            {% csrf_token %}
-            <input type="hidden" name="referal_id" value="{{ referal }}">
-            <button type="submit" id="resend-otp" class="btn btn-secondary w-100" onclick="startCooldown()">Resend OTP</button>
-            <p id="cooldown-msg" class="text-danger mt-2"></p>
+            <!-- Cooldown Message -->
+            <p id="cooldown-msg" class="cooldown-msg mt-2"></p>
         </form>
     </div>
+
+    <script>
+        // Check cooldown timer on page load
+        function checkCooldown() {
+            const cooldownEndTime = localStorage.getItem('cooldownEndTime');
+            
+            if (!cooldownEndTime) return;
+
+            const remainingTime = Math.floor((new Date(cooldownEndTime).getTime() - new Date().getTime()) / 1000);
+
+            if (remainingTime > 0) {
+                startCooldown();
+                
+                setTimeout(() => localStorage.removeItem('cooldownEndTime'), remainingTime * 1000);
+            }
+        }
+
+        // Start cooldown timer when OTP is resent
+        function startCooldown() {
+            const resendOtpButton = document.getElementById('resend-otp-btn');
+            
+            if (!resendOtpButton) return;
+
+            let cooldownTime = 300; // Cooldown time in seconds
+            resendOtpButton.disabled = true;
+
+            const interval = setInterval(() => {
+                resendOtpButton.innerText = `Resend OTP (${cooldownTime}s)`;
+                cooldownTime -= 1;
+
+                if (cooldownTime < 0) {
+                    clearInterval(interval);
+                    resendOtpButton.innerText = 'Resend OTP';
+                    resendOtpButton.disabled = false;
+                }
+            }, 1000);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            checkCooldown(); // Check cooldown on page load
+
+            // Attach event listeners for Resend OTP and Verify OTP buttons
+            const resendOtpButton = document.getElementById('resend-otp-btn');
+            const verifyOtpButton = document.getElementById('verify-otp-form');
+
+            if (resendOtpButton) {
+                resendOtpButton.addEventListener('click', resendOtp);
+            }
+
+            if (verifyOtpButton) {
+                verifyOtpButton.addEventListener('submit', verifyOtp);
+            }
+        });
+
+        // Handle Resend OTP via Fetch API
+        async function resendOtp(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const email = localStorage.getItem('email'); // Retrieve email from localStorage
+
+            if (!email) {
+                displayMessage('Email not found. Please log in again.', 'danger');
+                return;
+            }
+
+            try {
+                const response = await fetch('http://localhost:8000/resend-otp/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    displayMessage(data.message || 'OTP sent successfully!', 'success');
+                    startCooldown(); // Start cooldown timer
+                } else {
+                    displayMessage(data.error || 'Failed to resend OTP. Please try again.', 'danger');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                displayMessage('Something went wrong. Please try again later.', 'danger');
+            }
+        }
+
+        // Handle Verify OTP via Fetch API
+        async function verifyOtp(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const otpInput = document.getElementById('otp').value.trim();
+            const email = localStorage.getItem('email');
+
+            if (!otpInput || otpInput.length !== 6) {
+                displayMessage('Please enter a valid 6-digit OTP.', 'danger');
+                return;
+            }
+
+            try {
+                const response = await fetch('http://localhost:8000/verify-otp/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ otp: otpInput, email })
+                });
+                
+                const data = await response.json();
+
+                if (response.ok && data.message) {
+                    displayMessage(data.message || 'OTP verified successfully!', 'success');
+
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'OTP Verified Successfully!',
+                        text: 'Redirecting to login page...',
+                    });
+
+                    setTimeout(() => window.location.href = '/login/', 2000);
+                } else if (data.error) {
+                    displayMessage(data.error || 'Invalid OTP. Please try again.', 'danger');
+                } else {
+                    throw new Error('Unexpected response format');
+                }
+                
+           } catch (error) {
+               console.error('Error:', error);
+               displayMessage('Something went wrong. Please try again later.', 'danger');
+           }
+       }
+
+       // Display success or error messages dynamically
+       function displayMessage(message, type) {
+           const messageBox = document.getElementById('message-box');
+           messageBox.innerText = message;
+           messageBox.className = `text-${type} mt-3`;
+       }
+    </script>
 
 </body>
 </html>
