@@ -20,6 +20,7 @@ urlpatterns = [
 
     path('dashboard/', user_profile, name='dashboard'),
     path('call_payment_api/', CallPaymentAPI.as_view(), name='call_payment_api'),
+    
 
 
 

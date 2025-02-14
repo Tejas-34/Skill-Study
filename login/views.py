@@ -101,7 +101,27 @@ class login(APIView):
                                 user.save()
                                 payment.status = "completed"
                                 payment.save()
-                                
+
+                                # Referral earnings logic
+                                referrer = user.previous_ref_id
+                                package_earnings = { 1: 0.15, 2: 0.25, 3: 0.35, 4: 0.45, 5: 0.55, 6: 0.65, 7: 0.75}
+                                secound_user_earning = {1: 0.05, 2:0.10, 3:0.15, 4:0.20, 5:0.25, 6:30, 7:35}
+                                earnings = {1: 299, 2:599, 3:1199, 4:2399, 5:4199, 6: 6999, 7:9999}
+
+
+                                if referrer and payment.package in package_earnings:
+                                    total_earning = earnings[user.package]
+
+                                    immediate_earning = total_earning * package_earnings[user.package]
+                                    next_level_earning = total_earning * secound_user_earning[user.package]
+                                    
+                                    # Update immediate referrer's earnings
+                                    Earning.objects.create(user=referrer, earn=immediate_earning)
+
+                                    # Check for next-level referrer
+                                    if referrer.previous_ref_id:
+                                        next_level_referrer = referrer.previous_ref_id
+                                        Earning.objects.create(user=next_level_referrer, earn=next_level_earning)
 
                                 refresh = RefreshToken.for_user(user)
                                 return  Response({

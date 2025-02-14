@@ -1,0 +1,168 @@
+{% load static %}
+
+<header class="nxl-header" style="
+    margin-left: 2rem;
+    background-color: #f3f4f600;
+    margin-top: 2rem;
+    border-radius: 1rem;
+">
+    <div class="header-wrapper" style="
+      background: #ffffff;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 1rem;
+      width: 98%;
+      box-shadow: 0 4px 8px rgba(106, 13, 173, 0.23);
+    ">
+        <!--! [Start] Header Left !-->
+        <div class="header-left d-flex align-items-center w-50">
+            <!--! [Start] nxl-head-mobile-toggler !-->
+            <img src="{% static 'favicon.png' %}" alt="" class="d-md-none" style="width: 100%" />
+        </div>
+
+        <div class="header-right ms-auto">
+            <div class="d-flex justify-content-end align-items-center">
+                <div class="dropdown nxl-h-item">
+                    <a href="javascript:void(0);" data-bs-toggle="dropdown" role="button"
+                        data-bs-auto-close="outside">
+                        <!-- 🟢 User image coming from backend -->
+                        <img src="{{ user.profile_image_url }}" alt="user-image"
+                            class="rounded-circle img-fluid user-avtar me-0 user-profile-image"
+                            style="width: 40px; height: 40px"
+                             />
+                        <img src="{% static 'user/images/dropdown.svg' %}" alt="" />
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end nxl-h-dropdown nxl-user-dropdown"
+                        style="border-radius: 15px; overflow: hidden">
+                        <div class="dropdown-header">
+
+
+                            <div class="d-flex align-items-center">
+                                <!-- 🟢 User profile image from backend -->
+                                <img src="{{ user.profile_image_url }}" alt="user-image"
+                                    class="rounded-circle img-fluid user-avtar me-0 user-profile-image"
+                                    style="width: 40px; height: 40px"
+                                    />
+                                <div>
+                                    <!-- 🟢 User name from backend -->
+                                    <h6 class="text-dark mb-0 user-name">
+                                        {{ user.name }}
+                                        <span class="badge bg-soft-success text-success ms-1">Online</span>
+                                    </h6>
+                                    <!-- 🟢 User email from backend -->
+                                    <span class="fs-12 fw-medium text-muted user-email">{{ user.email }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <a href="javascript:void(0);" class="dropdown-item" data-bs-toggle="dropdown">
+                                <span class="hstack">
+                                    <i
+                                        class="wd-10 ht-10 border border-2 border-gray-1 bg-success rounded-circle me-2"></i>
+                                    <!-- 🟢 User package from backend -->
+                                    <span class="user-package">{{ user.package_name }}</span>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="dropdown-divider"></div>
+
+                        <a href="profile.html" class="dropdown-item">
+                            <i class="feather-user"></i>
+                            <span>Profile Details</span>
+                        </a>
+
+                        <a href="profile.html" class="dropdown-item">
+                            <i class="feather-shield"></i>
+                            <span>Security Setting</span>
+                        </a>
+
+                        <div class="dropdown-divider"></div>
+
+                        <a href="javascript:void(0);" class="dropdown-item ls-btn mt-3" id="logout-btn">
+                            <i class="feather-log-out"></i>
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </div>
+
+                <a href="javascript:void(0);" class="nxl-head-mobile-toggler" id="mobile-collapse"
+                    style="margin-left: 10px; font-size: 22px">
+                    <img src="{% static 'user/images/menu_toggle.svg' %}" alt="V" style="color: black;">
+                </a>
+            </div>
+        </div>
+
+        <!--! [End] Header Right !-->
+    </div>
+</header>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Function to update user data in the header
+        function updateUserData(userDetails) {
+            // Update user profile images
+            const profileImages = document.querySelectorAll(".user-profile-image");
+            profileImages.forEach(img => {
+                img.src = userDetails.profileImageUrl || "{% static 'default-profile.png' %}";
+                img.onerror = function () {
+                    this.onerror = null;
+                    this.src = "{% static 'default-profile.png' %}";
+                };
+            });
+
+            // Update user name
+            const userNameElements = document.querySelectorAll(".user-name");
+            userNameElements.forEach(el => {
+                el.innerHTML = `
+                    ${userDetails.username} <span class="badge bg-soft-success text-success ms-1">Online</span>
+                `;
+            });
+
+            // Update user email
+
+            const userEmailElements = document.querySelectorAll(".user-email");
+            userEmailElements.forEach(el => {
+                el.textContent = userDetails.user_email;
+            });
+
+            // Update user package
+            const userPackageElements = document.querySelectorAll(".user-package");
+            userPackageElements.forEach(el => {
+                el.textContent = userDetails.user_package;
+            });
+        }
+
+        // Attempt to get user data from localStorage
+        const storedUserData = localStorage.getItem("userData");
+
+        if (storedUserData) {
+            try {
+                const userDetails = JSON.parse(storedUserData);
+                console.log("User data loaded from localStorage:", userDetails);
+                updateUserData(userDetails);
+            } catch (error) {
+                console.error("Error parsing user data from localStorage:", error);
+                // Optionally, fetch fresh data from the server if localStorage data is invalid
+                // fetchUserDataFromServer();
+            }
+        } else {
+            console.log("No user data found in localStorage.");
+            //If you want to fetch data from server if not in local storage
+            // fetchUserDataFromServer();
+        }
+
+        // Logout button functionality
+        const logoutButton = document.getElementById("logout-btn");
+        if (logoutButton) {
+            logoutButton.addEventListener("click", function () {
+                // Clear localStorage
+                localStorage.removeItem("userData");
+
+                // Redirect to the login page (replace with your actual logout URL)
+                window.location.href = "/logout/";
+            });
+        }
+
+        // Function to fetch user data from the server (example)
+
+    });
+</script>

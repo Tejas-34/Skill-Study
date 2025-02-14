@@ -1,0 +1,149 @@
+
+{% load static %}
+
+<nav class="nxl-navigation">
+    <div class="navbar-wrapper">
+      <div class="m-header">
+        <a class="b-brand">
+
+          <img src="{% static 'images/favicon.png' %}" alt="logo" class="logo logo-lg" />
+
+          <img src="../favicon.png" alt="logo" class="logo logo-sm" />
+        </a>
+      </div>
+      <div class="navbar-content">
+        <ul class="nxl-navbar">
+          <li class="nxl-item nxl-hasmenu">
+            <a href="{% url 'dashboard' %}" class="nxl-link">
+              <span class="nxl-micon">
+        
+                <!-- src="../assets/user/images/dash.svg"  -->
+                <img   src = "{% static 'user/images/dash.svg' %}" alt="D" />
+              </span>
+              <span class="nxl-mtext">Dashboard</span>
+            </a>
+          </li>
+          <li class="nxl-item nxl-hasmenu">
+            <a href="{% url 'my_profile' %}" class="nxl-link">
+              <span class="nxl-micon">
+          
+                <img src= "{% static 'user/images/profile.svg' %}" alt="D" />
+              </span>
+              <span class="nxl-mtext">My Profile</span>
+            </a>
+          </li>
+          <li class="nxl-item nxl-hasmenu">
+            <a href="affiliate-links.html" class="nxl-link">
+              <span class="nxl-micon">
+             
+                <img src="{% static 'user/images/link.svg' %}" alt="D" />
+              </span>
+              <span class="nxl-mtext">Affiliate Link</span>
+            </a>
+          </li>
+          <li class="nxl-item nxl-hasmenu">
+            <a href="courses.html" class="nxl-link">
+              <span class="nxl-micon">
+                <img src = "{% static 'user/images/course.svg}" alt="D" />
+              </span>
+              <span class="nxl-mtext">My Courses</span>
+            </a>  
+          </li>
+          <li class="nxl-item nxl-hasmenu">
+            <a href="upgrade.html" class="nxl-link">
+              <span class="nxl-micon">
+                <img src= "{% static 'user/images/upgrade.svg' %}" alt="D" />
+              </span>
+              <span class="nxl-mtext">Upgrade</span>
+            </a>
+          </li>
+          <li class="nxl-item nxl-hasmenu">
+            <a href="{% url 'leaderboard' %}" class="nxl-link">
+              <span class="nxl-micon">
+                <img src="{% static 'user/images/leaderboard.svg' %}" alt="D" />
+              </span>
+              <span class="nxl-mtext">Leaderboard</span>
+            </a>
+          </li>
+          <li class="nxl-item nxl-hasmenu">
+            <a href="my-team.html" class="nxl-link">
+              <span class="nxl-micon">
+                <img src="{% static 'user/images/team.svg' %}" alt="D" />
+              </span>
+              <span class="nxl-mtext">My Team</span>
+            </a>
+          </li>
+          <li class="nxl-item nxl-hasmenu">
+            <a href="javascript:void(0);" class="nxl-link">
+              <span class="nxl-micon">
+                <img src="{% static 'user/images/team.svg' %}" alt="D" />
+              </span>
+              <span class="nxl-mtext">Reports</span>
+              <span class="nxl-arrow">
+                <img src="{% static 'user/images/report.svg' %}" alt="D" />
+              </span>
+            </a>
+            <ul class="nxl-submenu">
+              <li class="nxl-item">
+                <a class="nxl-link" href="referrals">My Referrals</a>
+              </li>
+              <li class="nxl-item">
+                <a class="nxl-link" href="payouts">Payout History</a>
+              </li>
+              <li class="nxl-item">
+                <a class="nxl-link" href="wallet-history">Wallet History</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nxl-item nxl-hasmenu">
+            <a href="leads.html" class="nxl-link">
+              <span class="nxl-micon">
+                <img src="{% static 'user/images/freelead.svg' %}" alt="D" />
+              </span>
+              <span class="nxl-mtext">Free Leads</span>
+            </a>
+          </li>
+          <li class="nxl-item nxl-hasmenu">
+            <a href="trainings.html" class="nxl-link">
+              <span class="nxl-micon">
+                <img src="{% static 'user/images/training.svg' %}" alt="D" />
+              </span>
+              <span class="nxl-mtext">Training</span> 
+            </a>
+          </li>
+          <li class="nxl-item nxl-hasmenu">
+            <a href="webinars.html" class="nxl-link">
+              <span class="nxl-micon">
+                <img src="{% static 'user/images/webinar.svg' %}" alt="D" />
+              </span>
+              <span class="nxl-mtext">Webinars</span>
+            </a>
+          </li>
+          <li class="nxl-item nxl-hasmenu">
+            <a href="offers.html" class="nxl-link">
+              <span class="nxl-micon">
+                <img src="{% static 'user/images/offers.svg' %}" alt="D" />
+              </span>
+              <span class="nxl-mtext">Offers</span>
+            </a>
+          </li>
+          <li class="nxl-item nxl-hasmenu">
+            <a href="referral-offers.html" class="nxl-link">
+              <span class="nxl-micon">
+                <img src="{% static 'user/images/target.svg' %}" alt="D" />
+              </span>
+              <span class="nxl-mtext">Earning Target</span>
+            </a>
+          </li>
+          <li class="nxl-item nxl-hasmenu">
+            <a href="community.html" class="nxl-link">
+              <span class="nxl-micon">
+                <img src="{% static 'user/images/group.svg' %}" alt="D" />
+              </span>
+              <span class="nxl-mtext">Community Links</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
